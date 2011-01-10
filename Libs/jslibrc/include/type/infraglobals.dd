@@ -1,0 +1,142 @@
+/* 
+ * Copyright © 2009, Koninklijke Philips Electronics N.V.
+ * All rights reserved.
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ * -	Redistributions of source code must retain the above copyright notice, 
+ *      this list of conditions and the following disclaimer.
+ * -	Redistributions in binary form must reproduce the above copyright 
+ *      notice, this list of conditions and the following disclaimer in the 
+ *      documentation and/or other materials provided with the distribution.
+ * -	Neither the name of the Koninklijke Philips Electronics N.V. nor the 
+ *      names of its contributors may be used to endorse or promote products 
+ *      derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+#ifndef _INFRAGLOBALS_DD_
+#define _INFRAGLOBALS_DD_
+
+#include <limits.h>
+
+
+
+/*
+**  MACROS for MACROS
+*/
+#define STRINGIFY(s)    #s
+
+#define CONCAT(a,b)     a##b
+
+
+#define FALSE 0
+#define TRUE 1
+
+
+typedef char                *String;
+typedef unsigned int         Bool;
+typedef char                 Char;
+
+typedef signed char          Int8;
+typedef short                Int16;
+typedef long                 Int32;
+typedef long long            Int64;
+
+typedef unsigned char        UInt8;
+typedef unsigned short       UInt16;
+typedef unsigned long        UInt32;
+typedef unsigned long long   UInt64;
+
+typedef unsigned int Nat;         
+typedef UInt8   Nat8;             
+typedef UInt16  Nat16;            
+typedef UInt32  Nat32;            
+typedef UInt64  Nat64;            
+
+typedef Int32 DateTime;                  
+typedef void (*Function)(void);          
+typedef void (*FunctionInt)(int);        
+typedef void (*FunctionIntInt)(int,int); 
+typedef Nat FResult;                     /** koala public type FResult **/
+
+typedef UInt64 tmTimeStamp_t, *ptmTimeStamp_t;
+typedef char * Address;
+
+#if 0
+
+#define CHAR_BIT      8         /* number of bits in a char */
+#define SCHAR_MIN   (-128)      /* minimum signed char value */
+#define SCHAR_MAX     127       /* maximum signed char value */
+#define UCHAR_MIN     0         /* minimum unsigned char value */
+#define UCHAR_MAX     0xff      /* maximum unsigned char value */
+
+#define CHAR_MIN    SCHAR_MIN   /* mimimum char value */
+#define CHAR_MAX    SCHAR_MAX   /* maximum char value */
+
+#define NAT8_MIN      0
+#define NAT8_MAX      255U
+#define NAT16_MIN     0
+#define NAT16_MAX     65535U
+#define NAT32_MIN     0
+#define NAT32_MAX     4294967295UL
+
+#define NAT_MIN   NAT32_MIN
+#define NAT_MAX   NAT32_MAX
+
+#define INT_MIN   INT32_MIN
+#define INT_MAX   INT32_MAX
+
+#endif
+
+/*
+**  UNUSED
+*/
+
+/* We need to access p, to suppress the 'parameter not used' warning.
+** But using should also have a side effect (this rules out p==0), or QAC complains.
+** Solutions like p++ do not work, because p could be a void pointer or func pointer or a struct
+*/
+#if defined(__QAC__)
+#define UNUSED(p)  ( *(char*)&(p) = 0 )
+#else
+#define UNUSED(p)  ( (void) ( (void)(p),0) )
+#endif
+
+
+#ifdef assert
+#undef assert
+#endif
+
+#if defined(_DEBUG) || defined (DEBUG)
+#include <stdio.h>    /* fflush */
+#include <pthread.h>  /* pthread_kill */
+extern unsigned int sleep(unsigned int seconds);
+#define is_assert(e) ({ printf("ASSERT '%s' failed at %s:%d in %s()\n",#e,__FILE__,__LINE__, __FUNCTION__); \
+                        fflush(0); \
+                        printf("                              \n"); \
+                        sleep(5); \
+                        pthread_kill( pthread_self(), 23 /*SIGSTOP*/ );})
+
+#define ASSERT(e)		(is_assert(e), 0)                        
+#else  /* not _DEBUG */
+#define ASSERT(e)           ((void)0)
+#define ASSERT_NO_NOTIFY(e) ((void)0)
+#define assert(e)           ((void)0)
+#endif
+
+
+#define TRACEPRINT errlib__TracePrint
+
+#endif  /* _INFRAGLOBALS_DD_ */

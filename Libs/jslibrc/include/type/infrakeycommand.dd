@@ -1,0 +1,733 @@
+/* 
+ * Copyright © 2009, Koninklijke Philips Electronics N.V.
+ * All rights reserved.
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ * -	Redistributions of source code must retain the above copyright notice, 
+ *      this list of conditions and the following disclaimer.
+ * -	Redistributions in binary form must reproduce the above copyright 
+ *      notice, this list of conditions and the following disclaimer in the 
+ *      documentation and/or other materials provided with the distribution.
+ * -	Neither the name of the Koninklijke Philips Electronics N.V. nor the 
+ *      names of its contributors may be used to endorse or promote products 
+ *      derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+
+/* When this file is #include 'd the includer has two choices.
+** The first choice is to #define ITEM. In this case, this
+** file will expand in so-called "item mode".
+** In item mode, this file acts as a list of ITEM macros.
+** How the ITEMs should be treated is defined by the includers
+** definition of ITEM. In item mode, this file does not have
+** multi include protection.
+** The second choice is to NOT define ITEM. In this case,
+** the file will expand in so-called "enum mode".
+** In enum mode, this file contains a single enum definition,
+** using only the names of the ITEMs. In enum mode, the file
+** does have multi include protection.
+*/
+
+/** koala public group infrakeycommand **/
+
+
+/* Detect mode */
+#ifndef ITEM
+/* There is no ITEM macro defined, so this file should generate an enum. */
+#define _infrakeycommand_enum_mode_  
+#else
+/* There is an ITEM macro defined, so this file should act as an ITEM list. */
+#endif
+
+
+/* Setup ITEM */
+#ifdef _infrakeycommand_enum_mode_
+#define ITEM(name) name,
+#else
+/* no definition for ITEM, the includer has given one */
+#endif
+
+
+/* In enum mode add pre-amble */
+#if defined(_infrakeycommand_enum_mode_) && !defined(_INFRAKEYCOMMAND_DD_) /* double include protection */ 
+
+typedef int KeyCommand;  /** koala public type KeyCommand **/
+
+#define keyCmd000                          0
+#define keyCmd001                          1
+#define keyCmd002                          2
+#define keyCmd003                          3
+#define keyCmd004                          4
+#define keyCmd005                          5
+#define keyCmd006                          6
+#define keyCmd007                          7
+#define keyCmd008                          8
+#define keyCmd009                          9
+#define keyCmd010                         10
+#define keyCmd011                         11
+#define keyCmd012                         12
+#define keyCmd013                         13
+#define keyCmd014                         14
+#define keyCmd015                         15
+#define keyCmd016                         16
+#define keyCmd017                         17
+#define keyCmd018                         18
+#define keyCmd019                         19
+#define keyCmd020                         20
+#define keyCmd021                         21
+#define keyCmd022                         22
+#define keyCmd023                         23
+#define keyCmd024                         24
+#define keyCmd025                         25
+#define keyCmd026                         26
+#define keyCmd027                         27
+#define keyCmd028                         28
+#define keyCmd029                         29
+#define keyCmd030                         30
+#define keyCmd031                         31
+#define keyCmd032                         32
+#define keyCmd033                         33
+#define keyCmd034                         34
+#define keyCmd035                         35
+#define keyCmd036                         36
+#define keyCmd037                         37
+#define keyCmd038                         38
+#define keyCmd039                         39
+#define keyCmd040                         40
+#define keyCmd041                         41
+#define keyCmd042                         42
+#define keyCmd043                         43
+#define keyCmd044                         44
+#define keyCmd045                         45
+#define keyCmd046                         46
+#define keyCmd047                         47
+#define keyCmd048                         48
+#define keyCmd049                         49
+#define keyCmd050                         50
+#define keyCmd051                         51
+#define keyCmd052                         52
+#define keyCmd053                         53
+#define keyCmd054                         54
+#define keyCmd055                         55
+#define keyCmd056                         56
+#define keyCmd057                         57
+#define keyCmd058                         58
+#define keyCmd059                         59
+#define keyCmd060                         60
+#define keyCmd061                         61
+#define keyCmd062                         62
+#define keyCmd063                         63
+#define keyCmd064                         64
+#define keyCmd065                         65
+#define keyCmd066                         66
+#define keyCmd067                         67
+#define keyCmd068                         68
+#define keyCmd069                         69
+#define keyCmd070                         70
+#define keyCmd071                         71
+#define keyCmd072                         72
+#define keyCmd073                         73
+#define keyCmd074                         74
+#define keyCmd075                         75
+#define keyCmd076                         76
+#define keyCmd077                         77
+#define keyCmd078                         78
+#define keyCmd079                         79
+#define keyCmd080                         80
+#define keyCmd081                         81
+#define keyCmd082                         82
+#define keyCmd083                         83
+#define keyCmd084                         84
+#define keyCmd085                         85
+#define keyCmd086                         86
+#define keyCmd087                         87
+#define keyCmd088                         88
+#define keyCmd089                         89
+#define keyCmd090                         90
+#define keyCmd091                         91
+#define keyCmd092                         92
+#define keyCmd093                         93
+#define keyCmd094                         94
+#define keyCmd095                         95
+#define keyCmd096                         96
+#define keyCmd097                         97
+#define keyCmd098                         98
+#define keyCmd099                         99
+#define keyCmd100                        100
+#define keyCmd101                        101
+#define keyCmd102                        102
+#define keyCmd103                        103
+#define keyCmd104                        104
+#define keyCmd105                        105
+#define keyCmd106                        106
+#define keyCmd107                        107
+#define keyCmd108                        108
+#define keyCmd109                        109
+#define keyCmd110                        110
+#define keyCmd111                        111
+#define keyCmd112                        112
+#define keyCmd113                        113
+#define keyCmd114                        114
+#define keyCmd115                        115
+#define keyCmd116                        116
+#define keyCmd117                        117
+#define keyCmd118                        118
+#define keyCmd119                        119
+#define keyCmd120                        120
+#define keyCmd121                        121
+#define keyCmd122                        122
+#define keyCmd123                        123
+#define keyCmd124                        124
+#define keyCmd125                        125
+#define keyCmd126                        126
+#define keyCmd127                        127
+#define keyCmd128                        128
+#define keyCmd129                        129
+#define keyCmd130                        130
+#define keyCmd131                        131
+#define keyCmd132                        132
+#define keyCmd133                        133
+#define keyCmd134                        134
+#define keyCmd135                        135
+#define keyCmd136                        136
+#define keyCmd137                        137
+#define keyCmd138                        138
+#define keyCmd139                        139
+#define keyCmd140                        140
+#define keyCmd141                        141
+#define keyCmd142                        142
+#define keyCmd143                        143
+#define keyCmd144                        144
+#define keyCmd145                        145
+#define keyCmd146                        146
+#define keyCmd147                        147
+#define keyCmd148                        148
+#define keyCmd149                        149
+#define keyCmd150                        150
+#define keyCmd151                        151
+#define keyCmd152                        152
+#define keyCmd153                        153
+#define keyCmd154                        154
+#define keyCmd155                        155
+#define keyCmd156                        156
+#define keyCmd157                        157
+#define keyCmd158                        158
+#define keyCmd159                        159
+#define keyCmd160                        160
+#define keyCmd161                        161
+#define keyCmd162                        162
+#define keyCmd163                        163
+#define keyCmd164                        164
+#define keyCmd165                        165
+#define keyCmd166                        166
+#define keyCmd167                        167
+#define keyCmd168                        168
+#define keyCmd169                        169
+#define keyCmd170                        170
+#define keyCmd171                        171
+#define keyCmd172                        172
+#define keyCmd173                        173
+#define keyCmd174                        174
+#define keyCmd175                        175
+#define keyCmd176                        176
+#define keyCmd177                        177
+#define keyCmd178                        178
+#define keyCmd179                        179
+#define keyCmd180                        180
+#define keyCmd181                        181
+#define keyCmd182                        182
+#define keyCmd183                        183
+#define keyCmd184                        184
+#define keyCmd185                        185
+#define keyCmd186                        186
+#define keyCmd187                        187
+#define keyCmd188                        188
+#define keyCmd189                        189
+#define keyCmd190                        190
+#define keyCmd191                        191
+#define keyCmd192                        192
+#define keyCmd193                        193
+#define keyCmd194                        194
+#define keyCmd195                        195
+#define keyCmd196                        196
+#define keyCmd197                        197
+#define keyCmd198                        198
+#define keyCmd199                        199
+#define keyCmd200                        200
+#define keyCmd201                        201
+#define keyCmd202                        202
+#define keyCmd203                        203
+#define keyCmd204                        204
+#define keyCmd205                        205
+#define keyCmd206                        206
+#define keyCmd207                        207
+#define keyCmd208                        208
+#define keyCmd209                        209
+#define keyCmd210                        210
+#define keyCmd211                        211
+#define keyCmd212                        212
+#define keyCmd213                        213
+#define keyCmd214                        214
+#define keyCmd215                        215
+#define keyCmd216                        216
+#define keyCmd217                        217
+#define keyCmd218                        218
+#define keyCmd219                        219
+#define keyCmd220                        220
+#define keyCmd221                        221
+#define keyCmd222                        222
+#define keyCmd223                        223
+#define keyCmd224                        224
+#define keyCmd225                        225
+#define keyCmd226                        226
+#define keyCmd227                        227
+#define keyCmd228                        228
+#define keyCmd229                        229
+#define keyCmd230                        230
+#define keyCmd231                        231
+#define keyCmd232                        232
+#define keyCmd233                        233
+#define keyCmd234                        234
+#define keyCmd235                        235
+#define keyCmd236                        236
+#define keyCmd237                        237
+#define keyCmd238                        238
+#define keyCmd239                        239
+#define keyCmd240                        240
+#define keyCmd241                        241
+#define keyCmd242                        242
+#define keyCmd243                        243
+#define keyCmd244                        244
+#define keyCmd245                        245
+#define keyCmd246                        246
+#define keyCmd247                        247
+#define keyCmd248                        248
+#define keyCmd249                        249
+#define keyCmd250                        250
+#define keyCmd251                        251
+#define keyCmd252                        252
+#define keyCmd253                        253
+#define keyCmd254                        254
+#define keyCmd255                        255
+
+typedef enum 
+{
+    keyDummyFirstElement = 998,
+#endif
+
+
+/* Now list items (except when in enum mode and this is a multiple include */
+#if !defined(_infrakeycommand_enum_mode_) || !defined(_INFRAKEYCOMMAND_DD_)
+    ITEM(keyUndefined)
+    ITEM(keyDigit0)
+    ITEM(keyDigit1)
+    ITEM(keyDigit2)
+    ITEM(keyDigit3)
+    ITEM(keyDigit4)
+    ITEM(keyDigit5)
+    ITEM(keyDigit6)
+    ITEM(keyDigit7)
+    ITEM(keyDigit8)
+    ITEM(keyDigit9)
+    ITEM(keyPreviousProgram)
+    ITEM(keyChannelProgramFrequency)
+    ITEM(keyStandby)
+    ITEM(keyMuteDemute)
+    ITEM(keyPersonalPreference)
+    ITEM(keyDisplay)
+    ITEM(keyVolumeUp)
+    ITEM(keyVolumeDown)
+    ITEM(keyBrightnessUp)
+    ITEM(keyBrightnessDown)
+    ITEM(keySaturationUp)
+    ITEM(keySaturationDown)
+    ITEM(keyBassUp)
+    ITEM(keyBassDown)
+    ITEM(keyTrebleUp)
+    ITEM(keyTrebleDown)
+    ITEM(keyBalanceRight)
+    ITEM(keyBalanceLeft)
+    ITEM(keyShufflePlay)
+    ITEM(keyRepeat)
+    ITEM(keyChannelSearchUp)
+    ITEM(keyChannelSearchDown)
+    ITEM(keyChannelProgramUp)
+    ITEM(keyChannelProgramDown)
+    ITEM(keySlowRunForward)
+    ITEM(keySlowRunReverse)
+    ITEM(keyStillForward)
+    ITEM(keyStillReverse)
+    ITEM(keySpeedUp)
+    ITEM(keySpeedDown)
+    ITEM(keyFastRunForward)
+    ITEM(keyFastRunReverse)
+    ITEM(keyScanForward)
+    ITEM(keyScanReverse)
+    ITEM(keyPlayForward)
+    ITEM(keyPlayReverse)
+    ITEM(keyWind)
+    ITEM(keyRewind)
+    ITEM(keyPause)
+    ITEM(keyStop)
+    ITEM(keyBlankSearch)
+    ITEM(keyRecordBlank)
+    ITEM(keyRecordingPause)
+    ITEM(keyDateRecord)
+    ITEM(keyReformat)
+    ITEM(keyRecord)
+    ITEM(keyExternal1)
+    ITEM(keyExternal2)
+    ITEM(keyClearMemoryAll)
+    ITEM(keyAbProgram)
+    ITEM(keyTxtSubmode)
+    ITEM(keySystemStandby)
+    ITEM(keyDynamicRangeCompression)
+    ITEM(keySystemSelect)
+    ITEM(keyGoTo)
+    ITEM(keyClearEntry)
+    ITEM(keyOpenClose)
+    ITEM(keyStatusSwitchVoltage)
+    ITEM(keyProgramMode)
+    ITEM(keyStoreOpenClose)
+    ITEM(keyStoreExecute)
+    ITEM(keySleeptimer)
+    ITEM(keyScrollLocalDisplay)
+    ITEM(keyReviewStore)
+    ITEM(keyPictureNumberTime)
+    ITEM(keyTvTextSubtitle)
+    ITEM(keyIndexNext)
+    ITEM(keyIndexPrevious)
+    ITEM(keySoundSelect)
+    ITEM(keySpatialStereo)
+    ITEM(keyStereoMono)
+    ITEM(keySoundScroll)
+    ITEM(keySurroundSound)
+    ITEM(keySurroundSoundScroll)
+    ITEM(keyMenuOn)
+    ITEM(keyMenuOff)
+    ITEM(keyLinearIncrement)
+    ITEM(keyLinearDecrement)
+    ITEM(keyStepUp)
+    ITEM(keyStepDown)
+    ITEM(keyStepLeft)
+    ITEM(keyStepRight)
+    ITEM(keyAcknowledge)
+    ITEM(keyPipOnOff)
+    ITEM(keyPipSelect)
+    ITEM(keyPipShift)
+    ITEM(keyPipSize)
+    ITEM(keyPipStepDown)
+    ITEM(keyPipStepUp)
+    ITEM(keyPipMainSwap)
+    ITEM(keyPipFreeze)
+    ITEM(keyPipStrobe)
+    ITEM(keyMosaicMultiPip)
+    ITEM(keyMainFreezed)
+    ITEM(keyMainStored)
+    ITEM(keyRecallMain)
+    ITEM(keyMultiScan)
+    ITEM(keyMultiStrobe)
+    ITEM(keyStrobeOnOff)
+    ITEM(keyRed)
+    ITEM(keyGreen)
+    ITEM(keyYellow)
+    ITEM(keyCyan)
+    ITEM(keyIndexWhite)
+    ITEM(keyParentalAccess)
+    ITEM(keyConnect)
+    ITEM(keyDisconnect)
+    ITEM(keyTimerSet)
+    ITEM(keyWriteToc)
+    ITEM(keySkipFunctionOnOff)
+    ITEM(keyPreset10)
+    ITEM(keyPreset11)
+    ITEM(keyPreset12)
+    ITEM(keyPreset13)
+    ITEM(keyPreset14)
+    ITEM(keyPreset15)
+    ITEM(keyPreset16)
+    ITEM(keyNextDisc)
+    ITEM(keyPreviousDisc)
+    ITEM(keyHelp)
+    ITEM(keyDefaultMenuSelect)
+    ITEM(keyReturn)
+    ITEM(keyFavouriteMode)
+    ITEM(keyCameraSelect)
+    ITEM(keyExternal3)
+    ITEM(keyExternal4)
+    ITEM(keyExternal5)
+    ITEM(keyPreferredPicture)
+    ITEM(keySmart)
+    ITEM(keySoftKey1A)
+    ITEM(keySoftKey1B)
+    ITEM(keySoftKey2A)
+    ITEM(keySoftKey2B)
+    ITEM(keySoftKey3A)
+    ITEM(keySoftKey3B)
+    ITEM(keyBatteryLow)
+    ITEM(keyCursorUpRight)
+    ITEM(keyCursorUpLeft)
+    ITEM(keyCursorDownRight)
+    ITEM(keyCursorDownLeft)
+    ITEM(keyDigit100)
+    ITEM(keyEpgGuide)
+    ITEM(keyPageUp)
+    ITEM(keyPageDown)
+    ITEM(keyCableMode)
+    ITEM(keyWideScreen)
+    ITEM(keySpeechMusic)
+    ITEM(keyOptions)
+    ITEM(keyRfSwitch)
+    ITEM(keyActuatorOnOff)
+    ITEM(keyLearn1)
+    ITEM(keyLearn2)
+    ITEM(keyCancelPicture)
+    ITEM(keyEnter)
+    ITEM(keyExchange)
+    ITEM(keyTxtTv)
+    ITEM(keyNewsFlash)
+    ITEM(keyRowZero)
+    ITEM(keySequenceOut)
+    ITEM(keyLargeTopBottomNormal)
+    ITEM(keyStepPageDown)
+    ITEM(keyStepPageUp)
+    ITEM(keyRevealConceal)
+    ITEM(keyPageHold)
+    ITEM(keyIndex)
+    ITEM(keyRadioChannelDown)
+    ITEM(keyRadioChannelUp)
+    ITEM(keyPayTvChannelDown)
+    ITEM(keyPayTvChannelUp)
+    ITEM(keyTiltForward)
+    ITEM(keyTiltBackward)
+    ITEM(keyVideoPp)
+    ITEM(keyAudioPp)
+    ITEM(keyMovieExpand)
+    ITEM(keyZoomMinus)
+    ITEM(keyZoomPlus)
+    ITEM(keyShowClock)
+    ITEM(keyPictureDigitalNoiseReduction)
+    ITEM(keyCrispener)
+    ITEM(keyContrastDown)
+    ITEM(keyContrastUp)
+    ITEM(keyTintHueDown)
+    ITEM(keyTintHueUp)
+    ITEM(keyWysiwyr)
+    ITEM(keyTime)
+    ITEM(keyEraseCorrect)
+    ITEM(keyClosedCaptioning)
+    ITEM(keyViewDataAdvance)
+    ITEM(keyPipReplay)
+    ITEM(keyPipClear)
+    ITEM(keyPipSlowMotion)
+    ITEM(keyDimDown)
+    ITEM(keyRfLocator)
+    ITEM(keyIncrement)
+    ITEM(keyTunerAb)
+    ITEM(keyDisplayAvSystemStatus)
+    ITEM(keyPictureScroll)
+    ITEM(keyNext)
+    ITEM(keyPrevious)
+    ITEM(keySubtitleReposition)
+    ITEM(keySubmode)
+    ITEM(keyChannelGuide)
+    ITEM(keySmartChannel)
+    ITEM(keySurroundMode)
+    ITEM(keyProgrammableStart)
+    ITEM(keyInstantSpeedUp)
+    ITEM(keyInstantSpeedDown)
+    ITEM(keyInfoEpg)
+    ITEM(keyInstantDurationUp)
+    ITEM(keyInstantDurationDown)
+    ITEM(keyRecordEpg)
+    ITEM(keySurroundSoundUp)
+    ITEM(keySurroundSoundDown)
+    ITEM(keyPayTv4)
+    ITEM(keyMessage)
+    ITEM(keyPreAmpVolumeUp)
+    ITEM(keyPreAmpVolumeDown)
+    ITEM(keyInfoUpTempC)
+    ITEM(keyInfoDownTempF)
+    ITEM(keySetupMenu)
+    ITEM(keyDoubleWindowOnOff)
+    ITEM(keyTesttoneOnOff)
+    ITEM(keyPreAmpBassUp)
+    ITEM(keyPreAmpBassDown)
+    ITEM(keyPreAmpTrebleUp)
+    ITEM(keyPreAmpTrebleDown)
+    ITEM(keyPreAmpBalanceRight)
+    ITEM(keyPreAmpBalanceLeft)
+    ITEM(keyCenterChVolUp)
+    ITEM(keyCenterChVolDown)
+    ITEM(keyAlarmMenuOnOff)
+    ITEM(keyAlarmOffReset)
+    ITEM(keyPreselectBsSatellite)
+    ITEM(keyPreselectCsaSatellite)
+    ITEM(keyPreselectCsjSatellite)
+    ITEM(keyPreselectCssSatellite)
+    ITEM(keyAlarmOnOff)
+    ITEM(keyLightOnOff)
+    ITEM(keyMode16over9)
+    ITEM(keyMode4over3)
+    ITEM(keyAnalogueDigital)
+    ITEM(keyDigital)
+    ITEM(keyCinema)
+    ITEM(keyChannelsettingMenu)
+    ITEM(keyVideoVgaSelect)
+    ITEM(keyPanoramamode)
+    ITEM(keyGame)
+    ITEM(keyRecallStatus)
+    ITEM(keyExpandedAudio)
+    ITEM(keyLocatorprogram)
+    ITEM(keyDecrement)
+    ITEM(keyMenu)
+    ITEM(keyVcrMode)
+    ITEM(keyReset)
+    ITEM(keyTvMode)
+    ITEM(keyLocalMenu)
+    ITEM(keyEnterServiceDefaultMode)
+    ITEM(keyEnterServiceAlignmentMode)
+    ITEM(keyEnterFactoryMode)
+    ITEM(keyEnterDealerMode)
+    ITEM(keyDot)
+    ITEM(keyOneTouchHomeCinema)
+    ITEM(keyMainSubmode)
+    ITEM(keyResume)
+    ITEM(keyPcTv)
+    ITEM(keyExternal6)
+    ITEM(keyExternal7)
+    ITEM(keyExternal8)
+    ITEM(keyBlueButton)
+    ITEM(keyBacklightUp)
+    ITEM(keyBacklightDown)
+    ITEM(keyAvMute)
+    ITEM(keySelectTunerA)
+    ITEM(keySelectTunerB)
+    ITEM(keyConvergence)
+    ITEM(keyMovieExpand14over9)
+    ITEM(keyMovieExpand21over9)
+    ITEM(keySmartloaderMenu)
+    ITEM(keyRadio)
+    ITEM(keyAddProgram)
+    ITEM(keyDeleteProgram)
+    ITEM(keyZoomOnOff)
+    ITEM(keyNextSource)
+    ITEM(keyHdAtHome)
+    ITEM(keyDigitalSetupMenu)
+    ITEM(keySubmodeSystemMenu)
+    ITEM(keySideFront)
+    ITEM(keyMovieExpand16over9)
+    ITEM(keyAutoScreenFit)
+    ITEM(keyDvdEject)
+    ITEM(keyTimedBlank)
+    ITEM(keyUnblank)
+    ITEM(keyLightDim)
+    ITEM(keyLightPp)
+    ITEM(key123Digits)
+    ITEM(keySmiley)
+    ITEM(keyFrownie)
+    ITEM(keyDisplayBrowser)
+    ITEM(keyDigitalPictureMenu)
+    ITEM(keySVHS1)
+    ITEM(keySVHS2)
+    ITEM(keySVHS3)
+    ITEM(keyBusMenu)
+    ITEM(keyBusRecord)
+    ITEM(keyBusSource)
+    ITEM(keyAlign16by9)
+    ITEM(keyAiPictureControl)
+    ITEM(keyRadioPresetList)
+    ITEM(keySemiPowerOff)
+    ITEM(keyAmbLightOnOffDim)
+    ITEM(keyAmbLightMode)
+    ITEM(keyRotCabClockwise)
+    ITEM(keyCenterCabinet)
+    ITEM(keyRotCabAntiClockwise)
+    ITEM(keyCtrlLastPosition)
+    ITEM(keyToggleStandby)
+    ITEM(keyFastForward)
+    ITEM(keySwivelMode)
+    ITEM(keyStartPage)
+    ITEM(keyFavouritesList)
+    ITEM(keyMarkListitem)
+    ITEM(keyPlayPause)
+    ITEM(keyDigitalOption)
+    ITEM(keyEnterChannelInstall)
+    ITEM(keyEnterResetTvPassword)
+    ITEM(keySelectTvDevice)
+    ITEM(keySelectVcrDevice)
+    ITEM(keySelectDvdDevice)
+    ITEM(keySelectSatDevice)
+    ITEM(keyExitFactoryMode)
+    ITEM(keyFactoryUserIrLock)
+    ITEM(keyFactoryUserIrUnlock)
+    ITEM(keyFactoryMenu)
+    ITEM(keyClearButton)
+    ITEM(keySkipButton)
+    ITEM(keyGoBack)
+    ITEM(keyAntenna)
+    ITEM(keyReverse)
+    ITEM(keyFavouriteButton)
+    ITEM(keySubChannel)
+    ITEM(keySelectAuxDevice)
+    ITEM(keySelectAudioDevice)
+    ITEM(keyDiscMenu)
+    ITEM(keyFactoryMenuActivate)
+    ITEM(keyFactoryMenuDeactivate)
+    ITEM(keyTestPatternOff)
+    ITEM(keyTestPattern1)
+    ITEM(keyTestPattern2)
+    ITEM(keyTestPattern3)
+    ITEM(keyTestPattern4)
+    ITEM(keyTestPattern5)
+    ITEM(keyTestPattern6)
+    ITEM(keyTestPattern7)
+    ITEM(keyTestPattern8)
+    ITEM(keyTestPattern9)
+    ITEM(keyTestPattern10)
+    ITEM(keyTestPattern11)
+    ITEM(keyTestPattern12)
+    ITEM(keyTestPattern13)
+    ITEM(keyTestPattern14)
+    ITEM(keyTestPattern15)
+    ITEM(keyToggleChannelCtrl)
+    ITEM(keyFactoryNvmReset)
+    ITEM(keyExit)
+    ITEM(keyAmbilightBrightnessUp)
+    ITEM(keyAmbilightBrightnessDown)
+#endif
+
+ 
+/* In enum mode add post-amble */
+#if defined(_infrakeycommand_enum_mode_) && !defined(_INFRAKEYCOMMAND_DD_) /* double include protection */
+    infrakeyDummyElement  /* dummy element to prevent warning about enum lists ending with a comma */
+} infrakeycommand_enum;
+
+#define keyFirstFree 5000
+#endif
+
+
+/* Cleanup ITEM */
+#ifdef _infrakeycommand_enum_mode_
+#undef ITEM
+#endif
+
+
+/* Cleanup mode */
+#ifdef _infrakeycommand_enum_mode_
+#undef _infrakeycommand_enum_mode_
+#define _INFRAKEYCOMMAND_DD_ /* The multi #include protection only in _infrakeycommand_enum_mode_ */
+#endif

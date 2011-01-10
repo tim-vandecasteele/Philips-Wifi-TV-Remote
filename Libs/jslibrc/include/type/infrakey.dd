@@ -1,0 +1,638 @@
+/* 
+ * Copyright © 2009, Koninklijke Philips Electronics N.V.
+ * All rights reserved.
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ * -	Redistributions of source code must retain the above copyright notice, 
+ *      this list of conditions and the following disclaimer.
+ * -	Redistributions in binary form must reproduce the above copyright 
+ *      notice, this list of conditions and the following disclaimer in the 
+ *      documentation and/or other materials provided with the distribution.
+ * -	Neither the name of the Koninklijke Philips Electronics N.V. nor the 
+ *      names of its contributors may be used to endorse or promote products 
+ *      derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+
+#ifndef _INFRAKEY_DD_
+#define _INFRAKEY_DD_
+
+
+/** koala public group infrakey **/
+
+/** koala public using KeyCommand **/
+
+
+/* Source ------------------------------------------*/
+
+typedef int KeySource;   /** koala public type KeySource  **/
+
+#define keySourceUndefined                 0
+#define keySourceLkb                       1
+#define keySourceRc5                       2
+#define keySourceRc6                       3
+#define keySourceRcSamsung                 4
+#define keySourceRcSamsungFactory          5
+#define keySourceIok                       6
+#define keySourceInk                       7
+#define keySourceRcToshiba                 8
+#define keySourceRcSharp                   9
+#define keySourceRcJvc                    10
+#define keySourceRcRca                    11
+#define keySourceRcRcaSim                 12
+#define keySourceRcNec                    13
+#define keySourceFirstFree                14
+#define keySourceRc6Mode2A                15
+
+
+/* System ------------------------------------------*/
+
+typedef int KeySystem;   /** koala public type KeySystem  **/
+
+#define keySystemTriplet    255
+
+
+/* Raw key codes for local keyboard, i/o keys, and interrupt keys */
+
+#define rawStandby                        0
+#define rawVolumeUp                       1
+#define rawVolumeDown                     2
+#define rawProgramUp                      3
+#define rawProgramDown                    4
+#define rawMenuOn                         5
+#define rawDvdEject                       6
+#define rawConvergence                    7
+#define rawSemiPowerOff                   8
+#define rawEnterServiceDefaultMode      100
+#define rawEnterServiceAlignmentMode    101
+
+
+/* Rc5 System 0 raw key codes ----------------------*/
+
+#define rc5S0Digit0                          0
+#define rc5S0Digit1                          1
+#define rc5S0Digit2                          2
+#define rc5S0Digit3                          3
+#define rc5S0Digit4                          4
+#define rc5S0Digit5                          5
+#define rc5S0Digit6                          6
+#define rc5S0Digit7                          7
+#define rc5S0Digit8                          8
+#define rc5S0Digit9                          9
+#define rc5S0123Digits                      10
+#define rc5S0ChannelProgramFrequency        11
+#define rc5S0Standby                        12
+#define rc5S0MasterMuteDemute               13
+#define rc5S0PersonalPreference             14
+#define rc5S0Display                        15
+#define rc5S0MasterVolumeUp                 16
+#define rc5S0MasterVolumeDown               17
+#define rc5S0MasterBrightnessUp             18
+#define rc5S0MasterBrightnessDown           19
+#define rc5S0MasterSaturationUp             20
+#define rc5S0MasterSaturationDown           21
+#define rc5S0MasterBassUp                   22
+#define rc5S0MasterBassDown                 23
+#define rc5S0MasterTrebleUp                 24
+#define rc5S0MasterTrebleDown               25
+#define rc5S0MasterBalanceRight             26
+#define rc5S0MasterBalanceLeft              27
+#define rc5S0ContrastUp                     28
+#define rc5S0ContrastDown                   29
+#define rc5S0SearchUp                       30
+#define rc5S0TintHueDown                    31
+#define rc5S0ChannelProgramUp               32
+#define rc5S0ChannelProgramDown             33
+#define rc5S0AlternateChannel               34
+#define rc5S0SoundSelect                    35
+#define rc5S0SpatialStereo                  36
+#define rc5S0StereoMono                     37
+#define rc5S0Sleeptimer                     38
+#define rc5S0TintHueUp                      39
+#define rc5S0RfSwitch                       40
+#define rc5S0StoreExecute                   41
+#define rc5S0Time                           42
+#define rc5S0ScanForward                    43
+#define rc5S0Decrement                      44
+#define rc5S0Cancel                         45
+#define rc5S0SecondaryControlMenu           46
+#define rc5S0ShowClock                      47
+#define rc5S0Pause                          48
+#define rc5S0EraseCorrect                   49
+#define rc5S0Rewind                         50
+#define rc5S0GoTo                           51
+#define rc5S0Wind                           52
+#define rc5S0Play                           53
+#define rc5S0Stop                           54
+#define rc5S0Record                         55
+#define rc5S0External1                      56
+#define rc5S0External2                      57
+#define rc5S0ClosedCaptioning               58
+#define rc5S0ViewDataAdvance                59
+#define rc5S0TxtSubmode                     60
+#define rc5S0SystemStandby                  61
+#define rc5S0Crispener                      62
+#define rc5S0SystemSelect                   63
+#define rc5S0SurroundSoundScroll            64
+/* define rc5S0...                          65 */
+/* define rc5S0...                          66 */
+#define rc5S0PipReplay                      67
+#define rc5S0PipClear                       68
+#define rc5S0PipSlowMotion                  69
+#define rc5S0SpeechMusic                    70
+#define rc5S0DimDown                        71
+#define rc5S0RfLocator                      72
+#define rc5S0Increment                      73
+#define rc5S0Help                           74
+#define rc5S0TunerAb                        75
+#define rc5S0PcTv                           76
+#define rc5S0LinearIncrement                77
+#define rc5S0LinearDecrement                78
+#define rc5S0SoundScroll                    79
+#define rc5S0StepUp                         80
+#define rc5S0StepDown                       81
+#define rc5S0MenuOn                         82
+#define rc5S0MenuOff                        83
+#define rc5S0DisplayAvSystemStatus          84
+#define rc5S0StepLeft                       85
+#define rc5S0StepRight                      86
+#define rc5S0Acknowledge                    87
+#define rc5S0PipPopOff                      88
+#define rc5S0PipShift                       89
+#define rc5S0PipMainSwap                    90
+#define rc5S0StrobeOnOff                    91
+#define rc5S0MultiStrobe                    92
+#define rc5S0MainFreezed                    93
+#define rc5S0MultiScanPip                   94
+#define rc5S0PipSelect                      95
+#define rc5S0MosaicMultiPip                 96
+#define rc5S0PictureDigitalNoiseReduction   97
+#define rc5S0MainStored                     98
+#define rc5S0PipStrobe                      99
+#define rc5S0RecallMain                    100
+#define rc5S0PipFreeze                     101
+#define rc5S0PipStepUp                     102
+#define rc5S0PipStepDown                   103
+#define rc5S0PipSize                       104
+#define rc5S0PictureScroll                 105
+#define rc5S0ActuartorOnOff                106
+#define rc5S0Red                           107
+#define rc5S0Green                         108
+#define rc5S0Yellow                        109
+#define rc5S0Cyan                          110
+#define rc5S0IndexWhiteCancel              111
+#define rc5S0Next                          112
+#define rc5S0Previous                      113
+#define rc5S0LearningUp                    114
+#define rc5S0LearningDown                  115
+#define rc5S0ZoomPlus                      116
+#define rc5S0SubtitleReposition            117
+#define rc5S0SubMode                       118
+#define rc5S0OptionSubMode                 119
+#define rc5S0ChannelGuide                  120
+#define rc5S0SmartChannel                  121
+#define rc5S0StoreOpenClose                122
+#define rc5S0Connect                       123
+#define rc5S0Disconnect                    124
+#define rc5S0ZoomMinus                     125
+#define rc5S0MovieExpand                   126
+#define rc5S0ParentalAccess                127
+
+/* Rc6 System 0 raw key codes ----------------------*/
+
+#define rc6S0Digit0                          0
+#define rc6S0Digit1                          1
+#define rc6S0Digit2                          2
+#define rc6S0Digit3                          3
+#define rc6S0Digit4                          4
+#define rc6S0Digit5                          5
+#define rc6S0Digit6                          6
+#define rc6S0Digit7                          7
+#define rc6S0Digit8                          8
+#define rc6S0Digit9                          9
+#define rc6S0PreviousProgram                10
+/* define rc6S0...                          11 */
+#define rc6S0Standby                        12
+#define rc6S0MuteDemute                     13
+#define rc6S0PersonalPreference             14
+#define rc6S0Display                        15
+#define rc6S0VolumeUp                       16
+#define rc6S0VolumeDown                     17
+#define rc6S0BrightnessUp                   18
+#define rc6S0BrightnessDown                 19
+#define rc6S0SaturationUp                   20
+#define rc6S0SaturationDown                 21
+#define rc6S0BassUp                         22
+#define rc6S0BassDown                       23
+#define rc6S0TrebleUp                       24
+#define rc6S0TrebleDown                     25
+#define rc6S0BalanceRight                   26
+#define rc6S0BalanceLeft                    27
+#define rc6S0CtrlLastPosition               28
+/* define rc6S0...                          29 */
+#define rc6S0SearchUp                       30
+#define rc6S0SearchDown                     31
+#define rc6S0Next                           32
+#define rc6S0Previous                       33
+/* define rc6S0...                          34 */
+/* define rc6S0...                          35 */
+/* define rc6S0...                          36 */
+/* define rc6S0...                          37 */
+/* define rc6S0...                          38 */
+/* define rc6S0...                          39 */
+#define rc6S0FastForward                    40
+/* define rc6S0...                          41 */
+/* define rc6S0...                          42 */
+#define rc6S0ScanReverse                    43
+/* define rc6S0...                          44 */
+/* define rc6S0...                          45 */
+/* define rc6S0...                          46 */
+/* define rc6S0...                          47 */
+/* define rc6S0...                          48 */
+#define rc6S0Stop                           49
+/* define rc6S0...                          50 */
+/* define rc6S0...                          51 */
+/* define rc6S0...                          52 */
+/* define rc6S0...                          53 */
+/* define rc6S0...                          54 */
+#define rc6S0Record                         55
+#define rc6S0External1                      56
+#define rc6S0External2                      57
+/* define rc6S0...                          58 */
+#define rc6S0AbProgram                      59
+#define rc6S0TxtSubmode                     60
+#define rc6S0SystemStandby                  61
+/* define rc6S0...                          62 */
+#define rc6S0SystemSelect                   63
+/* define rc6S0...                          64 */
+/* define rc6S0...                          65 */
+/* define rc6S0...                          66 */
+/* define rc6S0...                          67 */
+/* define rc6S0...                          68 */
+#define rc6S0StoreOpenClose                 69
+#define rc6S0ClosedCaptioning               70
+#define rc6S0Sleeptimer                     71
+/* define rc6S0...                          72 */
+/* define rc6S0...                          73 */
+#define rc6S0PictureNumberTime              74
+#define rc6S0TvTextSubtitle                 75
+/* define rc6S0...                          76 */
+/* define rc6S0...                          77 */
+#define rc6S0SoundSelect                    78
+#define rc6S0SpatialStereo                  79
+#define rc6S0StereoMono                     80
+#define rc6S0SoundScroll                    81
+#define rc6S0SurroundSound                  82
+#define rc6S0SurroundSoundScroll            83
+#define rc6S0MenuOn                         84
+#define rc6S0MenuOff                        85
+/* define rc6S0...                          86 */
+/* define rc6S0...                          87 */
+#define rc6S0StepUp                         88
+#define rc6S0StepDown                       89
+#define rc6S0StepLeft                       90
+#define rc6S0StepRight                      91
+#define rc6S0Acknowledge                    92
+#define rc6S0PipOnOff                       93
+#define rc6S0PipSelect                      94
+#define rc6S0PipShift                       95
+#define rc6S0PipSize                        96
+#define rc6S0PipStepDown                    97
+#define rc6S0PipStepUp                      98
+#define rc6S0PipMainSwap                    99
+#define rc6S0PipFreeze                     100
+#define rc6S0PipStrobe                     101
+#define rc6S0MosaicMultiPip                102
+#define rc6S0MainFreezed                   103
+#define rc6S0MainStored                    104
+/* define rc6S0...                         105 */
+/* define rc6S0...                         106 */
+/* define rc6S0...                         107 */
+/* define rc6S0...                         108 */
+#define rc6S0Red                           109
+#define rc6S0Green                         110
+#define rc6S0Yellow                        111
+#define rc6S0Cyan                          112
+#define rc6S0IndexWhite                    113
+/* define rc6S0...                         114 */
+/* define rc6S0...                         115 */
+/* define rc6S0...                         116 */
+#define rc6S0TimerSet                      117
+/* define rc6S0...                         118 */
+/* define rc6S0...                         119 */
+#define rc6S0Preset10                      120
+#define rc6S0Preset11                      121
+#define rc6S0Preset12                      122
+#define rc6S0Preset13                      123
+#define rc6S0Preset14                      124
+#define rc6S0Preset15                      125
+#define rc6S0Preset16                      126
+#define rc6S0Time                          127
+/* define rc6S0...                         128 */
+#define rc6S0Help                          129
+#define rc6S0DefaultMenuSelect             130
+/* define rc6S0...                         131 */
+#define rc6S0FavouriteMode                 132
+#define rc6S0SwivelMode                    133
+#define rc6S0External3                     134
+#define rc6S0External4                     135
+#define rc6S0External5                     136
+/* define rc6S0...                         137 */
+#define rc6S0VideoVgaSelect                138
+#define rc6S0NextSource                    139
+#define rc6S0BacklightUp                   140
+#define rc6S0BacklightDown                 141
+#define rc6S0HdAtHome                      142
+#define rc6S0AmbLightOnOffDim              143
+#define rc6S0AmbLightMode                  144
+#define rc6S0AmbilightBrightnessUp         145
+#define rc6S0AmbilightBrightnessDown       146
+/* define rc6S0...                         147 */
+/* define rc6S0...                         148 */
+/* define rc6S0...                         149 */
+#define rc6S0Smart                         150
+#define rc6S0SoftKey1A                     151
+#define rc6S0SoftKey1B                     152
+#define rc6S0SoftKey2A                     153
+#define rc6S0SoftKey2B                     154
+#define rc6S0SoftKey3A                     155
+#define rc6S0SoftKey3B                     156
+#define rc6S0Smiley                        157
+#define rc6S0Frownie                       158
+/* define rc6S0...                         159 */
+/* define rc6S0...                         160 */
+/* define rc6S0...                         161 */
+/* define rc6S0...                         162 */
+#define rc6S0AvMute                        163
+/* define rc6S0...                         164 */
+/* define rc6S0...                         165 */
+/* define rc6S0...                         166 */
+/* define rc6S0...                         167 */
+/* define rc6S0...                         168 */
+/* define rc6S0...                         169 */
+/* define rc6S0...                         170 */
+/* define rc6S0...                         171 */
+/* define rc6S0...                         172 */
+/* define rc6S0...                         173 */
+/* define rc6S0...                         174 */
+/* define rc6S0...                         175 */
+#define rc6S0MainSubmode                   176
+#define rc6S0Resume                        177
+/* define rc6S0...                         178 */
+/* define rc6S0...                         179 */
+/* define rc6S0...                         180 */
+/* define rc6S0...                         181 */
+/* define rc6S0...                         182 */
+/* define rc6S0...                         183 */
+/* define rc6S0...                         184 */
+/* define rc6S0...                         185 */
+/* define rc6S0...                         186 */
+/* define rc6S0...                         187 */
+/* define rc6S0...                         188 */
+/* define rc6S0...                         189 */
+#define rc6S0DisplayBrowser                190
+/* define rc6S0...                         191 */
+#define rc6S0AnalogueDigital               192
+#define rc6S0DigitalSetupMenu              193
+#define rc6S0OneTouchHomeCinema            194
+#define rc6S0BatteryLow                    195
+#define rc6S0CursorUpRight                 196
+#define rc6S0CursorUpLeft                  197
+#define rc6S0CursorDownRight               198
+#define rc6S0CursorDownLeft                199
+#define rc6S0Digit100                      200
+#define rc6S0RotCabClockwise               201
+#define rc6S0CenterCabinet                 202
+#define rc6S0RotCabAntiClockwise           203
+#define rc6S0EpgGuide                      204
+#define rc6S0ToggleStandby                 205
+#define rc6S0PageUp                        206
+#define rc6S0PageDown                      207
+#define rc6S0DigitalPictureMenu            208
+#define rc6S0StartPage                     209
+#define rc6S0FavouritesList                210
+#define rc6S0MarkListitem                  211
+/* define rc6S0...                         212 */
+#define rc6S0SubmodeSystemMenu             213
+#define rc6S0ZoomOnOff                     214
+#define rc6S0CableMode                     215
+#define rc6S0WideScreen                    216
+#define rc6S0Dot                           217
+#define rc6S0SpeechMusic                   218
+#define rc6S0Options                       219
+#define rc6S0RfSwitch                      220
+#define rc6S0ActuatorOnOff                 221
+#define rc6S0Learn1                        222
+#define rc6S0Learn2                        223
+#define rc6S0CancelPicture                 224
+#define rc6S0Enter                         225
+#define rc6S0Exchange                      226
+#define rc6S0TxtTv                         227
+#define rc6S0NewsFlash                     228
+#define rc6S0RowZero                       229
+#define rc6S0SequenceOut                   230
+#define rc6S0LargeTopBottomNormal          231
+#define rc6S0StepPageDown                  232
+#define rc6S0StepPageUp                    233
+#define rc6S0RevealConceal                 234
+#define rc6S0PageHold                      235
+#define rc6S0Index                         236
+#define rc6S0RadioChannelDown              237
+#define rc6S0RadioChannelUp                238
+#define rc6S0PayTvChannelDown              239
+#define rc6S0PayTvChannelUp                240
+#define rc6S0TiltForward                   241
+#define rc6S0TiltBackward                  242
+#define rc6S0VideoPp                       243
+#define rc6S0AudioPp                       244
+#define rc6S0MovieExpand                   245
+#define rc6S0ZoomMinus                     246
+#define rc6S0ZoomPlus                      247
+#define rc6S0ShowClock                     248
+#define rc6S0PictureDigitalNoiseReduction  249
+#define rc6S0Crispener                     250
+#define rc6S0ContrastDown                  251
+#define rc6S0ContrastUp                    252
+#define rc6S0TintHueDown                   253
+#define rc6S0TintHueUp                     254
+#define rc6S0Wysiwyr                       255
+
+/* Samsung System 7 raw key codes ----------------------*/
+
+#define samsungS7Time                        0
+#define samsungS7VcrMode                     1
+#define samsungS7Standby                     2
+#define samsungS7Sleeptimer                  3
+#define samsungS7Digit1                      4
+#define samsungS7Digit2                      5
+#define samsungS7Digit3                      6
+#define samsungS7VolumeUp                    7
+#define samsungS7Digit4                      8
+#define samsungS7Digit5                      9
+#define samsungS7Digit6                     10
+#define samsungS7VolumeDown                 11
+#define samsungS7Digit7                     12
+#define samsungS7Digit8                     13
+#define samsungS7Digit9                     14
+#define samsungS7MuteDemute                 15
+#define samsungS7ChannelProgramDown         16
+#define samsungS7Digit0                     17
+#define samsungS7ChannelProgramUp           18
+#define samsungS7Red                        19
+#define samsungS7Green                      20
+#define samsungS7Yellow                     21
+#define samsungS7Cyan                       22
+#define samsungS7Menu                       26
+#define samsungS7TvMode                     27
+#define samsungS7LocalMenu                  30
+#define samsungS7Display                    31
+#define samsungS7PipOnOff                   32
+#define samsungS7PipMainSwap                33
+#define samsungS7PipSelect                  34
+#define samsungS7Exchange                   35
+#define samsungS7External1                  36
+#define samsungS7PipFreeze                  38
+#define samsungS7PipSize                    47
+#define samsungS7EnterFactoryMode           59
+#define samsungS7LargeTopBottomNormal       62
+#define samsungS7Stop                       66
+#define samsungS7TxtTv                     110
+
+/* Rca System (device preamble) codes --------------*/
+
+#define rcaSystemTV                          0
+#define rcaSystemVCR                         1
+#define rcaSystemDVD                        10
+#define rcaSystemSAT                         8
+#define rcaSystemAUX                        13
+#define rcaSystemAUDIO                       3
+
+#define rcaSystemFactoryAddress              9
+#define rcaSystemFactoryData                15
+
+/* Rca rcaSystemTV raw key codes ------------------*/
+
+#define rcaDigit0                          207
+#define rcaDigit1                          206
+#define rcaDigit2                          205
+#define rcaDigit3                          204
+#define rcaDigit4                          203
+#define rcaDigit5                          202
+#define rcaDigit6                          201
+#define rcaDigit7                          200
+#define rcaDigit8                          199
+#define rcaDigit9                          198
+
+#define rcaChannelProgramUp                210
+#define rcaChannelProgramDown              211
+
+#define rcaStandby                         213
+
+#define rcaMenuOn                          247
+#define rcaVolumeUp                        208
+#define rcaVolumeDown                      209
+#define rcaClear                           249
+
+#define rcaAcknowledge                      11
+#define rcaStepDown                        167
+
+#define rcaExternal1                        92
+#define rcaSelectDevice                    197
+
+#define rcaLight                           225
+#define rcaSkip                            172
+#define rcaGoBack                          216
+#define rcaAntenna                         250
+#define rcaReverse                         226
+#define rcaPlay                            234
+#define rcaForward                         227
+#define rcaRecord                          232
+#define rcaStop                            224
+#define rcaPause                           230
+#define rcaPip                             228
+#define rcaPipUp                            82
+#define rcaPipDown                          83
+#define rcaSwap                             60
+#define rcaSleep                           248
+#define rcaFreeze                          243
+#define rcaZoom                             58
+#define rcaPresets                         237
+#define rcaGuide                            229
+
+#define rcaClosedCaptioning                123
+#define rcaFavourite                       255
+#define rcaSubChannel                      108
+#define rcaSound                           165
+
+#define rcaUp                              166
+#define rcaDown                            167
+#define rcaRight                           168
+#define rcaLeft                            169
+#define rcaVolumeUp                        208
+#define rcaVolumeDown                      209
+#define rcaChannelUp                       210
+#define rcaChannelDown                     211
+#define rcaMute                            192
+#define rcaDisplay                         195
+
+#define rcaToggleChannelCtrl                26
+
+/* Rca System 'rcaSystemFactoryAddress' raw key codes ----------------------*/
+#define rcaFactoryEnable                    35
+#define rcaFactoryDisable                   36
+#define rcaFactoryUserIrLock                49
+#define rcaFactoryUserIrUnlock              50
+#define rcaFactoryMenu                      22
+
+/* additional special Rca System 'rcaSystemFactoryAddress' raw key codes ---*/
+#define rcaFactoryMenuActivate             225
+#define rcaFactoryMenuDeactivate           224
+
+#define rcaFactoryNvmReset                 232
+
+#define rcaTestPatternOff                  240
+#define rcaTestPattern1                    241
+#define rcaTestPattern2                    242
+#define rcaTestPattern3                    243
+#define rcaTestPattern4                    244
+#define rcaTestPattern5                    245
+#define rcaTestPattern6                    246
+#define rcaTestPattern7                    247
+#define rcaTestPattern8                    248
+#define rcaTestPattern9                    249
+#define rcaTestPattern10                   250
+#define rcaTestPattern11                   251
+#define rcaTestPattern12                   252
+#define rcaTestPattern13                   253
+#define rcaTestPattern14                   254
+#define rcaTestPattern15                   255
+
+
+/* General -----------------------------------------*/
+
+
+/** koala public type RemoteControlKey **/
+
+typedef struct
+{
+    KeySource  source;
+    KeySystem  system;
+    KeyCommand command;
+} RemoteControlKey;
+
+
+#endif /* _INFRAKEY_DD_ */
+

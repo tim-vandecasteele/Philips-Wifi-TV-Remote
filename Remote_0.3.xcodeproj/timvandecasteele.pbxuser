@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* Remote_0_3AppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {725, 439}}";
+			sepNavSelRange = "{537, 0}";
+			sepNavVisRange = "{0, 545}";
+		};
+	};
+	1D3623250D0F684500981E51 /* Remote_0_3AppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {796, 611}}";
+			sepNavSelRange = "{748, 0}";
+			sepNavVisRange = "{3, 984}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* Remote_0.3 */ = {
+		activeExec = 0;
+		executables = (
+			3B5BBA471169DF3C009C701D /* Remote_0.3 */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeArchitecturePreference = armv7;
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3B5BBA471169DF3C009C701D /* Remote_0.3 */;
+		activeSDKPreference = iphonesimulator4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Remote_0.3 */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* Remote_0.3 */,
+		);
+		breakpoints = (
+			3B1A798D117264AD00190B87 /* CEFindTVsController.m:19 */,
+			3B1A79A01172658000190B87 /* CEFindTVsController.m:20 */,
+			3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:172 */,
+		);
+		codeSenseManager = 3B5BBA661169DF45009C701D /* Code sense */;
+		executables = (
+			3B5BBA471169DF3C009C701D /* Remote_0.3 */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					506,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					560,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					578,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 316387743;
+			PBXWorkspaceStateSaveDate = 316387743;
+		};
+		perUserProjectItems = {
+			3B3BD5CC12DBB1FE00D9CF69 /* PBXTextBookmark */ = 3B3BD5CC12DBB1FE00D9CF69 /* PBXTextBookmark */;
+			3B7639F812DBB11000F2FD65 /* PBXTextBookmark */ = 3B7639F812DBB11000F2FD65 /* PBXTextBookmark */;
+			3B763A0212DBB14700F2FD65 /* PBXTextBookmark */ = 3B763A0212DBB14700F2FD65 /* PBXTextBookmark */;
+			3B81D3F412A5A580007F1945 /* PBXTextBookmark */ = 3B81D3F412A5A580007F1945 /* PBXTextBookmark */;
+			3B81D40612A5ACF0007F1945 /* PBXTextBookmark */ = 3B81D40612A5ACF0007F1945 /* PBXTextBookmark */;
+			3B81D42612A5B109007F1945 /* PBXTextBookmark */ = 3B81D42612A5B109007F1945 /* PBXTextBookmark */;
+			3B8B69DE12A3F3520093AFB4 /* PBXTextBookmark */ = 3B8B69DE12A3F3520093AFB4 /* PBXTextBookmark */;
+			3BBEF3C912A6818300322B7E /* PBXTextBookmark */ = 3BBEF3C912A6818300322B7E /* PBXTextBookmark */;
+			3BBEF3EB12A683D900322B7E /* PlistBookmark */ = 3BBEF3EB12A683D900322B7E /* PlistBookmark */;
+			3BBEF41E12A6894200322B7E /* PBXTextBookmark */ = 3BBEF41E12A6894200322B7E /* PBXTextBookmark */;
+			3BBEF41F12A6894200322B7E /* PBXTextBookmark */ = 3BBEF41F12A6894200322B7E /* PBXTextBookmark */;
+		};
+		sourceControlManager = 3B5BBA651169DF45009C701D /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {963, 697}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 355}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* Remote_0_3_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {873, 473}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 189}";
+		};
+	};
+	3B17D7DA119C23F000C33BF8 /* CEControlTVCustomCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {902, 461}}";
+			sepNavSelRange = "{365, 36}";
+			sepNavVisRange = "{0, 408}";
+		};
+	};
+	3B17D7DB119C23F000C33BF8 /* CEControlTVCustomCluster.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 923}}";
+			sepNavSelRange = "{965, 0}";
+			sepNavVisRange = "{0, 1178}";
+		};
+	};
+	3B1A76451170D63100190B87 /* CEVoodooTVPool.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavSelRange = "{358, 15}";
+			sepNavVisRange = "{0, 739}";
+		};
+	};
+	3B1A76461170D63100190B87 /* CEVoodooTVPool.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {922, 1820}}";
+			sepNavSelRange = "{159, 0}";
+			sepNavVisRange = "{3751, 1070}";
+			sepNavWindowFrame = "{{253, -197}, {1067, 878}}";
+		};
+	};
+	3B1A766F1170E0BB00190B87 /* CEFindTVsController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = CEFindTVsController.m;
+		path = /Users/timvandecasteele/Desktop/PhilipsCleanDirectFB/xcode/Remote_0.3/Classes/CEFindTVsController.m;
+		sourceTree = "<absolute>";
+	};
+	3B1A77021171026800190B87 /* CEVoodooTV.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {725, 533}}";
+			sepNavSelRange = "{1041, 0}";
+			sepNavVisRange = "{70, 977}";
+		};
+	};
+	3B1A77031171026800190B87 /* CEVoodooTV.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 1300}}";
+			sepNavSelRange = "{1518, 0}";
+			sepNavVisRange = "{183, 1839}";
+			sepNavWindowFrame = "{{382, 0}, {1066, 878}}";
+		};
+	};
+	3B1A798D117264AD00190B87 /* CEFindTVsController.m:19 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3B1A766F1170E0BB00190B87 /* CEFindTVsController.m */;
+		functionName = "-initWithNibName:bundle:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 19;
+		location = Remote_0.3;
+		modificationTime = 316384399.344044;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	3B1A79A01172658000190B87 /* CEFindTVsController.m:20 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3B1A766F1170E0BB00190B87 /* CEFindTVsController.m */;
+		functionName = "-initWithNibName:bundle:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 20;
+		location = Remote_0.3;
+		modificationTime = 316384399.344106;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	3B1A79B0117265FD00190B87 /* CESearchTVsController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 750}}";
+			sepNavSelRange = "{304, 0}";
+			sepNavVisRange = "{0, 1622}";
+			sepNavWindowFrame = "{{11, 0}, {1067, 878}}";
+		};
+	};
+	3B1A79B1117265FD00190B87 /* CESearchTVsController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 3224}}";
+			sepNavSelRange = "{2054, 0}";
+			sepNavVisRange = "{1805, 1938}";
+			sepNavWindowFrame = "{{351, 0}, {1067, 878}}";
+		};
+	};
+	3B336BC71193462A00BAFEA6 /* CEControlTVPlayCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {796, 481}}";
+			sepNavSelRange = "{168, 29}";
+			sepNavVisRange = "{0, 734}";
+		};
+	};
+	3B336BC81193462A00BAFEA6 /* CEControlTVPlayCluster.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 1586}}";
+			sepNavSelRange = "{2212, 348}";
+			sepNavVisRange = "{2211, 690}";
+		};
+	};
+	3B35C5B511A01A8B00D226D0 /* CEControlTVKeyboardCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {811, 553}}";
+			sepNavSelRange = "{313, 0}";
+			sepNavVisRange = "{0, 1007}";
+			sepNavWindowFrame = "{{634, -374}, {893, 853}}";
+		};
+	};
+	3B35C5B611A01A8B00D226D0 /* CEControlTVKeyboardCluster.m */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            r = \"{458, 11087}\";\n            s = 0;\n        }\n    );\n    r = \"{0, 18772}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {859, 2808}}";
+			sepNavSelRange = "{5114, 0}";
+			sepNavVisRange = "{4521, 1608}";
+			sepNavWindowFrame = "{{336, 0}, {1066, 878}}";
+		};
+	};
+	3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:172 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3B35C5B611A01A8B00D226D0 /* CEControlTVKeyboardCluster.m */;
+		functionName = "-updateFromTextField:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 172;
+		location = Remote_0.3;
+		modificationTime = 316384399.3441319;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	3B3BD5CC12DBB1FE00D9CF69 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B3BD5CD12DBB1FE00D9CF69 /* play.h */;
+		name = "play.h: 92";
+		rLen = 0;
+		rLoc = 2773;
+		rType = 0;
+		vrLen = 1430;
+		vrLoc = 2049;
+	};
+	3B3BD5CD12DBB1FE00D9CF69 /* play.h */ = {
+		isa = PBXFileReference;
+		name = play.h;
+		path = /Users/timvandecasteele/Desktop/PhilipsCleanDirectFB/xcode/Remote_0.3/Libs/DirectFB_Voodoo/include/voodoo/play.h;
+		sourceTree = "<absolute>";
+	};
+	3B53487512906BB500CF18FC /* CEShowInfoController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {725, 439}}";
+			sepNavSelRange = "{251, 26}";
+			sepNavVisRange = "{0, 285}";
+		};
+	};
+	3B53487612906BB500CF18FC /* CEShowInfoController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 871}}";
+			sepNavSelRange = "{1250, 0}";
+			sepNavVisRange = "{755, 904}";
+		};
+	};
+	3B5AD4F9117508810016CCA6 /* Entitlements.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3B5BBA471169DF3C009C701D /* Remote_0.3 */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Remote_0.3;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	3B5BBA651169DF45009C701D /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	3B5BBA661169DF45009C701D /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3B7639F812DBB11000F2FD65 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A79B1117265FD00190B87 /* CESearchTVsController.m */;
+		name = "CESearchTVsController.m: 54";
+		rLen = 0;
+		rLoc = 2054;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 1805;
+	};
+	3B763A0212DBB14700F2FD65 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B763A0312DBB14700F2FD65 /* play.h */;
+		name = "play.h: 92";
+		rLen = 0;
+		rLoc = 2773;
+		rType = 0;
+		vrLen = 1430;
+		vrLoc = 2049;
+	};
+	3B763A0312DBB14700F2FD65 /* play.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = play.h;
+		path = /Users/timvandecasteele/Desktop/PhilipsCleanDirectFB/xcode/Remote_0.3/Libs/DirectFB_Voodoo/include/voodoo/play.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {754, 1716}}";
+			sepNavSelRange = "{2773, 0}";
+			sepNavVisRange = "{2049, 1430}";
+		};
+	};
+	3B7E026E11A5AEF900D97306 /* CEControlTVDraw.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavSelRange = "{185, 27}";
+			sepNavVisRange = "{0, 668}";
+		};
+	};
+	3B7E026F11A5AEF900D97306 /* CEControlTVDraw.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 1235}}";
+			sepNavSelRange = "{165, 0}";
+			sepNavVisRange = "{0, 1982}";
+		};
+	};
+	3B7E028311A5AF3400D97306 /* PaintingView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 1352}}";
+			sepNavSelRange = "{2624, 84}";
+			sepNavVisRange = "{2595, 1265}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3B7E028411A5AF3400D97306 /* PaintingView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 5005}}";
+			sepNavSelRange = "{7279, 2369}";
+			sepNavVisRange = "{9309, 1204}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3B7E028611A5AF5200D97306 /* Particle.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{74, -69}, {1067, 878}}";
+		};
+	};
+	3B81D3F412A5A580007F1945 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A77021171026800190B87 /* CEVoodooTV.h */;
+		name = "CEVoodooTV.h: 39";
+		rLen = 0;
+		rLoc = 1041;
+		rType = 0;
+		vrLen = 977;
+		vrLoc = 70;
+	};
+	3B81D40612A5ACF0007F1945 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A77031171026800190B87 /* CEVoodooTV.m */;
+		name = "CEVoodooTV.m: 50";
+		rLen = 0;
+		rLoc = 1574;
+		rType = 0;
+		vrLen = 1003;
+		vrLoc = 1059;
+	};
+	3B81D42612A5B109007F1945 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B35C5B511A01A8B00D226D0 /* CEControlTVKeyboardCluster.h */;
+		name = "CEControlTVKeyboardCluster.h: 13";
+		rLen = 0;
+		rLoc = 313;
+		rType = 0;
+		vrLen = 1007;
+		vrLoc = 0;
+	};
+	3B8B69DE12A3F3520093AFB4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3BE4BDB51184BEBB0048452A /* CEControlTVCursorCluster.m */;
+		name = "CEControlTVCursorCluster.m: 25";
+		rLen = 0;
+		rLoc = 960;
+		rType = 0;
+		vrLen = 1370;
+		vrLoc = 84;
+	};
+	3BB42B8411B3F99B00CC05EB /* CEControlReverseWindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 725}}";
+			sepNavSelRange = "{920, 41}";
+			sepNavVisRange = "{0, 1372}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3BB42B8511B3F99B00CC05EB /* CEControlReverseWindow.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 4212}}";
+			sepNavSelRange = "{1811, 0}";
+			sepNavVisRange = "{2475, 2256}";
+			sepNavWindowFrame = "{{81, 0}, {1067, 878}}";
+		};
+	};
+	3BB55A2511B52CDC009B144F /* CEControlReverseWindowView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavSelRange = "{332, 0}";
+			sepNavVisRange = "{0, 832}";
+		};
+	};
+	3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 1430}}";
+			sepNavSelRange = "{894, 21}";
+			sepNavVisRange = "{0, 1663}";
+			sepNavWindowFrame = "{{305, -187}, {1067, 878}}";
+		};
+	};
+	3BB55CF011B5A886009B144F /* NSInvocation+CWVariableArguments.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavSelRange = "{1515, 0}";
+			sepNavVisRange = "{0, 1774}";
+		};
+	};
+	3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {909, 806}}";
+			sepNavSelRange = "{1750, 0}";
+			sepNavVisRange = "{0, 1751}";
+		};
+	};
+	3BBEF3C912A6818300322B7E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B35C5B611A01A8B00D226D0 /* CEControlTVKeyboardCluster.m */;
+		name = "CEControlTVKeyboardCluster.m: 361";
+		rLen = 0;
+		rLoc = 16200;
+		rType = 0;
+		vrLen = 1608;
+		vrLoc = 15607;
+	};
+	3BBEF3EB12A683D900322B7E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Remote_0_3-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/timvandecasteele/Desktop/PhilipsCleanDirectFB/xcode/Remote_0.3/Remote_0_3-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	3BBEF40912A684B100322B7E /* NSTimer.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSTimer.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTimer.h;
+		sourceTree = "<absolute>";
+	};
+	3BBEF41E12A6894200322B7E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3BBEF40912A684B100322B7E /* NSTimer.h */;
+		name = "NSTimer.h: 30";
+		rLen = 17;
+		rLoc = 1193;
+		rType = 0;
+		vrLen = 1234;
+		vrLoc = 0;
+	};
+	3BBEF41F12A6894200322B7E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A79B0117265FD00190B87 /* CESearchTVsController.h */;
+		name = "CESearchTVsController.h: 38";
+		rLen = 7;
+		rLoc = 1205;
+		rType = 0;
+		vrLen = 1427;
+		vrLoc = 195;
+	};
+	3BCCC16211AC53ED002E6377 /* CEControlTVImage.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavSelRange = "{255, 32}";
+			sepNavVisRange = "{0, 678}";
+			sepNavWindowFrame = "{{325, 0}, {1067, 878}}";
+		};
+	};
+	3BCCC16311AC53ED002E6377 /* CEControlTVImage.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 2418}}";
+			sepNavSelRange = "{4568, 0}";
+			sepNavVisRange = "{0, 0}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3BE4BDB41184BEBB0048452A /* CEControlTVCursorCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {928, 715}}";
+			sepNavSelRange = "{280, 29}";
+			sepNavVisRange = "{0, 766}";
+			sepNavWindowFrame = "{{375, -340}, {1067, 878}}";
+		};
+	};
+	3BE4BDB51184BEBB0048452A /* CEControlTVCursorCluster.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1430}}";
+			sepNavSelRange = "{960, 0}";
+			sepNavVisRange = "{84, 1370}";
+		};
+	};
+	3BE4BDCC1184BF2C0048452A /* CEControlTVCursor.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {963, 745}}";
+			sepNavSelRange = "{348, 22}";
+			sepNavVisRange = "{0, 513}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3BE4BDCD1184BF2C0048452A /* CEControlTVCursor.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {796, 1092}}";
+			sepNavSelRange = "{282, 27}";
+			sepNavVisRange = "{0, 829}";
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+	3BEC5A781188CF56009CCD11 /* CEControlTVDigitsCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {867, 481}}";
+			sepNavSelRange = "{324, 37}";
+			sepNavVisRange = "{0, 922}";
+		};
+	};
+	3BEC5A791188CF56009CCD11 /* CEControlTVDigitsCluster.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1521}}";
+			sepNavSelRange = "{966, 0}";
+			sepNavVisRange = "{0, 1264}";
+		};
+	};
+	3BEC5AB81188D67E009CCD11 /* CEControlTVSimpleCluster.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {883, 714}}";
+			sepNavSelRange = "{551, 29}";
+			sepNavVisRange = "{0, 587}";
+		};
+	};
+	3BEC5AB91188D67E009CCD11 /* CEControlTVSimpleCluster.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1105}}";
+			sepNavSelRange = "{963, 0}";
+			sepNavVisRange = "{0, 1258}";
+		};
+	};
+	8D1107310486CEB800E47090 /* Remote_0_3-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
+		};
+	};
+}
