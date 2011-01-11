@@ -1,9 +1,6 @@
 //
 //  CEControlTVKeyboardCluster.m
-//  Remote_0.3
-//
-//  Created by Tim on 16/05/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Wifi TV Remote
 //
 
 #import "CEControlTVKeyboardCluster.h"

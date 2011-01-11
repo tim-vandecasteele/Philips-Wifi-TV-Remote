@@ -11,33 +11,33 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {854, 676}}";
 			sepNavSelRange = "{748, 0}";
-			sepNavVisRange = "{178, 972}";
+			sepNavVisRange = "{177, 973}";
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
-	1D6058900D05DD3D006BFB54 /* Remote_0.3 */ = {
+	1D6058900D05DD3D006BFB54 /* Wifi TV Remote */ = {
 		activeExec = 0;
 		executables = (
-			3B5BBA471169DF3C009C701D /* Remote_0.3 */,
+			3B5BBA471169DF3C009C701D /* Wifi TV Remote */,
 		);
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeArchitecturePreference = armv7;
 		activeBuildConfigurationName = Debug;
-		activeExecutable = 3B5BBA471169DF3C009C701D /* Remote_0.3 */;
+		activeExecutable = 3B5BBA471169DF3C009C701D /* Wifi TV Remote */;
 		activeSDKPreference = iphonesimulator4.2;
-		activeTarget = 1D6058900D05DD3D006BFB54 /* Remote_0.3 */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Wifi TV Remote */;
 		addToTargets = (
-			1D6058900D05DD3D006BFB54 /* Remote_0.3 */,
+			1D6058900D05DD3D006BFB54 /* Wifi TV Remote */,
 		);
 		breakpoints = (
 			3B1A798D117264AD00190B87 /* CEFindTVsController.m:19 */,
 			3B1A79A01172658000190B87 /* CEFindTVsController.m:20 */,
-			3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:172 */,
+			3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:169 */,
 		);
 		codeSenseManager = 3B5BBA661169DF45009C701D /* Code sense */;
 		executables = (
-			3B5BBA471169DF3C009C701D /* Remote_0.3 */,
+			3B5BBA471169DF3C009C701D /* Wifi TV Remote */,
 		);
 		perUserDictionary = {
 			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
@@ -122,21 +122,24 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316473281;
-			PBXWorkspaceStateSaveDate = 316473281;
+			PBXPerProjectTemplateStateSaveDate = 316474847;
+			PBXWorkspaceStateSaveDate = 316474847;
 		};
 		perUserProjectItems = {
-			3B81D3F412A5A580007F1945 /* PBXTextBookmark */ = 3B81D3F412A5A580007F1945 /* PBXTextBookmark */;
-			3B81D40612A5ACF0007F1945 /* PBXTextBookmark */ = 3B81D40612A5ACF0007F1945 /* PBXTextBookmark */;
-			3B81D42612A5B109007F1945 /* PBXTextBookmark */ = 3B81D42612A5B109007F1945 /* PBXTextBookmark */;
-			3BBEF3C912A6818300322B7E /* PBXTextBookmark */ = 3BBEF3C912A6818300322B7E /* PBXTextBookmark */;
-			3BBEF3EB12A683D900322B7E /* PlistBookmark */ = 3BBEF3EB12A683D900322B7E /* PlistBookmark */;
-			3BBEF41E12A6894200322B7E /* PBXTextBookmark */ = 3BBEF41E12A6894200322B7E /* PBXTextBookmark */;
-			3BBEF41F12A6894200322B7E /* PBXTextBookmark */ = 3BBEF41F12A6894200322B7E /* PBXTextBookmark */;
-			3BCA98DD12DD042C00456B42 /* PBXTextBookmark */ = 3BCA98DD12DD042C00456B42 /* PBXTextBookmark */;
-			3BCA98DE12DD042C00456B42 /* PBXTextBookmark */ = 3BCA98DE12DD042C00456B42 /* PBXTextBookmark */;
-			3BCA98DF12DD042C00456B42 /* PBXTextBookmark */ = 3BCA98DF12DD042C00456B42 /* PBXTextBookmark */;
-			3BCA98E012DD042C00456B42 /* PBXTextBookmark */ = 3BCA98E012DD042C00456B42 /* PBXTextBookmark */;
+			3B81D3F412A5A580007F1945 = 3B81D3F412A5A580007F1945 /* PBXTextBookmark */;
+			3B81D40612A5ACF0007F1945 = 3B81D40612A5ACF0007F1945 /* PBXTextBookmark */;
+			3B81D42612A5B109007F1945 = 3B81D42612A5B109007F1945 /* PBXTextBookmark */;
+			3BBEF3C912A6818300322B7E = 3BBEF3C912A6818300322B7E /* PBXTextBookmark */;
+			3BBEF3EB12A683D900322B7E = 3BBEF3EB12A683D900322B7E /* PlistBookmark */;
+			3BBEF41E12A6894200322B7E = 3BBEF41E12A6894200322B7E /* PBXTextBookmark */;
+			3BBEF41F12A6894200322B7E = 3BBEF41F12A6894200322B7E /* PBXTextBookmark */;
+			3BCA98DD12DD042C00456B42 = 3BCA98DD12DD042C00456B42 /* PBXTextBookmark */;
+			3BCA98DE12DD042C00456B42 = 3BCA98DE12DD042C00456B42 /* PBXTextBookmark */;
+			3BCA98DF12DD042C00456B42 = 3BCA98DF12DD042C00456B42 /* PBXTextBookmark */;
+			3BCA98E012DD042C00456B42 = 3BCA98E012DD042C00456B42 /* PBXTextBookmark */;
+			3BCA990412DD073600456B42 /* PBXTextBookmark */ = 3BCA990412DD073600456B42 /* PBXTextBookmark */;
+			3BCA990512DD073600456B42 /* PBXTextBookmark */ = 3BCA990512DD073600456B42 /* PBXTextBookmark */;
+			3BCA990612DD073600456B42 /* PBXTextBookmark */ = 3BCA990612DD073600456B42 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 3B5BBA651169DF45009C701D /* Source Control */;
 		userBuildSettings = {
@@ -158,30 +161,30 @@
 	};
 	3B17D7DA119C23F000C33BF8 /* CEControlTVCustomCluster.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {902, 461}}";
-			sepNavSelRange = "{365, 36}";
-			sepNavVisRange = "{0, 408}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{52, 0}";
+			sepNavVisRange = "{0, 318}";
 		};
 	};
 	3B17D7DB119C23F000C33BF8 /* CEControlTVCustomCluster.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1139, 923}}";
-			sepNavSelRange = "{965, 0}";
-			sepNavVisRange = "{0, 1178}";
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 793}}";
+			sepNavSelRange = "{52, 0}";
+			sepNavVisRange = "{0, 1380}";
 		};
 	};
 	3B1A76451170D63100190B87 /* CEVoodooTVPool.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
-			sepNavSelRange = "{358, 15}";
-			sepNavVisRange = "{0, 739}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{42, 0}";
+			sepNavVisRange = "{0, 649}";
 		};
 	};
 	3B1A76461170D63100190B87 /* CEVoodooTVPool.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {922, 1820}}";
-			sepNavSelRange = "{159, 0}";
-			sepNavVisRange = "{3751, 1070}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 1898}}";
+			sepNavSelRange = "{20, 0}";
+			sepNavVisRange = "{0, 1350}";
 			sepNavWindowFrame = "{{253, -197}, {1067, 878}}";
 		};
 	};
@@ -195,16 +198,16 @@
 	};
 	3B1A77021171026800190B87 /* CEVoodooTV.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {725, 533}}";
-			sepNavSelRange = "{1041, 0}";
-			sepNavVisRange = "{70, 977}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{38, 0}";
+			sepNavVisRange = "{0, 957}";
 		};
 	};
 	3B1A77031171026800190B87 /* CEVoodooTV.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 1300}}";
-			sepNavSelRange = "{1518, 0}";
-			sepNavVisRange = "{183, 1839}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 1248}}";
+			sepNavSelRange = "{38, 0}";
+			sepNavVisRange = "{0, 1384}";
 			sepNavWindowFrame = "{{382, 0}, {1066, 878}}";
 		};
 	};
@@ -222,7 +225,7 @@
 		ignoreCount = 0;
 		lineNumber = 19;
 		location = Remote_0.3;
-		modificationTime = 316474360.543484;
+		modificationTime = 316475372.373683;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -240,23 +243,23 @@
 		ignoreCount = 0;
 		lineNumber = 20;
 		location = Remote_0.3;
-		modificationTime = 316474360.543538;
+		modificationTime = 316475372.373754;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
 	3B1A79B0117265FD00190B87 /* CESearchTVsController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1008, 750}}";
-			sepNavSelRange = "{304, 0}";
-			sepNavVisRange = "{0, 1622}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 611}}";
+			sepNavSelRange = "{49, 0}";
+			sepNavVisRange = "{0, 1319}";
 			sepNavWindowFrame = "{{11, 0}, {1067, 878}}";
 		};
 	};
 	3B1A79B1117265FD00190B87 /* CESearchTVsController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 3211}}";
-			sepNavSelRange = "{2054, 0}";
-			sepNavVisRange = "{49, 1756}";
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 3367}}";
+			sepNavSelRange = "{49, 0}";
+			sepNavVisRange = "{0, 1515}";
 			sepNavWindowFrame = "{{351, 0}, {1067, 878}}";
 		};
 	};
@@ -276,22 +279,22 @@
 	};
 	3B35C5B511A01A8B00D226D0 /* CEControlTVKeyboardCluster.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {811, 553}}";
-			sepNavSelRange = "{313, 0}";
-			sepNavVisRange = "{0, 1007}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{54, 0}";
+			sepNavVisRange = "{0, 917}";
 			sepNavWindowFrame = "{{634, -374}, {893, 853}}";
 		};
 	};
 	3B35C5B611A01A8B00D226D0 /* CEControlTVKeyboardCluster.m */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            r = \"{458, 11087}\";\n            s = 0;\n        }\n    );\n    r = \"{0, 18772}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {859, 2808}}";
-			sepNavSelRange = "{5114, 0}";
-			sepNavVisRange = "{4521, 1608}";
+			sepNavFolds = "{\n    c =     (\n                {\n            r = \"{368, 11087}\";\n            s = 0;\n        }\n    );\n    r = \"{0, 18682}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 2496}}";
+			sepNavSelRange = "{54, 0}";
+			sepNavVisRange = "{0, 1492}";
 			sepNavWindowFrame = "{{336, 0}, {1066, 878}}";
 		};
 	};
-	3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:172 */ = {
+	3B35C6B011A0372600D226D0 /* CEControlTVKeyboardCluster.m:169 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -303,9 +306,9 @@
 		functionName = "-updateFromTextField:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 172;
+		lineNumber = 169;
 		location = Remote_0.3;
-		modificationTime = 316474360.543561;
+		modificationTime = 316475372.373773;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
@@ -315,24 +318,19 @@
 		name = play.h;
 		path = /Users/timvandecasteele/Desktop/PhilipsCleanDirectFB/xcode/Remote_0.3/Libs/DirectFB_Voodoo/include/voodoo/play.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {754, 1716}}";
-			sepNavSelRange = "{2773, 0}";
-			sepNavVisRange = "{2049, 1362}";
-		};
 	};
 	3B53487512906BB500CF18FC /* CEShowInfoController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {725, 439}}";
-			sepNavSelRange = "{251, 26}";
-			sepNavVisRange = "{0, 285}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 195}";
 		};
 	};
 	3B53487612906BB500CF18FC /* CEShowInfoController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 871}}";
-			sepNavSelRange = "{1250, 0}";
-			sepNavVisRange = "{755, 904}";
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 767}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 1072}";
 		};
 	};
 	3B5AD4F9117508810016CCA6 /* Entitlements.plist */ = {
@@ -340,7 +338,7 @@
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
-	3B5BBA471169DF3C009C701D /* Remote_0.3 */ = {
+	3B5BBA471169DF3C009C701D /* Wifi TV Remote */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
 		);
@@ -363,7 +361,7 @@
 		executableSystemSymbolLevel = 0;
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
-		name = Remote_0.3;
+		name = "Wifi TV Remote";
 		savedGlobals = {
 		};
 		showTypeColumn = 0;
@@ -388,31 +386,31 @@
 	};
 	3B7E026E11A5AEF900D97306 /* CEControlTVDraw.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
-			sepNavSelRange = "{185, 27}";
-			sepNavVisRange = "{0, 668}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{43, 0}";
+			sepNavVisRange = "{0, 578}";
 		};
 	};
 	3B7E026F11A5AEF900D97306 /* CEControlTVDraw.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1139, 1235}}";
-			sepNavSelRange = "{165, 0}";
-			sepNavVisRange = "{0, 1982}";
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 1248}}";
+			sepNavSelRange = "{43, 0}";
+			sepNavVisRange = "{0, 1227}";
 		};
 	};
 	3B7E028311A5AF3400D97306 /* PaintingView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 1352}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 1339}}";
 			sepNavSelRange = "{2624, 84}";
-			sepNavVisRange = "{2595, 1265}";
+			sepNavVisRange = "{0, 2259}";
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
 	3B7E028411A5AF3400D97306 /* PaintingView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1209, 5005}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 5031}}";
 			sepNavSelRange = "{7279, 2369}";
-			sepNavVisRange = "{9309, 1204}";
+			sepNavVisRange = "{9309, 671}";
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
@@ -426,7 +424,7 @@
 		fRef = 3B1A77021171026800190B87 /* CEVoodooTV.h */;
 		name = "CEVoodooTV.h: 39";
 		rLen = 0;
-		rLoc = 1041;
+		rLoc = 951;
 		rType = 0;
 		vrLen = 977;
 		vrLoc = 70;
@@ -436,7 +434,7 @@
 		fRef = 3B1A77031171026800190B87 /* CEVoodooTV.m */;
 		name = "CEVoodooTV.m: 50";
 		rLen = 0;
-		rLoc = 1574;
+		rLoc = 1484;
 		rType = 0;
 		vrLen = 1003;
 		vrLoc = 1059;
@@ -446,54 +444,54 @@
 		fRef = 3B35C5B511A01A8B00D226D0 /* CEControlTVKeyboardCluster.h */;
 		name = "CEControlTVKeyboardCluster.h: 13";
 		rLen = 0;
-		rLoc = 313;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1007;
 		vrLoc = 0;
 	};
 	3BB42B8411B3F99B00CC05EB /* CEControlReverseWindow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 725}}";
-			sepNavSelRange = "{920, 41}";
-			sepNavVisRange = "{0, 1372}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 572}}";
+			sepNavSelRange = "{50, 0}";
+			sepNavVisRange = "{0, 1183}";
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
 	3BB42B8511B3F99B00CC05EB /* CEControlReverseWindow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1139, 4212}}";
-			sepNavSelRange = "{1811, 0}";
-			sepNavVisRange = "{2475, 2256}";
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 4186}}";
+			sepNavSelRange = "{50, 0}";
+			sepNavVisRange = "{0, 1073}";
 			sepNavWindowFrame = "{{81, 0}, {1067, 878}}";
 		};
 	};
 	3BB55A2511B52CDC009B144F /* CEControlReverseWindowView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
-			sepNavSelRange = "{332, 0}";
-			sepNavVisRange = "{0, 832}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{54, 0}";
+			sepNavVisRange = "{0, 743}";
 		};
 	};
 	3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1008, 1430}}";
-			sepNavSelRange = "{894, 21}";
-			sepNavVisRange = "{0, 1663}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 1443}}";
+			sepNavSelRange = "{54, 0}";
+			sepNavVisRange = "{0, 1213}";
 			sepNavWindowFrame = "{{305, -187}, {1067, 878}}";
 		};
 	};
 	3BB55CF011B5A886009B144F /* NSInvocation+CWVariableArguments.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 663}}";
 			sepNavSelRange = "{1515, 0}";
-			sepNavVisRange = "{0, 1774}";
+			sepNavVisRange = "{0, 1516}";
 		};
 	};
 	3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {909, 806}}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 806}}";
 			sepNavSelRange = "{1750, 0}";
-			sepNavVisRange = "{0, 1751}";
+			sepNavVisRange = "{348, 1403}";
 		};
 	};
 	3BBEF3C912A6818300322B7E /* PBXTextBookmark */ = {
@@ -501,7 +499,7 @@
 		fRef = 3B35C5B611A01A8B00D226D0 /* CEControlTVKeyboardCluster.m */;
 		name = "CEControlTVKeyboardCluster.m: 361";
 		rLen = 0;
-		rLoc = 16200;
+		rLoc = 16110;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 15607;
@@ -539,7 +537,7 @@
 		fRef = 3B1A79B0117265FD00190B87 /* CESearchTVsController.h */;
 		name = "CESearchTVsController.h: 38";
 		rLen = 7;
-		rLoc = 1205;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1427;
 		vrLoc = 195;
@@ -559,7 +557,7 @@
 		fRef = 3B1A79B1117265FD00190B87 /* CESearchTVsController.m */;
 		name = "CESearchTVsController.m: 54";
 		rLen = 0;
-		rLoc = 2054;
+		rLoc = 1964;
 		rType = 0;
 		vrLen = 1756;
 		vrLoc = 49;
@@ -584,19 +582,49 @@
 		vrLen = 972;
 		vrLoc = 178;
 	};
+	3BCA990412DD073600456B42 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* Remote_0_3AppDelegate.m */;
+		name = "Remote_0_3AppDelegate.m: 29";
+		rLen = 0;
+		rLoc = 748;
+		rType = 0;
+		vrLen = 973;
+		vrLoc = 177;
+	};
+	3BCA990512DD073600456B42 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A79B1117265FD00190B87 /* CESearchTVsController.m */;
+		name = "CESearchTVsController.m: 54";
+		rLen = 0;
+		rLoc = 1964;
+		rType = 0;
+		vrLen = 1729;
+		vrLoc = 81;
+	};
+	3BCA990612DD073600456B42 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3B1A79B1117265FD00190B87 /* CESearchTVsController.m */;
+		name = "CESearchTVsController.m: 5";
+		rLen = 0;
+		rLoc = 49;
+		rType = 0;
+		vrLen = 1546;
+		vrLoc = 0;
+	};
 	3BCCC16211AC53ED002E6377 /* CEControlTVImage.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {945, 700}}";
-			sepNavSelRange = "{255, 32}";
-			sepNavVisRange = "{0, 678}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{44, 0}";
+			sepNavVisRange = "{0, 619}";
 			sepNavWindowFrame = "{{325, 0}, {1067, 878}}";
 		};
 	};
 	3BCCC16311AC53ED002E6377 /* CEControlTVImage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 2418}}";
-			sepNavSelRange = "{4568, 0}";
-			sepNavVisRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 2405}}";
+			sepNavSelRange = "{44, 0}";
+			sepNavVisRange = "{0, 1346}";
 			sepNavWindowFrame = "{{15, 0}, {1067, 878}}";
 		};
 	};
@@ -647,16 +675,16 @@
 	};
 	3BEC5AB81188D67E009CCD11 /* CEControlTVSimpleCluster.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {883, 714}}";
-			sepNavSelRange = "{551, 29}";
-			sepNavVisRange = "{0, 587}";
+			sepNavIntBoundsRect = "{{0, 0}, {854, 517}}";
+			sepNavSelRange = "{52, 0}";
+			sepNavVisRange = "{0, 497}";
 		};
 	};
 	3BEC5AB91188D67E009CCD11 /* CEControlTVSimpleCluster.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 1105}}";
-			sepNavSelRange = "{963, 0}";
-			sepNavVisRange = "{0, 1258}";
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1079}}";
+			sepNavSelRange = "{52, 0}";
+			sepNavVisRange = "{0, 1378}";
 		};
 	};
 	8D1107310486CEB800E47090 /* Remote_0_3-Info.plist */ = {

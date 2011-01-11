@@ -1,9 +1,6 @@
 //
 //  CEVoodooTV.m
-//  Remote_0.3
-//
-//  Created by Tim on 10/04/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Wifi TV Remote
 //
 
 #import "CEVoodooTV.h"
