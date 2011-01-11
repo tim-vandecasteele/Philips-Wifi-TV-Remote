@@ -22,6 +22,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    explanationButton.titleLabel.textAlignment = UITextAlignmentCenter;
+    
     TVsTable.delegate = self;
     TVsTable.dataSource = self;
     TVsInTable   = 0;
@@ -36,6 +39,7 @@
     customCluster   = [[CEControlTVCustomCluster alloc] init];
     tvImage         = [[CEControlTVImage alloc] init];
     keyboardCluster = [[CEControlTVKeyboardCluster alloc] init];
+    ipadCluster     = [[CEControlTViPadCluster alloc] init];
     //tvDrawing       = [[CEControlTVDraw alloc] init];
     //reverseWindow   = [[CEControlReverseWindow alloc] init];
     
@@ -124,20 +128,27 @@
     [myDefaultOptions setObject:[voodooTVPool TVAtPosition:position].ipaddress forKey:@"lastConnectedIpaddress"];
     [myDefaultOptions synchronize];
     
-    // connecting all clusters to the TV
-    cursorCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
-    digitsCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
-    playCluster.voodooTV     = [voodooTVPool TVAtPosition:position];
-    simpleCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
-    customCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
-    tvImage.voodooTV         = [voodooTVPool TVAtPosition:position];
-    keyboardCluster.voodooTV = [voodooTVPool TVAtPosition:position];
-    //tvDrawing.voodooTV       = [voodooTVPool TVAtPosition:position];
-    //reverseWindow.voodooTV   = [voodooTVPool TVAtPosition:position];
-    tabBarController.selectedViewController = simpleCluster;
-    
-    
-    [self.navigationController pushViewController:tabBarController animated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	{
+        // connecting all clusters to the TV
+        cursorCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
+        digitsCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
+        playCluster.voodooTV     = [voodooTVPool TVAtPosition:position];
+        simpleCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
+        customCluster.voodooTV   = [voodooTVPool TVAtPosition:position];
+        tvImage.voodooTV         = [voodooTVPool TVAtPosition:position];
+        keyboardCluster.voodooTV = [voodooTVPool TVAtPosition:position];
+        //tvDrawing.voodooTV       = [voodooTVPool TVAtPosition:position];
+        //reverseWindow.voodooTV   = [voodooTVPool TVAtPosition:position];
+        tabBarController.selectedViewController = simpleCluster;
+        
+        [self.navigationController pushViewController:tabBarController animated:YES];
+	}
+	else
+	{
+		// load the content controller object for Pad-based devices
+        [self.navigationController pushViewController:ipadCluster animated:YES];
+	}
     [TVsTable deselectRowAtIndexPath:[NSIndexPath indexPathForRow:position inSection:1] animated:NO];    
     
 }
@@ -245,9 +256,12 @@
     [digitsCluster release];
     [playCluster release];
     [keyboardCluster release];
+    [ipadCluster release];
     //[tvDrawing release];
     //[reverseWindow release];
     [tabBarController release];
+    
+    [explanationButton release];
     
     [voodooTVPool release];
     [super dealloc];

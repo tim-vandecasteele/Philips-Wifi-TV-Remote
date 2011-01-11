@@ -25,7 +25,13 @@
     searchTVsController = [[CESearchTVsController alloc] init];
     
     navigationController = [[UINavigationController alloc] init];
-    navigationController.navigationBarHidden = YES;
+    
+    // Save some place when it's on the iPhone by hiding the navigation bar.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	{
+        navigationController.navigationBarHidden = YES;
+	}
+    
     [navigationController pushViewController:searchTVsController animated:YES];
     
     [window addSubview:navigationController.view];

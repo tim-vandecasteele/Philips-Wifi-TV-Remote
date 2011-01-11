@@ -1,9 +1,6 @@
 //
 //  Remote_0_3AppDelegate.h
-//  Remote_0.3
-//
-//  Created by Tim on 5/04/10.
-//  Copyright __MyCompanyName__ 2010. All rights reserved.
+//  Wifi TV Remote
 //
 
 #import <UIKit/UIKit.h>

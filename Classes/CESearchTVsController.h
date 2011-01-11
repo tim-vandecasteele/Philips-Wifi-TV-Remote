@@ -15,13 +15,14 @@
 #import "CEControlTVDraw.h"
 #import "CEControlTVImage.h"
 #import "CEControlReverseWindow.h"
+#import "CEControlTViPadCluster.h"
 
 #define SHOWINFOTIMEOUT (30.0)
 
 @interface CESearchTVsController : UIViewController < UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate > {
     CEVoodooTVPool *voodooTVPool;
     IBOutlet UITableView *TVsTable;
-    IBOutlet UILabel *labelTVsFound;
+    IBOutlet UIButton *explanationButton;
     
     UITabBarController         *tabBarController;
     CEControlTVCursorCluster   *cursorCluster;
@@ -31,6 +32,8 @@
     CEControlTVCustomCluster   *customCluster;
     CEControlTVImage           *tvImage;
     CEControlTVKeyboardCluster *keyboardCluster;
+    
+    CEControlTViPadCluster     *ipadCluster;
     NSInteger                   TVsInTable;
     NSTimer                    *timeoutShowInfoTimer;
     //CEControlTVDraw            *tvDrawing;

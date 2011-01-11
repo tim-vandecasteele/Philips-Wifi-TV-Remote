@@ -57,6 +57,8 @@
 		3BB55A2711B52CDC009B144F /* CEControlReverseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */; };
 		3BB55CF211B5A886009B144F /* NSInvocation+CWVariableArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */; };
 		3BCA98D312DD003A00456B42 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */; };
+		3BCA993D12DD0B8300456B42 /* CEControlTViPadCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA993B12DD0B8300456B42 /* CEControlTViPadCluster.m */; };
+		3BCA993E12DD0B8300456B42 /* CEControlTViPadCluster.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA993C12DD0B8300456B42 /* CEControlTViPadCluster.xib */; };
 		3BCC0AB311A046A900AE244C /* tabbar_keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BCC0AB211A046A900AE244C /* tabbar_keyboard.png */; };
 		3BCC0ABB11A0477F00AE244C /* tabbar_basic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BCC0ABA11A0477F00AE244C /* tabbar_basic.png */; };
 		3BCCC16511AC53ED002E6377 /* CEControlTVImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCC16311AC53ED002E6377 /* CEControlTVImage.m */; };
@@ -213,6 +215,9 @@
 		3BB55CF011B5A886009B144F /* NSInvocation+CWVariableArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+CWVariableArguments.h"; sourceTree = "<group>"; };
 		3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+CWVariableArguments.m"; sourceTree = "<group>"; };
 		3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		3BCA993A12DD0B8300456B42 /* CEControlTViPadCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEControlTViPadCluster.h; sourceTree = "<group>"; };
+		3BCA993B12DD0B8300456B42 /* CEControlTViPadCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEControlTViPadCluster.m; sourceTree = "<group>"; };
+		3BCA993C12DD0B8300456B42 /* CEControlTViPadCluster.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEControlTViPadCluster.xib; sourceTree = "<group>"; };
 		3BCC0AB211A046A900AE244C /* tabbar_keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_keyboard.png; sourceTree = "<group>"; };
 		3BCC0ABA11A0477F00AE244C /* tabbar_basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_basic.png; sourceTree = "<group>"; };
 		3BCCC16211AC53ED002E6377 /* CEControlTVImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEControlTVImage.h; sourceTree = "<group>"; };
@@ -328,22 +333,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3B53487512906BB500CF18FC /* CEShowInfoController.h */,
-				3B53487612906BB500CF18FC /* CEShowInfoController.m */,
-				3B53487712906BB500CF18FC /* CEShowInfoController.xib */,
-				3BB42B8A11B3F9A300CC05EB /* reverse */,
-				3BCCC16811AC53F4002E6377 /* image */,
-				3B7E027411A5AF0B00D97306 /* draw */,
-				3B1A784D1172316300190B87 /* Key Clusters */,
-				3B1A79B0117265FD00190B87 /* CESearchTVsController.h */,
-				3B1A79B1117265FD00190B87 /* CESearchTVsController.m */,
-				3B1A79B2117265FD00190B87 /* CESearchTVsController.xib */,
-				3B1A76451170D63100190B87 /* CEVoodooTVPool.h */,
-				3B1A76461170D63100190B87 /* CEVoodooTVPool.m */,
-				3B1A77021171026800190B87 /* CEVoodooTV.h */,
-				3B1A77031171026800190B87 /* CEVoodooTV.m */,
-				1D3623240D0F684500981E51 /* Remote_0_3AppDelegate.h */,
-				1D3623250D0F684500981E51 /* Remote_0_3AppDelegate.m */,
+				3BCA994112DD0BA800456B42 /* iPhone */,
+				3BCA994012DD0B8F00456B42 /* iPad */,
+				3BCA994212DD0BE300456B42 /* Common */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -466,6 +458,46 @@
 				3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */,
 			);
 			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		3BCA994012DD0B8F00456B42 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA993A12DD0B8300456B42 /* CEControlTViPadCluster.h */,
+				3BCA993B12DD0B8300456B42 /* CEControlTViPadCluster.m */,
+				3BCA993C12DD0B8300456B42 /* CEControlTViPadCluster.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		3BCA994112DD0BA800456B42 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				3BCCC16811AC53F4002E6377 /* image */,
+				3BB42B8A11B3F9A300CC05EB /* reverse */,
+				3B7E027411A5AF0B00D97306 /* draw */,
+				3B1A784D1172316300190B87 /* Key Clusters */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		3BCA994212DD0BE300456B42 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B53487512906BB500CF18FC /* CEShowInfoController.h */,
+				3B53487612906BB500CF18FC /* CEShowInfoController.m */,
+				3B53487712906BB500CF18FC /* CEShowInfoController.xib */,
+				3B1A79B0117265FD00190B87 /* CESearchTVsController.h */,
+				3B1A79B1117265FD00190B87 /* CESearchTVsController.m */,
+				3B1A79B2117265FD00190B87 /* CESearchTVsController.xib */,
+				3B1A76451170D63100190B87 /* CEVoodooTVPool.h */,
+				3B1A76461170D63100190B87 /* CEVoodooTVPool.m */,
+				3B1A77021171026800190B87 /* CEVoodooTV.h */,
+				3B1A77031171026800190B87 /* CEVoodooTV.m */,
+				1D3623240D0F684500981E51 /* Remote_0_3AppDelegate.h */,
+				1D3623250D0F684500981E51 /* Remote_0_3AppDelegate.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		3BCCC16811AC53F4002E6377 /* image */ = {
@@ -742,6 +774,7 @@
 				3B81D40212A5ABF6007F1945 /* knoppen_keyboard_down.png in Resources */,
 				3B81D40312A5ABF6007F1945 /* knoppen_keyboard_up.png in Resources */,
 				3BCA98D312DD003A00456B42 /* MainWindow-iPad.xib in Resources */,
+				3BCA993E12DD0B8300456B42 /* CEControlTViPadCluster.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +804,7 @@
 				3BB55A2711B52CDC009B144F /* CEControlReverseWindowView.m in Sources */,
 				3BB55CF211B5A886009B144F /* NSInvocation+CWVariableArguments.m in Sources */,
 				3B53487812906BB500CF18FC /* CEShowInfoController.m in Sources */,
+				3BCA993D12DD0B8300456B42 /* CEControlTViPadCluster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

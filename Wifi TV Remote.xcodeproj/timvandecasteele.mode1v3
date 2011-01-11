@@ -265,6 +265,8 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>3BCA994012DD0B8F00456B42</string>
+								<string>3BCA994212DD0BE300456B42</string>
 								<string>3BCA98D112DD003800456B42</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
@@ -274,7 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
+									<integer>20</integer>
+									<integer>8</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
@@ -317,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CESearchTVsController.m</string>
+								<string>Remote_0_3AppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,23 +328,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CESearchTVsController.m</string>
+										<string>Remote_0_3AppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>3BCA990612DD073600456B42</string>
+										<string>3BCA997112DD0F0F00456B42</string>
 										<key>history</key>
 										<array>
-											<string>3B81D3F412A5A580007F1945</string>
-											<string>3B81D40612A5ACF0007F1945</string>
-											<string>3B81D42612A5B109007F1945</string>
-											<string>3BBEF3C912A6818300322B7E</string>
-											<string>3BBEF3EB12A683D900322B7E</string>
-											<string>3BBEF41E12A6894200322B7E</string>
-											<string>3BBEF41F12A6894200322B7E</string>
-											<string>3BCA98DD12DD042C00456B42</string>
-											<string>3BCA990412DD073600456B42</string>
-											<string>3BCA990512DD073600456B42</string>
+											<string>3BCA992212DD0A0000456B42</string>
+											<string>3BCA993112DD0AD200456B42</string>
+											<string>3BCA994412DD0BFC00456B42</string>
+											<string>3BCA994512DD0BFC00456B42</string>
+											<string>3BCA994612DD0BFC00456B42</string>
+											<string>3BCA994812DD0BFC00456B42</string>
+											<string>3BCA996712DD0EAF00456B42</string>
+											<string>3BCA996812DD0EAF00456B42</string>
+											<string>3BCA996F12DD0F0F00456B42</string>
+											<string>3BCA997012DD0F0F00456B42</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -539,9 +542,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>3BCA997212DD0F0F00456B42</string>
+		<string>3BCA992812DD0A0000456B42</string>
+		<string>3BCA992912DD0A0000456B42</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>3B5BBA5C1169DF45009C701D</string>
-		<string>/Users/timvandecasteele/Documents/Philips-Wifi-TV-Remote/Remote_0.3.xcodeproj</string>
+		<string>/Users/timvandecasteele/Documents/Philips-Wifi-TV-Remote/Wifi TV Remote.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>10 89 1250 789 0 0 1440 878 </string>
@@ -903,7 +910,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>3BCA98E712DD042C00456B42</string>
+				<string>3BCA992612DD0A0000456B42</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
