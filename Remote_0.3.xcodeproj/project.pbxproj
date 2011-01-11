@@ -56,6 +56,7 @@
 		3BB42B8811B3F99B00CC05EB /* CEControlReverseWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB42B8611B3F99B00CC05EB /* CEControlReverseWindow.xib */; };
 		3BB55A2711B52CDC009B144F /* CEControlReverseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */; };
 		3BB55CF211B5A886009B144F /* NSInvocation+CWVariableArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */; };
+		3BCA98D312DD003A00456B42 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */; };
 		3BCC0AB311A046A900AE244C /* tabbar_keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BCC0AB211A046A900AE244C /* tabbar_keyboard.png */; };
 		3BCC0ABB11A0477F00AE244C /* tabbar_basic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BCC0ABA11A0477F00AE244C /* tabbar_basic.png */; };
 		3BCCC16511AC53ED002E6377 /* CEControlTVImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCC16311AC53ED002E6377 /* CEControlTVImage.m */; };
@@ -211,6 +212,7 @@
 		3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEControlReverseWindowView.m; sourceTree = "<group>"; };
 		3BB55CF011B5A886009B144F /* NSInvocation+CWVariableArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+CWVariableArguments.h"; sourceTree = "<group>"; };
 		3BB55CF111B5A886009B144F /* NSInvocation+CWVariableArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+CWVariableArguments.m"; sourceTree = "<group>"; };
+		3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		3BCC0AB211A046A900AE244C /* tabbar_keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_keyboard.png; sourceTree = "<group>"; };
 		3BCC0ABA11A0477F00AE244C /* tabbar_basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_basic.png; sourceTree = "<group>"; };
 		3BCCC16211AC53ED002E6377 /* CEControlTVImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEControlTVImage.h; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				3BCA98D112DD003800456B42 /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				3B5AD4F9117508810016CCA6 /* Entitlements.plist */,
@@ -455,6 +458,14 @@
 				3BB55A2611B52CDC009B144F /* CEControlReverseWindowView.m */,
 			);
 			name = reverse;
+			sourceTree = "<group>";
+		};
+		3BCA98D112DD003800456B42 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA98D212DD003A00456B42 /* MainWindow-iPad.xib */,
+			);
+			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 		3BCCC16811AC53F4002E6377 /* image */ = {
@@ -730,6 +741,7 @@
 				3B53487C12906D5000CF18FC /* infoWindow.png in Resources */,
 				3B81D40212A5ABF6007F1945 /* knoppen_keyboard_down.png in Resources */,
 				3B81D40312A5ABF6007F1945 /* knoppen_keyboard_up.png in Resources */,
+				3BCA98D312DD003A00456B42 /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +781,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -781,6 +794,8 @@
 				INFOPLIST_FILE = "Remote_0_3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Remote_0.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -788,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tim Vandecasteele";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -800,7 +816,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Remote_0.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "75964ADE-0154-4E12-86B9-00F62C006051";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -826,7 +843,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BC77E1ED-CEFC-41F2-8470-643B6D8A0271";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.2;
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = AdHocDistro;
@@ -835,6 +852,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -846,6 +864,8 @@
 				INFOPLIST_FILE = "Remote_0_3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Remote_0.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = AdHocDistro;
@@ -869,7 +889,7 @@
 					"\"$(SRCROOT)/Libs/jslibrc/lib/jslibrc_supply.o\"",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.2;
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Debug;
@@ -894,7 +914,7 @@
 					"\"$(SRCROOT)/Libs/jslibrc/lib/jslibrc_supply.o\"",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.2;
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Release;
