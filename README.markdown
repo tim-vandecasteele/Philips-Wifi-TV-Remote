@@ -12,3 +12,4 @@ The following features are currently implemented (but feel free to add more)
 * sending remote keys to the TV
 * pushing pictures from your iphone/ipad to your TV
 * keyboard entry (instead of using the TV onscreen keyboard)
+* iphone and ipad
