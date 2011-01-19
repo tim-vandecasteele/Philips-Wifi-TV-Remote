@@ -864,16 +864,13 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"",
-					"\"$(SRCROOT)/Libs/jslibrc/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lpthread",
 					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libdirectfb.o\"",
-					"\"$(SRCROOT)/Libs/jslibrc/lib/jslibrc_supply.o\"",
+					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libjslibclient.o\"",
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BC77E1ED-CEFC-41F2-8470-643B6D8A0271";
@@ -912,15 +909,12 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"",
-					"\"$(SRCROOT)/Libs/jslibrc/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				OTHER_LDFLAGS = (
 					"-lpthread",
 					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libdirectfb.o\"",
-					"\"$(SRCROOT)/Libs/jslibrc/lib/jslibrc_supply.o\"",
+					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libjslibclient.o\"",
 				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.2;
@@ -936,16 +930,13 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"",
-					"\"$(SRCROOT)/Libs/jslibrc/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Libs/DirectFB_Voodoo/include\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lpthread",
 					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libdirectfb.o\"",
-					"\"$(SRCROOT)/Libs/jslibrc/lib/jslibrc_supply.o\"",
+					"\"$(SRCROOT)/Libs/DirectFB_Voodoo/lib/libjslibclient.o\"",
 				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.2;

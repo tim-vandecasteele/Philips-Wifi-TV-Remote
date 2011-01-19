@@ -1,0 +1,256 @@
+/* 
+ * Copyright © 2009, Koninklijke Philips Electronics N.V.
+ * All rights reserved.
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ * -	Redistributions of source code must retain the above copyright notice, 
+ *      this list of conditions and the following disclaimer.
+ * -	Redistributions in binary form must reproduce the above copyright 
+ *      notice, this list of conditions and the following disclaimer in the 
+ *      documentation and/or other materials provided with the distribution.
+ * -	Neither the name of the Koninklijke Philips Electronics N.V. nor the 
+ *      names of its contributors may be used to endorse or promote products 
+ *      derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+#ifndef _INFRACEC_DD
+#define _INFRACEC_DD
+
+/** koala public group infracec **/
+
+/** koala public type CecVersion **/
+typedef enum
+{
+  Version1_1    = 0    /** Version 1.1  */
+, Version1_2    = 1    /** Version 1.2  */
+, Version1_2a   = 2    /** Version 1.2a */
+, Version1_3    = 3    /** Version 1.3  */
+, Version1_3a   = 4    /** Version 1.3a */
+} CecVersion;
+
+/** koala public type CecLogicalAddress **/
+
+#ifndef _CECTYPES_DEFINED_
+#define _CECTYPES_DEFINED_
+
+typedef enum
+{
+  cecLogicalAddressTv        =  0   /**< TV */
+, cecLogicalAddressRecDev1   =  1   /**< Recording Device 1 */
+, cecLogicalAddressRecDev2   =  2   /**< Recording Device 2 */
+, cecLogicalAddressStb1      =  3   /**< Settop box 1 */
+, cecLogicalAddressDvd1      =  4   /**< Dvd 1 */
+, cecLogicalAddressAudioSys  =  5   /**< Audio System */
+, cecLogicalAddressStb2      =  6   /**< Settop box 2 */
+, cecLogicalAddressStb3      =  7   /**< Settop box 3 */
+, cecLogicalAddressDvd2      =  8   /**< Dvd 2 */
+, cecLogicalAddressRecDev3   =  9   /**< Recording Device 3 */
+, cecLogicalAddressFreeUse   = 14   /**< Free Use */
+, cecLogicalAddressBroadcast = 15   /**< Broadcast (only as destination) */
+, cecLogicalAddressUnreg     = 15   /**< Unregistered (only as initiator) */
+} CecLogicalAddress;
+
+
+/** koala public type CecTransmissionStatus **/
+typedef enum
+{
+  cecTransmissionStatusSuccess
+, cecTransmissionStatusBusBlocked
+, cecTransmissionStatusDeviceNotPresent
+, cecTransmissionStatusDeviceBusy
+, cecTransmissionStatusMessageRejected 
+} CecTransmissionStatus;
+
+/** koala public type CecOpcode **/
+typedef enum
+{
+  cecFeatureAbort                   = 0x00
+, cecSetAnaloguePreset              = 0x01  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */ 
+, cecStartPresetTransfer            = 0x02  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecEndPresetTransfer              = 0x03  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecImageViewOn                    = 0x04
+, cecTunerStepIncrement             = 0x05
+, cecTunerStepDecrement             = 0x06
+, cecTunerDeviceStatus              = 0x07
+, cecGiveTunerDeviceStatus          = 0x08
+, cecRecordOn                       = 0x09
+, cecRecordStatus                   = 0x0A
+, cecRecordOff                      = 0x0B
+, cecSetPresetName                  = 0x0C  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecTextViewOn                     = 0x0D
+/*                                  = 0x0E GAP */
+, cecRecordTvScreen                 = 0x0F
+, cecStopPresetTransfer             = 0x10  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x11 GAP */
+/*                                  = 0x12 GAP */
+, cecSelectPreset                   = 0x13  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x14 GAP */
+, cecGivePresetListVersionNumber    = 0x15  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecActualPresetListVersionNumber  = 0x16  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x17 GAP */
+/*                                  = 0x18 GAP */
+, cecTimerRecordListTrigger         = 0x19  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecGiveDeckStatus                 = 0x1A
+, cecDeckStatus                     = 0x1B
+/*                                  = 0x1C GAP */
+/*                                  = 0x1D GAP */
+/*                                  = 0x1E GAP */
+/*                                  = 0x1F GAP */
+/*                                  = 0x20 GAP */
+/*                                  = 0x21 GAP */
+/*                                  = 0x22 GAP */
+/*                                  = 0x23 GAP */
+/*                                  = 0x24 GAP */
+/*                                  = 0x25 GAP */
+/*                                  = 0x26 GAP */
+/*                                  = 0x27 GAP */
+/*                                  = 0x28 GAP */
+/*                                  = 0x29 GAP */
+/*                                  = 0x2A GAP */
+/*                                  = 0x2B GAP */
+/*                                  = 0x2C GAP */
+/*                                  = 0x2D GAP */
+/*                                  = 0x2E GAP */
+/*                                  = 0x2F GAP */
+/*                                  = 0x30 GAP */
+, cecSetCountry                     = 0x31  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecSetLanguage                    = 0x32  /* HDMI-CEC spec v1.2, renamed in HDMI-CEC spec 1.3a */
+, cecSetMenuLanguage                = 0x32  /* HDMI-CEC spec 1.3a */
+, cecClearTimer                     = 0x33  /* HDMI-CEC spec v1.2, renamed in HDMI-CEC spec 1.3a */
+, cecClearAnalogueTimer             = 0x33  /* HDMI-CEC spec 1.3a */
+, cecSetTimer                       = 0x34  /* HDMI-CEC spec v1.2, renamed in HDMI-CEC spec 1.3a */
+, cecSetAnalogueTimer               = 0x34  /* HDMI-CEC spec 1.3a */
+, cecTimerStatus                    = 0x35
+, cecStandby                        = 0x36
+, cecStartTimerRecordBlockTransfer  = 0x37  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecTimerRecordBlockTransfer       = 0x38  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecEndTimerRecordBlockTransfer    = 0x39  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x3A GAP */
+/*                                  = 0x3B GAP */
+/*                                  = 0x3C GAP */
+/*                                  = 0x3D GAP */
+, cecGiveTimerOptions               = 0x3E  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecTimerOptions                   = 0x3F  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x40 GAP */
+, cecPlay                           = 0x41
+, cecDeckControl                    = 0x42
+, cecTimerClearedStatus             = 0x43
+, cecUserControlPressed             = 0x44
+, cecUserControlReleased            = 0x45
+, cecGiveOsdName                    = 0x46
+, cecSetOsdName                     = 0x47
+/*                                  = 0x48 GAP */
+/*                                  = 0x49 GAP */
+/*                                  = 0x4A GAP */
+/*                                  = 0x4B GAP */
+/*                                  = 0x4C GAP */
+/*                                  = 0x4D GAP */
+/*                                  = 0x4E GAP */
+/*                                  = 0x4F GAP */
+/*                                  = 0x50 GAP */
+/*                                  = 0x51 GAP */
+, cecGiveSystemInfo                 = 0x52  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+, cecSetSystemInfoVersionNumber     = 0x53  /* HDMI-CEC spec v1.2, removed in HDMI-CEC spec 1.3a */
+/*                                  = 0x54 GAP */
+/*                                  = 0x55 GAP */
+/*                                  = 0x56 GAP */
+/*                                  = 0x57 GAP */
+/*                                  = 0x58 GAP */
+/*                                  = 0x59 GAP */
+/*                                  = 0x5A GAP */
+/*                                  = 0x5B GAP */
+/*                                  = 0x5C GAP */
+/*                                  = 0x5D GAP */
+/*                                  = 0x5E GAP */
+/*                                  = 0x5F GAP */
+/*                                  = 0x60 GAP */
+/*                                  = 0x61 GAP */
+/*                                  = 0x62 GAP */
+/*                                  = 0x63 GAP */
+, cecSetOsdString                   = 0x64
+/*                                  = 0x65 GAP */
+/*                                  = 0x66 GAP */
+, cecSetTimerProgramTitle           = 0x67
+/*                                  = 0x68 GAP */
+/*                                  = 0x69 GAP */
+/*                                  = 0x6A GAP */
+/*                                  = 0x6B GAP */
+/*                                  = 0x6C GAP */
+/*                                  = 0x6D GAP */
+/*                                  = 0x6E GAP */
+/*                                  = 0x6F GAP */
+, cecSystemAudioModeRequest         = 0x70  /* HDMI-CEC spec 1.3a */
+, cecGiveAudioStatus                = 0x71  /* HDMI-CEC spec 1.3a */
+, cecSetSystemAudioMode             = 0x72  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x73 GAP */
+/*                                  = 0x74 GAP */
+/*                                  = 0x75 GAP */
+/*                                  = 0x76 GAP */
+/*                                  = 0x77 GAP */
+/*                                  = 0x78 GAP */
+/*                                  = 0x79 GAP */
+, cecReportAudioStatus              = 0x7A  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x7B GAP */
+/*                                  = 0x7C GAP */
+, cecGiveSystemAudioModeStatus      = 0x7D  /* HDMI-CEC spec 1.3a */
+, cecSystemAudioModeStatus          = 0x7E  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x7F GAP */
+, cecRoutingChange                  = 0x80
+, cecRoutingInformation             = 0x81
+, cecActiveSource                   = 0x82
+, cecGivePhysicalAddress            = 0x83
+, cecReportPhysicalAddress          = 0x84
+, cecRequestActiveSource            = 0x85
+, cecSetStreamPath                  = 0x86
+, cecDeviceVendorId                 = 0x87
+/*                                  = 0x88 GAP */
+, cecVendorCommand                  = 0x89
+, cecVendorRemoteButtonDown         = 0x8A
+, cecVendorRemoteButtonUp           = 0x8B
+, cecGiveDeviceVendorId             = 0x8C
+, cecMenuRequest                    = 0x8D
+, cecMenuStatus                     = 0x8E
+, cecGiveDevicePowerStatus          = 0x8F
+, cecGetDevPowerStatus              = 0x8F  /* Kept for backward compatibility */
+, cecReportPowerStatus              = 0x90
+, cecGetMenuLanguage                = 0x91  /* HDMI-CEC spec 1.3a */
+, cecSelectAnalogueService          = 0x92  /* HDMI-CEC spec 1.3a */
+, cecSelectDigitalService           = 0x93  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x94 GAP */
+/*                                  = 0x95 GAP */
+/*                                  = 0x96 GAP */
+, cecSetDigitalTimer                = 0x97  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x98 GAP */
+, cecClearDigitalTimer              = 0x99  /* HDMI-CEC spec 1.3a */
+, cecSetAudioRate                   = 0x9A  /* HDMI-CEC spec 1.3a */
+/*                                  = 0x9B GAP */
+/*                                  = 0x9C GAP */
+, cecInactiveSource                 = 0x9D  /* HDMI-CEC spec 1.3a */
+, cecCECVersion                     = 0x9E  /* HDMI-CEC spec 1.3a */
+, cecGetCECVersion                  = 0x9F  /* HDMI-CEC spec 1.3a */
+, cecVendorCommandWithID            = 0xA0  /* HDMI-CEC spec 1.3a */
+, cecClearExternalTimer             = 0xA1  /* HDMI-CEC spec 1.3a */
+, cecSetExternalTimer               = 0xA2  /* HDMI-CEC spec 1.3a */
+/*                                  = 0xA3 - 0xFE GAP (92 messages)*/
+, cecPollMessage                    = 0xAA  /* 0xAA ?? */
+, cecAbort                          = 0xFF
+, cecAbortMessage                   = 0xFF  /* Kept for backward compatibility */
+, cecUserControlPressedPower        = 0x4440  /* UserControlPressed Power */
+, cecUserControlPressedPowerOn      = 0x446D /* UserControlPressed PowerOn */
+} CecOpcode;
+
+#endif
+#endif

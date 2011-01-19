@@ -1,0 +1,193 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiMediaDetect.dd %
+ *    %version: 1 %
+ *    %date_modified: Wed Jul 29 11:54:05 2009 %
+ *    %derived_by: wenchenl %
+ */
+
+#ifndef _DPLFAPIMEDIADETECT_DD_
+#define _DPLFAPIMEDIADETECT_DD_
+
+#define MAX_STREAMS 16
+/** koala public group  PlfApiMediaDetect**/
+/** koala using infraglobals **/
+
+
+/******************************************************************************/
+/** koala public type MediaDetect_FileFormat_t **/
+/** \brief Indicates the different file formats                                        */
+typedef enum
+{
+    /* Unknown file format */
+    FileFormat_Unknown,
+    /* The MPEG-4 File format ISO/IEC 14496-14 */
+    FileFormat_Mp4    = 0xF,
+    /* Windows media */
+    FileFormat_Wm,
+    /* AVI file format */
+    FileFormat_Avi,
+    /* MPEG Program Stream */
+    FileFormat_MpegPs,
+    /* MPEG Transport Stream */
+    FileFormat_MpegTs
+} MediaDetect_FileFormat_t;
+
+/******************************************************************************/
+/** koala public type MediaDetect_AvType_t **/
+/** \brief Indicates the file type                                                       */
+typedef enum
+{
+    /* Unknown */
+    AvType_Unknown,
+    /* Audio only file */
+    AvType_AudioOnly      = 0xF0,
+    /* Video only file */
+    AvType_VideoOnly,
+    /* Audio Video only file */
+    AvType_AudioVideo
+
+} MediaDetect_AvType_t;
+
+
+
+/******************************************************************************/
+/** koala public type MediaDetect_Codec **/
+/** \brief Indicates the codec 													*/
+typedef enum
+{
+    /* Unknown codec */
+    Codec_Unknown,
+    /* Video Codecs */
+    /* MPEG-1 Codec */
+    Codec_Video_Mpeg1 = 0xF00,
+    /* MPEG-2 Codec */
+    Codec_Video_Mpeg2,
+    /* MPEG-4 Codec */
+    Codec_Video_Mpeg4,
+    /* AVC / H.264 Codec */
+    Codec_Video_H264,
+    /* MJPEG Codec */
+    Codec_Video_Mjpeg,
+    /* Divx Codec */
+    Codec_Video_Divx,
+    /* Windows video */
+    Codec_Video_Wmv,
+
+    /* Audio Codecs */
+    /* AAC Codec */
+    Codec_Audio_Aac ,
+    /* AC3 Codec */
+    Codec_Audio_Ac3,
+    /* MPEG-1 Layer 3 Codec */
+    Codec_Audio_Mp3,
+    /* Uncompressed WAV */
+    Codec_Audio_Wav,
+    /* ADPCM */
+    Codec_Audio_Adpcm,
+    /* Windows audio */
+    Codec_Audio_Wma,
+
+    /* Subtitle */
+    Codec_Subtitle_Text,
+    Codec_Max
+	
+} MediaDetect_Codec;
+
+
+
+/******************************************************************************/
+/** koala public type MediaDetect_Error **/
+/** \brief Error codes.                                                */
+typedef enum
+{
+    MediaDetect_Error_None = 0,
+    MediaDetect_Error_InvalidArgs,
+    MediaDetect_Error_FileNotAccessible,
+    MediaDetect_Error_InsufficientMemory,
+    MediaDetect_Error_Internal
+} MediaDetect_Error;
+
+
+
+/******************************************************************************/
+/** koala public type AudioCodec_Info **/
+/** \brief Signal status information.                                         */
+typedef struct
+{
+    /* Sampling frequency of the audio */
+    unsigned short samplingFrequency;
+    /* Number of channels */
+    unsigned short channels;
+    /* Bitrate */
+    unsigned short bitrate;
+} AudioCodec_Info;
+
+
+
+/******************************************************************************/
+/** koala public type VideoCodec_Info **/
+/** \brief video codec info.                                              */
+typedef struct
+{
+    /* Video width */
+    unsigned int width;
+    /* Video height */
+    unsigned int height;
+    /* FPS */
+    unsigned short fps;
+} VideoCodec_Info;
+
+
+
+/******************************************************************************/
+/** koala public type Codec_Info **/
+/** \brief Codec info.                                           */
+typedef struct
+{
+    /* The codec type */
+    MediaDetect_Codec codec;
+    /* union of video and audio info.
+     * Depending on the \ref Codec_Info::codec "codec" type, 
+     * the corresponding structure is referred
+     * */
+    union
+    {
+        /* The video stream properties */
+        VideoCodec_Info videoInfo;
+        /* The audio stream properties */
+        AudioCodec_Info audioInfo;
+    }u;
+} Codec_Info;
+
+
+
+/******************************************************************************/
+/** koala public type MediaDetect_Format_t **/
+/** \brief Scan mode.                                              */
+typedef struct
+{
+    /* The detected file format */
+    MediaDetect_FileFormat_t  fileFormat;
+    /* The detected file type */
+    MediaDetect_AvType_t  avType;
+    /* Number of streams in the container */
+    unsigned int streams;
+    /* The codec information and properties of individual streams
+     * in the container.
+     * */
+    Codec_Info codec_info[MAX_STREAMS];
+} MediaDetect_Format_t;
+
+
+
+#endif /* _DPLFAPIMEDIADETECT_DD_ */
+

@@ -1,0 +1,540 @@
+/*
+ *  Copyright(C) 2006 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.      
+ *                                                                  
+ *    %version: brg45mgr#7 %
+ *    %date_modified: Wed Sep 23 16:28:41 2009 %
+ *    %derived_by: ferreirp %
+ *
+ */
+
+/** koala public group PlfApiFrontend **/
+/** koala public type tmFe_ConstellationSet_t **/
+/** koala public type tmFe_Constellation_t **/
+/** koala public type tmFe_IqModeSet_t **/
+/** koala public type tmFe_IqMode_t **/
+/** koala public type tmFe_CodeRateSet_t **/
+/** koala public type tmFe_CodeRate_t **/
+/** koala public type tmFe_HierarchyModeSet_t **/
+/** koala public type tmFe_HierarchyMode_t **/
+/** koala public type tmFe_GuardIntervalSet_t **/
+/** koala public type tmFe_GuardInterval_t **/
+/** koala public type tmFe_TimeInterleaveSet_t**/
+/** koala public type tmFe_TimeInterleave_t **/
+/** koala public type tmFe_BroadcastTypeSet_t**/
+/** koala public type tmFe_BroadcastType_t **/
+/** koala public type tmFe_PartialSet_t**/
+/** koala public type tmFe_Partial_t **/
+/** koala public type tmFe_TxModeSet_t **/
+/** koala public type tmFe_TxMode_t **/
+/** koala public type tmFe_NumberofSegments_t **/
+/** koala public type tmFe_ChanBandwidthSet_t **/
+/** koala public type tmFe_ChanBandwidth_t **/
+/** koala public type tmFe_StreamPriority_t **/
+/** koala public type tmFe_FrequencyOffsetSet_t **/
+/** koala public type tmFe_FrequencyOffset_t **/
+/** koala public type tmFe_SearchSymbolRate_t **/
+/** koala public type tmFe_ChanTable_t **/
+/** koala public type tmFe_TvSystem_t **/
+/** koala public type tmFe_SearchMode_t **/
+/** koala public type tmFe_SearchState_t **/
+/** koala public type tmFe_AfcValue_t **/
+
+#ifndef TMFE_H //-----------------
+#define TMFE_H
+
+/** koala using infraglobals **/
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+// #include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmFe_Version                          ( "1.1.2" )
+#define TM_ERR_FE_NO_CHAN                     ( 0x00000801 )
+#define TM_ERR_FE_NO_FREQ                     ( 0x00000802 )
+#define tmFe_NoOffset                         ( 0x00000000 )
+#define tmFe_AutoOffset                       ( 0xFFFFFFFF )
+#define tmFe_NoRfAmp                          ( 0x00000000 )
+#define tmFe_TuningAllNotifications           ( 0x000001FF )
+#define tmFe_SigStrengthMeasAllNotifications  ( 0x00000007 )
+#define tmFe_DigDemodDecodeAllNotifications   ( 0x00000007 )
+#define tmFe_ChanDecAllNotifications          ( 0x000003FF )
+#define tmFe_ASigStrengthMeasAllNotifications ( 0x00000007 )
+#define tmFe_QSigStrengthMeasAllNotifications ( 0x00000007 )
+
+
+typedef enum _tmFe_TuningNotification_t
+{
+    tmFe_TuningSubscriptionChanged = 0x00000001,
+    tmFe_TuningSearchStateChanged = 0x00000002,
+    tmFe_TuningSearchInProgress = 0x00000004,
+    tmFe_TuningStationFound = 0x00000008,
+    tmFe_TuningStationNotFound = 0x00000010,
+    tmFe_TuningTvSystemDetected = 0x00000020,
+    tmFe_TuningAfcFreqChanged = 0x00000040,
+    tmFe_TuningAfcLimitReached = 0x00000080,
+    tmFe_TuningAfcModeChanged = 0x00000100
+} tmFe_TuningNotification_t;
+
+typedef tmFe_TuningNotification_t* ptmFe_TuningNotification_t;
+
+typedef Int32 tmFe_TuningNotifications_t;
+
+typedef tmFe_TuningNotifications_t* ptmFe_TuningNotifications_t;
+
+typedef enum _tmFe_SigStrengthMeasNotification_t
+{
+    tmFe_SigStrengthMeasSubscriptionChanged = 0x00000001,
+    tmFe_SigStrengthMeasReady = 0x00000002,
+    tmFe_SigStrengthMeasAborted = 0x00000004
+} tmFe_SigStrengthMeasNotification_t;
+
+typedef tmFe_SigStrengthMeasNotification_t* ptmFe_SigStrengthMeasNotification_t;
+
+typedef Int32 tmFe_SigStrengthMeasNotifications_t;
+
+typedef tmFe_SigStrengthMeasNotifications_t* ptmFe_SigStrengthMeasNotifications_t;
+
+typedef enum _tmFe_DigDemodDecodeNotification_t
+{
+    tmFe_DigDemodDecodeSubscriptionChanged = 0x00000001,
+    tmFe_DigDemodDecodeBerBelowThreshold = 0x00000002,
+    tmFe_DigDemodDecodeBerAboveThreshold = 0x00000004
+} tmFe_DigDemodDecodeNotification_t;
+
+typedef tmFe_DigDemodDecodeNotification_t* ptmFe_DigDemodDecodeNotification_t;
+
+typedef Int32 tmFe_DigDemodDecodeNotifications_t;
+
+typedef tmFe_DigDemodDecodeNotifications_t* ptmFe_DigDemodDecodeNotifications_t;
+
+typedef enum _tmFe_TvSystem_t
+{
+    tmFe_TvSystemNone = 0x00000001,
+    tmFe_TvSystemBg = 0x00000002,
+    tmFe_TvSystemD = 0x00000004,
+    tmFe_TvSystemDk = 0x00000008,
+    tmFe_TvSystemDk1 = 0x00000010,
+    tmFe_TvSystemDk2 = 0x00000020,
+    tmFe_TvSystemI = 0x00000040,
+    tmFe_TvSystemH = 0x00000080,
+    tmFe_TvSystemK1 = 0x00000100,
+    tmFe_TvSystemL = 0x00000200,
+    tmFe_TvSystemL1 = 0x00000400,
+    tmFe_TvSystemM = 0x00000800,
+    tmFe_TvSystemN = 0x00001000,
+    tmFe_TvSystemC64Qam = 0x00002000,
+    tmFe_TvSystemC256Qam = 0x00004000,
+    tmFe_TvSystemT8Vsb = 0x00008000,
+    tmFe_TvSystemT16Vsb = 0x00010000
+} tmFe_TvSystem_t;
+
+typedef tmFe_TvSystem_t* ptmFe_TvSystem_t;
+
+typedef Nat32 tmFe_TvSystemSet_t;
+
+typedef tmFe_TvSystemSet_t* ptmFe_TvSystemSet_t;
+
+typedef enum _tmFe_SearchMode_t
+{
+    tmFe_SmDefault = 0x00000001,
+    tmFe_SmChanTable = 0x00000002,
+    tmFe_SmPositiveModulation = 0x00000004,
+    tmFe_SmCurrentIncluded = 0x00000008,
+    tmFe_SmDirectionDown = 0x00000010,
+    tmFe_SmFinetuneIncluded = 0x00000020,
+    tmFe_SmTvSystemIncluded = 0x00000040,
+    tmFe_SmColorSystemIncluded = 0x00000080,
+    tmFe_SmSoundSystemIncluded = 0x00000100
+} tmFe_SearchMode_t;
+
+typedef tmFe_SearchMode_t* ptmFe_SearchMode_t;
+
+typedef Nat32 tmFe_SearchModeSet_t;
+
+typedef tmFe_SearchModeSet_t* ptmFe_SearchModeSet_t;
+
+typedef enum _tmFe_SearchState_t
+{
+    tmFe_SsNone = 0x00000001,
+    tmFe_SsSearching = 0x00000002,
+    tmFe_SsFinetune = 0x00000004,
+    tmFe_SsTvSystemDecoding = 0x00000008,
+    tmFe_SsColorSystemDecoding = 0x00000010,
+    tmFe_SsSoundSystemDecoding = 0x00000020
+} tmFe_SearchState_t;
+
+typedef tmFe_SearchState_t* ptmFe_SearchState_t;
+
+typedef Nat32 tmFe_SearchStateSet_t;
+
+typedef tmFe_SearchStateSet_t* ptmFe_SearchStateSet_t;
+
+typedef enum _tmFe_AfcValue_t
+{
+    tmFe_FreqUnknown = 0x00000001,
+    tmFe_FreqFarBelowIf = 0x00000002,
+    tmFe_FreqBelowIf = 0x00000004,
+    tmFe_FreqAboveIf = 0x00000008,
+    tmFe_FreqFarAboveIf = 0x00000010
+} tmFe_AfcValue_t;
+
+typedef tmFe_AfcValue_t* ptmFe_AfcValue_t;
+
+typedef enum _tmFe_DataRate_t
+{
+    tmFe_UnknownDataRate = 0x00000001,
+    tmFe_Dvs167_1544 = 0x00000002,
+    tmFe_Dvs178_2048 = 0x00000004,
+    tmFe_Dvs167_3088 = 0x00000008,
+    tmFe_Dvs167_1544Inv = 0x00000010,
+    tmFe_Dvs178_2048Inv = 0x00000020,
+    tmFe_Dvs167_3088Inv = 0x00000040
+} tmFe_DataRate_t;
+
+typedef tmFe_DataRate_t* ptmFe_DataRate_t;
+
+typedef Nat32 tmFe_DataRateSet_t;
+
+typedef tmFe_DataRateSet_t* ptmFe_DataRateSet_t;
+
+typedef enum _tmFe_ChanTable_t
+{
+    tmFe_UnknownTable = 0x00000001,
+    tmFe_TableApAntenna = 0x00000002,
+    tmFe_TableApCable = 0x00000004,
+    tmFe_TableEuropeS = 0x00000008,
+    tmFe_TableEuropeC = 0x00000010,
+    tmFe_TableUsCable = 0x00000020,
+    tmFe_TableUsAntenna = 0x00000040,
+    tmFe_TableUsAfn = 0x00000080,
+    tmFe_TableEuropeDkS = 0x00000100,
+    tmFe_TableEuropeDkC = 0x00000200,
+    tmFe_TableEuropeIS = 0x00000400,
+    tmFe_TableEuropeIC = 0x00000800,
+    tmFe_TableEuropeLS = 0x00001000,
+    tmFe_TableEuropeLC = 0x00002000,
+    tmFe_TableBrasilAntenna = 0x00004000
+} tmFe_ChanTable_t;
+
+typedef tmFe_ChanTable_t* ptmFe_ChanTable_t;
+
+typedef Nat32 tmFe_ChanTableSet_t;
+
+typedef tmFe_ChanTableSet_t* ptmFe_ChanTableSet_t;
+
+typedef enum _tmFe_Constellation_t
+{
+    tmFe_UnknownConstellation = 0x00000001,
+    tmFe_Bpsk = 0x00000002,
+    tmFe_Qpsk = 0x00000004,
+    tmFe_8psk = 0x00000008,
+    tmFe_Qam4 = 0x00000010,
+    tmFe_Qam16 = 0x00000020,
+    tmFe_Qam64 = 0x00000040,
+    tmFe_Qam128 = 0x00000080,
+    tmFe_Qam256 = 0x00000100,
+    tmFe_Qam512 = 0x00000200,
+    tmFe_Qam1024 = 0x00000400,
+    tmFe_Vsb8 = 0x00000800,
+    tmFe_Vsb16 = 0x00001000,
+    tmFe_AutoConstellation = 0x00002000,
+    tmFe_InvalidConstellation = 0x00004000,
+    tmFe_Qam32 = 0x00008000,
+    tmFe_DQpsk = 0x00010000,
+    tmFe_ConstellationNolayer = 0x00020000
+} tmFe_Constellation_t;
+
+typedef tmFe_Constellation_t* ptmFe_Constellation_t;
+
+typedef Nat32 tmFe_ConstellationSet_t;
+
+typedef tmFe_ConstellationSet_t* ptmFe_ConstellationSet_t;
+
+typedef enum _tmFe_IqMode_t
+{
+    tmFe_UnknownIqMode = 0x00000001,
+    tmFe_IqModeNormal = 0x00000002,
+    tmFe_IqModeInverse = 0x00000004,
+    tmFe_IqModeAuto = 0x00000008,
+    tmFe_InvalidIqMode = 0x00000010
+} tmFe_IqMode_t;
+
+typedef tmFe_IqMode_t* ptmFe_IqMode_t;
+
+typedef Nat32 tmFe_IqModeSet_t;
+
+typedef tmFe_IqModeSet_t* ptmFe_IqModeSet_t;
+
+typedef enum _tmFe_CodeRate_t
+{
+    tmFe_CodeRateInvalid = 0x80000000,
+    tmFe_CodeRateUnknown = 0x40000000,
+    tmFe_CodeRateAuto = 0x00000001,
+    tmFe_CodeRateNone = 0x00000002,
+    tmFe_CodeRate1_2 = 0x00000004,
+    tmFe_CodeRate2_3 = 0x00000008,
+    tmFe_CodeRate3_4 = 0x00000010,
+    tmFe_CodeRate5_6 = 0x00000020,
+    tmFe_CodeRate6_7 = 0x00000040,
+    tmFe_CodeRate7_8 = 0x00000080,
+    tmFe_CodeRate8_9 = 0x00000100,
+    tmFe_CodeRateNolayer = 0x00000200    
+} tmFe_CodeRate_t;
+
+typedef tmFe_CodeRate_t* ptmFe_CodeRate_t;
+
+typedef Int32 tmFe_CodeRateSet_t;
+
+typedef tmFe_CodeRateSet_t* ptmFe_CodeRateSet_t;
+
+typedef enum _tmFe_HierarchyMode_t
+{
+    tmFe_HierarchyModeInvalid = 0x80000000,
+    tmFe_HierarchyModeUnknown = 0x40000000,
+    tmFe_HierarchyModeAuto = 0x00000001,
+    tmFe_HierarchyAlpha1 = 0x00000002,
+    tmFe_HierarchyAlpha2 = 0x00000004,
+    tmFe_HierarchyAlpha4 = 0x00000008,
+    tmFe_HierarchyNone = 0x00000010
+} tmFe_HierarchyMode_t;
+
+typedef tmFe_HierarchyMode_t* ptmFe_HierarchyMode_t;
+
+typedef Int32 tmFe_HierarchyModeSet_t;
+
+typedef tmFe_HierarchyModeSet_t* ptmFe_HierarchyModeSet_t;
+
+typedef enum _tmFe_GuardInterval_t
+{
+    tmFe_GuardIntervalInvalid = 0x80000000,
+    tmFe_GuardIntervalUnknown = 0x40000000,
+    tmFe_GuardIntervalAuto = 0x00000001,
+    tmFe_GuardInterval1_32 = 0x00000002,
+    tmFe_GuardInterval1_16 = 0x00000004,
+    tmFe_GuardInterval1_8 = 0x00000008,
+    tmFe_GuardInterval1_4 = 0x00000010
+} tmFe_GuardInterval_t;
+
+
+typedef tmFe_GuardInterval_t* ptmFe_GuardInterval_t;
+
+typedef Int32 tmFe_GuardIntervalSet_t;
+
+typedef tmFe_GuardIntervalSet_t* ptmFe_GuardIntervalSet_t;
+
+typedef enum _tmFe_TimeInterleave_t
+{
+    tmFe_TimeInterleaveAuto     = 0x00000001,
+    tmFe_TimeInterleave0        = 0x00000002,
+    tmFe_TimeInterleave1        = 0x00000004,
+    tmFe_TimeInterleave2        = 0x00000008,
+    tmFe_TimeInterleave4        = 0x00000010,
+    tmFe_TimeInterleave8        = 0x00000020,
+    tmFe_TimeInterleave16       = 0x00000040,
+    tmFe_TimeInterleaveNoLayer  = 0x00000080,
+    tmFe_TimeInterleaveInvalid  = 0x80000000,
+    tmFe_TimeInterleaveUnknown  = 0x40000000
+}tmFe_TimeInterleave_t;
+
+typedef tmFe_TimeInterleave_t* ptmFe_TimeInterleave_t;
+
+typedef Int32 tmFe_TimeInterleaveSet_t;
+
+typedef tmFe_TimeInterleaveSet_t* ptmFe_TimeInterleaveSet_t;
+
+typedef enum _tmFe_BroadcastType_t
+{
+    tmFe_BroadcastTypeAuto        = 0x00000001,
+    tmFe_BroadcastType_TV         = 0x00000002,
+    tmFe_BroadcastType_Sound      = 0x00000004,
+    tmFe_BroadcastTypeUnknown     = 0x40000000,
+    tmFe_BroadcastTypeInvalid     = 0x80000000
+
+}tmFe_BroadcastType_t;
+
+typedef tmFe_BroadcastType_t* ptmFe_BroadcastType_t;
+
+typedef Int32 tmFe_BroadcastTypeSet_t;
+
+typedef tmFe_BroadcastTypeSet_t* ptmFe_BroadcastTypeSet_t;
+
+
+typedef enum _tmFe_Partial_t
+{
+    tmFe_PartialReceptionAuto     = 0x00000001,
+    tmFe_NoPartial                = 0x00000002,
+    tmFe_PartialReception         = 0x00000004,
+    tmFe_Segment_1                = 0x00000008,
+    tmFe_Segment_3                = 0x00000010,
+    tmFe_PartialReceptionUnknown  = 0x40000000,
+    tmFe_PartialReceptionInvalid  = 0x80000000
+
+}tmFe_Partial_t;
+
+typedef tmFe_Partial_t* ptmFe_Partial_t;
+
+typedef enum _tmFe_NumberofSegments_t
+{
+    tmFe_NumberofSegmentsAuto     = 0x00000001,
+    tmFe_NumberofSegmentsNoLayer  = 0x00000010,
+    tmFe_NumberofSegmentsUnknown  = 0x40000000,
+    tmFe_NumberofSegmentsInvalid  = 0x80000000
+
+}tmFe_NumberofSegments_t;
+
+typedef tmFe_NumberofSegments_t* ptmFe_NumberofSegments_t;
+
+
+typedef Int32 tmFe_PartialSet_t;
+
+typedef tmFe_PartialSet_t* ptmFe_PartialSet_t;
+
+typedef enum _tmFe_TxMode_t
+{
+    tmFe_TxModeInvalid = 0x80000000,
+    tmFe_TxModeUnknown = 0x40000000,
+    tmFe_TxModeAuto = 0x00000001,
+    tmFe_TxMode2k = 0x00000002,
+    tmFe_TxMode8k = 0x00000004
+} tmFe_TxMode_t;
+
+typedef tmFe_TxMode_t* ptmFe_TxMode_t;
+
+typedef Int32 tmFe_TxModeSet_t;
+
+typedef tmFe_TxModeSet_t* ptmFe_TxModeSet_t;
+
+typedef enum _tmFe_ChanBandwidth_t
+{
+    tmFe_ChanBandwidthInvalid = 0x80000000,
+    tmFe_ChanBandwidthUnknown = 0x40000000,
+    tmFe_ChanBandwidthAuto = 0x00000001,
+    tmFe_ChanBandwidth6MHz = 0x00000002,
+    tmFe_ChanBandwidth7MHz = 0x00000004,
+    tmFe_ChanBandwidth8MHz = 0x00000008
+} tmFe_ChanBandwidth_t;
+
+typedef tmFe_ChanBandwidth_t* ptmFe_ChanBandwidth_t;
+
+typedef Int32 tmFe_ChanBandwidthSet_t;
+
+typedef tmFe_ChanBandwidthSet_t* ptmFe_ChanBandwidthSet_t;
+
+typedef struct _tmFe_SearchSymbolRate_t
+{
+    tmFe_Constellation_t constellation;
+    UInt32 rate;
+} tmFe_SearchSymbolRate_t;
+
+typedef tmFe_SearchSymbolRate_t* ptmFe_SearchSymbolRate_t;
+
+typedef enum _tmFe_ChanDecNotification_t
+{
+    tmFe_ChanDecSubscriptionChanged = 0x00000001,
+    tmFe_ChanDecConstellationDetected = 0x00000002,
+    tmFe_ChanDecIqModeDetected = 0x00000004,
+    tmFe_ChanDecCarrierPresentChanged = 0x00000008,
+    tmFe_ChanDecBerThresholdCrossed = 0x00000010,
+    tmFe_ChanDecCodeRateDetected = 0x00000020,
+    tmFe_ChanDecHierarchyModeDetected = 0x00000040,
+    tmFe_ChanDecGuardIntervalDetected = 0x00000080,
+    tmFe_ChanDecTxModeDetected = 0x00000100,
+    tmFe_ChanDecChannelBandwidthDetected = 0x00000200
+} tmFe_ChanDecNotification_t;
+
+typedef tmFe_ChanDecNotification_t* ptmFe_ChanDecNotification_t;
+
+typedef Int32 tmFe_ChanDecNotifications_t;
+
+typedef tmFe_ChanDecNotifications_t* ptmFe_ChanDecNotifications_t;
+
+typedef enum _tmFe_ASigStrengthMeasNotification_t
+{
+    tmFe_ASigStrengthMeasSubscriptionChanged = 0x00000001,
+    tmFe_ASigStrengthMeasReady = 0x00000002,
+    tmFe_ASigStrengthMeasAborted = 0x00000004
+} tmFe_ASigStrengthMeasNotification_t;
+
+typedef tmFe_ASigStrengthMeasNotification_t* ptmFe_ASigStrengthMeasNotification_t;
+
+typedef Int32 tmFe_ASigStrengthMeasNotifications_t;
+
+typedef tmFe_ASigStrengthMeasNotifications_t* ptmFe_ASigStrengthMeasNotifications_t;
+
+typedef enum _tmFe_QSigStrengthMeasNotification_t
+{
+    tmFe_QSigStrengthMeasSubscriptionChanged = 0x00000001,
+    tmFe_QSigStrengthMeasReady = 0x00000002,
+    tmFe_QSigStrengthMeasAborted = 0x00000004
+} tmFe_QSigStrengthMeasNotification_t;
+
+typedef tmFe_QSigStrengthMeasNotification_t* ptmFe_QSigStrengthMeasNotification_t;
+
+typedef Int32 tmFe_QSigStrengthMeasNotifications_t;
+
+typedef tmFe_QSigStrengthMeasNotifications_t* ptmFe_QSigStrengthMeasNotifications_t;
+
+typedef enum _tmFe_StreamPriority_t
+{
+    tmFe_StreamPriorityHigh = 0x00000001,
+    tmFe_StreamPriorityLow = 0x00000002
+} tmFe_StreamPriority_t;
+
+typedef tmFe_StreamPriority_t* ptmFe_StreamPriority_t;
+
+typedef enum _tmFe_FrequencyOffset_t
+{
+    tmFe_OffsetNone = 0x00000001,
+    tmFe_OffsetInvalid = 0x00000002,
+    tmFe_OffsetUnknown = 0x00000004,
+    tmFe_OffsetAuto = 0x00000008,
+    tmFe_OffsetP1d6MHz = 0x00000010,
+    tmFe_OffsetP2d6MHz = 0x00000020,
+    tmFe_OffsetP3d6MHz = 0x00000040,
+    tmFe_OffsetM1d6MHz = 0x00000080,
+    tmFe_OffsetM2d6MHz = 0x00000100,
+    tmFe_OffsetM3d6MHz = 0x00000200
+} tmFe_FrequencyOffset_t;
+
+typedef tmFe_FrequencyOffset_t* ptmFe_FrequencyOffset_t;
+
+typedef Int32 tmFe_FrequencyOffsetSet_t;
+
+typedef tmFe_FrequencyOffsetSet_t* ptmFe_FrequencyOffsetSet_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMFE_H //---------------
+

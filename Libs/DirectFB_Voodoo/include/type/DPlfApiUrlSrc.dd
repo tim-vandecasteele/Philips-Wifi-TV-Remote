@@ -1,0 +1,173 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiUrlSrc.dd %
+ *    %version: brg40mgr#4 %
+ *    %date_modified: Fri Nov 16 10:56:48 2007 %
+ *    %derived_by: pletincw %
+ */
+
+/** koala public group PlfApiUrlSrc **/
+/** koala public type tmUrlSrc_Schemes_t **/
+/** koala public type tmUrlSrc_Rounding_t **/
+/** koala public type tmUrlSrc_StepModes_t **/
+/** koala public type tmUrlSrc_NotAccessibleCause_t **/
+/** koala public type tmUrlSrc_BufferingState_t **/
+/** koala public type tmUrlSrc_SeekMode_t **/
+
+#ifndef TMURLSRC_H //-----------------
+#define TMURLSRC_H
+
+/** koala using infraglobals **/
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmUrlSrc_Version               ( "3.1" )
+#define TM_ERR_URLSRC_INVALID_URL      ( 0x00000801 )
+#define TM_ERR_URLSRC_SCHEME_NOT_SUPP  ( 0x00000802 )
+#define TM_ERR_URLSRC_ABORTED          ( 0x00000803 )
+#define TM_ERR_URLSRC_NOT_ABORTED      ( 0x00000804 )
+#define TM_ERR_URLSRC_END_OF_STREAM    ( 0x00000805 )
+#define TM_ERR_URLSRC_CONNECTION_LOST  ( 0x00000806 )
+#define tmUrlSrc_AllNotificationsEx    ( 0x000007FF )
+#define tmUrlSrc_AllTrickNotifications ( 0x00000007 )
+
+
+typedef enum _tmUrlSrc_NotificationEx_t
+{
+    tmUrlSrc_SubscriptionChanged = 0x00000001,
+    tmUrlSrc_Accessible = 0x00000002,
+    tmUrlSrc_NotAccessible = 0x00000004,
+    tmUrlSrc_ConnectionRetry = 0x00000008,
+    tmUrlSrc_EndOfRendering = 0x00000010,
+    tmUrlSrc_EndOfInput = 0x00000020,
+    tmUrlSrc_DataConsumed = 0x00000040,
+    tmUrlSrc_PlayTimeChanged = 0x00000080,
+    tmUrlSrc_ActionAborted = 0x00000100,
+    tmUrlSrc_TrickControlLost = 0x00000200,
+    tmUrlSrc_BufferingStateChanged = 0x00000400
+} tmUrlSrc_NotificationEx_t;
+
+typedef tmUrlSrc_NotificationEx_t* ptmUrlSrc_NotificationEx_t;
+
+typedef Int32 tmUrlSrc_NotificationsEx_t;
+
+typedef tmUrlSrc_NotificationsEx_t* ptmUrlSrc_NotificationsEx_t;
+
+typedef enum _tmUrlSrc_Scheme_t
+{
+    tmUrlSrc_SchemeFtp = 0x00000001,
+    tmUrlSrc_SchemeHttp = 0x00000002,
+    tmUrlSrc_SchemeHttps = 0x00000004,
+    tmUrlSrc_SchemeGopher = 0x00000008,
+    tmUrlSrc_SchemeNews = 0x00000010,
+    tmUrlSrc_SchemeNntp = 0x00000020,
+    tmUrlSrc_SchemeFile = 0x00000040,
+    tmUrlSrc_SchemeProspero = 0x00000080,
+    tmUrlSrc_SchemeRtsp = 0x00000100,
+    tmUrlSrc_SchemeRtspu = 0x00000200
+} tmUrlSrc_Scheme_t;
+
+typedef tmUrlSrc_Scheme_t* ptmUrlSrc_Scheme_t;
+
+typedef Int32 tmUrlSrc_Schemes_t;
+
+typedef tmUrlSrc_Schemes_t* ptmUrlSrc_Schemes_t;
+
+typedef enum _tmUrlSrc_NotAccessibleCause_t
+{
+    tmUrlSrc_NacNotFound = 0,
+    tmUrlSrc_NacTimeOut = 1,
+    tmUrlSrc_NacConnectionLost = 2,
+    tmUrlSrc_NacConnectionTerminated = 3
+} tmUrlSrc_NotAccessibleCause_t;
+
+typedef tmUrlSrc_NotAccessibleCause_t* ptmUrlSrc_NotAccessibleCause_t;
+
+typedef enum _tmUrlSrc_Rounding_t
+{
+    tmUrlSrc_RoundUp = 0,
+    tmUrlSrc_RoundDown = 1,
+    tmUrlSrc_RoundNearest = 2
+} tmUrlSrc_Rounding_t;
+
+typedef tmUrlSrc_Rounding_t* ptmUrlSrc_Rounding_t;
+
+typedef enum _tmUrlSrc_StepMode_t
+{
+    tmUrlSrc_StepForward = 0x00000001,
+    tmUrlSrc_StepBackward = 0x00000002
+} tmUrlSrc_StepMode_t;
+
+typedef tmUrlSrc_StepMode_t* ptmUrlSrc_StepMode_t;
+
+typedef Int32 tmUrlSrc_StepModes_t;
+
+typedef tmUrlSrc_StepModes_t* ptmUrlSrc_StepModes_t;
+
+typedef enum _tmUrlSrc_BufferingState_t
+{
+    tmUrlSrc_BufferStateStreaming = 0,
+    tmUrlSrc_BufferStateBuffering = 1
+} tmUrlSrc_BufferingState_t;
+
+typedef tmUrlSrc_BufferingState_t* ptmUrlSrc_BufferingState_t;
+
+typedef enum _tmUrlSrc_TrickNotification_t
+{
+    tmUrlSrc_TrickSubscriptionChanged = 0x00000001,
+    tmUrlSrc_TrickSetPositionAborted = 0x00000002,
+    tmUrlSrc_TrickSetPositionCompleted = 0x00000004
+} tmUrlSrc_TrickNotification_t;
+
+typedef tmUrlSrc_TrickNotification_t* ptmUrlSrc_TrickNotification_t;
+
+typedef Int32 tmUrlSrc_TrickNotifications_t;
+
+typedef tmUrlSrc_TrickNotifications_t* ptmUrlSrc_TrickNotifications_t;
+
+typedef enum _tmUrlSrc_SeekMode_t {
+    tmUrlSrc_SeekNone     = 0,
+    tmUrlSrc_SeekByBytes  = 1,
+    tmUrlSrc_SeekByTime   = 2 
+} tmUrlSrc_SeekMode_t;
+
+typedef tmUrlSrc_SeekMode_t* ptmUrlSrc_SeekMode_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMURLSRC_H //---------------
+

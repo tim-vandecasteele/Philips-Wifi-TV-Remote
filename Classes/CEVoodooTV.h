@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import <directfb.h>
-#import <hotkeys.h>
+
 #define INITIALLIFEPINGS 4
 
 @interface CEVoodooTV : NSObject {

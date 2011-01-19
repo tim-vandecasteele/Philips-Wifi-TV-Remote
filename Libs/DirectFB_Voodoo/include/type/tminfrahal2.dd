@@ -1,4 +1,3 @@
-
 /* 
  * Copyright © 2009, Koninklijke Philips Electronics N.V.
  * All rights reserved.
@@ -27,19 +26,36 @@
  *
  */
 
-#ifndef __JSLIBRC_SUPPLY__
-#define __JSLIBRC_SUPPLY__
 
-#include <type/infraglobals.dd>
-#include <type/infrakeycommand.dd>
-#include <type/infrakey.dd>
+#ifndef _TMINFRAHAL2_DD_
+#define _TMINFRAHAL2_DD_
+
+/** koala public group tminfrahal2 **/
+
+#ifndef _HALTYPES_DEFINED_
+#define _HALTYPES_DEFINED_
+
+typedef struct 
+{
+	int				AddressOffset;
+	unsigned char	Position;
+	unsigned char	Length;
+	unsigned char	Attributes;
+} tmRegisterItem_t, *ptmRegisterItem_t;
 
 
-int  jslibrc_Init( void * device, int *argc, char **argv[] );
-void jslibrc_Exit( void );
-
-void jslibrc_KeyDown( KeySource source, KeySystem system, KeyCommand command );
-void jslibrc_KeyUp  ( KeySource source, KeySystem system, KeyCommand command );
+#define TMINFRAITEM_ATTR_READONLY	0x01
+#define TMINFRAITEM_ATTR_WRITEONLY	0x10
+#define TMINFRAITEM_ATTR_READWRITE	0x11
 
 #endif
+
+/** koala public type tmRegisterItem_t  **/
+/** koala public type ptmRegisterItem_t  **/
+
+/*#define RO 0x01
+#define WO 0x10
+#define RW 0x11*/
+
+#endif /* _TMINFRAHAL2_DD_ */
 

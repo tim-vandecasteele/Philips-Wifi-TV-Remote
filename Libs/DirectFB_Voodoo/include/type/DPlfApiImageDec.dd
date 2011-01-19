@@ -1,0 +1,350 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiImageDec.dd %
+ *    %version: brg45mgr#6RR %
+ *    %date_modified: Wed Sep 02 16:57:56 2009 %
+ *    %derived_by: chavannm %
+ */
+
+/** koala public group PlfApiImageDec **/
+/** koala public type tmImageDec2_ImageFormats_t **/
+/** koala public type tmPixFmtClsSet_t **/
+/** koala public type tmPixFmtCls_t **/
+/** koala public type tmPixFmtTypeSet_t **/
+/** koala public type tmPixFmtType_t **/
+/** koala public type tmImageDec2_ImageArea_t **/
+/** koala public type tmImageDec_Buffer_t **/
+/** koala public type tmImageDec2_ImageFormat_t **/
+/** koala public type tmImageDec2_Orientation_t **/
+/** koala public type tmImageDec2_RotationModes_t **/
+/** koala public type tmImageDec2_RotationMode_t **/
+/** koala public type tmImageDec2_Status_t **/
+
+/** koala using infraglobals **/
+
+#ifndef DPLFAPIIMAGEDEC_DD
+#define DPLFAPIIMAGEDEC_DD
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+typedef Nat8* tmImageDec_Buffer_t;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // DPLFAPIIMAGEDEC_DD
+
+#ifndef TMIMAGEDEC2_H //-----------------
+#define TMIMAGEDEC2_H
+
+/* we also need the basic types for pixel format here ...
+**  cleaner way would be to define own types, but that would require clients to change over for all legacy code
+**  which is undesired 
+*/
+#ifndef TMGLOBALNHAPITYPES_H //-----------------
+#define TMGLOBALNHAPITYPES_H
+
+#ifndef TMAPITYPES_H  // to prevent double declarations with the obsolete tmApiTypes
+#define TMAPITYPES_H
+
+//-----------------------------------------------------------------------------
+// includes: 
+//-----------------------------------------------------------------------------
+
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Version number: 
+//-----------------------------------------------------------------------------
+
+#define tmGlobalNhapiTypes_Version ( 1.2 )
+
+typedef struct _tmXY_t
+{
+    Int32 x;
+    Int32 y;
+} tmXY_t;
+
+typedef tmXY_t* ptmXY_t;
+
+typedef struct _tmRect_t
+{
+    tmXY_t ul;
+    tmXY_t lr;
+} tmRect_t;
+
+typedef tmRect_t* ptmRect_t;
+
+typedef enum _tmPixFmtCls_t
+{
+    tmPixFmtCls_Yuv  = 0x00000010,
+    tmPixFmtCls_Rgb  = 0x00000020,
+    tmPixFmtCls_Clut = 0x00000008 
+} tmPixFmtCls_t;
+
+typedef tmPixFmtCls_t* ptmPixFmtCls_t;
+
+
+typedef Int32 tmPixFmtClsSet_t;
+
+typedef tmPixFmtClsSet_t* ptmPixFmtClsSet_t;
+
+typedef Nat32 tmPixFmtType_t;
+
+typedef tmPixFmtType_t* ptmPixFmtType_t;
+
+typedef Int32 tmPixFmtTypeSet_t;
+
+typedef tmPixFmtTypeSet_t* ptmPixFmtTypeSet_t;
+
+typedef enum _tmPixYuvFmt_t
+{
+    tmPixYuvFmt_Uyvy = 0x00000001,
+    tmPixYuvFmt_Yuy2 = 0x00000002,
+    tmPixYuvFmt_Vyuy = 0x00000004,
+    tmPixYuvFmt_Yuv420SemiPlanar = 0x00200000,
+    tmPixRgbFmt_Avyu             = 0x00000200,
+    tmPixRgbFmt_Ayuv             = 0x00000800
+} tmPixYuvFmt_t;
+
+typedef tmPixYuvFmt_t* ptmPixYuvFmt_t;
+
+typedef Int32 tmPixYuvFmtSet_t;
+
+typedef tmPixYuvFmtSet_t* ptmPixYuvFmtSet_t;
+
+typedef enum _tmPixRgbFmt_t
+{
+    tmPixRgbFmt_Xrgb1555 = 0x00000040,
+    tmPixRgbFmt_Argb1555 = 0x00000004,
+    tmPixRgbFmt_Xrgb4444 = 0x00000080,
+    tmPixRgbFmt_Argb4444 = 0x00000100,
+    tmPixRgbFmt_Rgb565   = 0x00000008,
+    tmPixRgbFmt_Xrgb8888 = 0x00000010,
+    tmPixRgbFmt_Argb8888 = 0x00000020
+} tmPixRgbFmt_t;
+
+typedef tmPixRgbFmt_t* ptmPixRgbFmt_t;
+
+typedef Int32 tmPixRgbFmtSet_t;
+
+typedef tmPixRgbFmtSet_t* ptmPixRgbFmtSet_t;
+
+typedef enum _tmPixClutFmt_t
+{
+    tmPixClutFmt_RgbClut1bpp  = 0x00000001,
+    tmPixClutFmt_RgbClut2bpp  = 0x00000002,
+    tmPixClutFmt_RgbClut4bpp  = 0x00000004,
+    tmPixClutFmt_RgbClut8bpp  = 0x00000008,
+    tmPixClutFmt_ArgbClut1bpp = 0x00000010,
+    tmPixClutFmt_ArgbClut2bpp = 0x00000020,
+    tmPixClutFmt_ArgbClut4bpp = 0x00000040,
+    tmPixClutFmt_ArgbClut8bpp = 0x00000080,
+    tmPixClutFmt_YuvClut1bpp  = 0x00000100,
+    tmPixClutFmt_YuvClut2bpp  = 0x00000200,
+    tmPixClutFmt_YuvClut4bpp  = 0x00000400,
+    tmPixClutFmt_YuvClut8bpp  = 0x00000800,
+    tmPixClutFmt_AyuvClut1bpp = 0x00001000,
+    tmPixClutFmt_AyuvClut2bpp = 0x00002000,
+    tmPixClutFmt_AyuvClut4bpp = 0x00004000,
+    tmPixClutFmt_AyuvClut8bpp = 0x00008000
+} tmPixClutFmt_t;
+
+typedef tmPixClutFmt_t* ptmPixClutFmt_t;
+
+typedef Int32 tmPixClutFmtSet_t;
+
+typedef tmPixClutFmtSet_t* ptmPixClutFmtSet_t;
+
+typedef struct _tmColor_t 
+{
+    Nat8 redOrY;
+    Nat8 greenOrU;
+    Nat8 blueOrV;
+} tmColor_t;
+
+typedef tmColor_t* ptmColor_t;
+
+typedef struct _tmColorAlpha_t 
+{
+    Nat8 alpha;
+    Nat8 redOrY;
+    Nat8 greenOrU;
+    Nat8 blueOrV;
+} tmColorAlpha_t;
+
+typedef tmColorAlpha_t* ptmColorAlpha_t;
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+
+
+#endif //TMAPITYPES_H
+
+// the _tmTimeStamp2_t should be defined outside the TMAPITYPES_H guard because is not part of tmApiTypes.
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+typedef struct _tmTimeStamp2_t 
+{
+    Nat32 timeStampHigh;
+    Nat32 timeStampLow;
+} tmTimeStamp2_t;
+
+typedef tmTimeStamp2_t* ptmTimeStamp2_t;
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+
+
+#endif //TMGLOBALNHAPITYPES_H
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+//#include <tmGlobalNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmImageDec2_Version          ( "1.0" )
+#define tmImageDec2_AllNotifications ( 0x0000007F )
+
+
+typedef enum _tmImageDec2_Notification_t
+{
+    tmImageDec2_SubscriptionChanged = 0x00000001,
+    tmImageDec2_FullImageDecoded = 0x00000002,
+    tmImageDec2_ThumbnailDecoded = 0x00000004,
+    tmImageDec2_MetaDataFound = 0x00000008,
+    tmImageDec2_EndMetaData = 0x00000010,
+    tmImageDec2_ResolutionObtained = 0x00000020,
+    tmImageDec2_ThumbnailPresence = 0x00000040
+} tmImageDec2_Notification_t;
+
+typedef tmImageDec2_Notification_t* ptmImageDec2_Notification_t;
+
+typedef Int32 tmImageDec2_Notifications_t;
+
+typedef tmImageDec2_Notifications_t* ptmImageDec2_Notifications_t;
+
+typedef enum _tmImageDec2_ImageFormat_t
+{
+    tmImageDec2_JpegExif = 0x00000001,
+    tmImageDec2_ProgJpegExif = 0x00000002,
+    tmImageDec2_JpegJfif = 0x00000004,
+    tmImageDec2_ProgJpegJfif = 0x00000008,
+    tmImageDec2_JpegSpiff = 0x00000010,
+    tmImageDec2_ProgJpegSpiff = 0x00000020,
+    tmImageDec2_Jpeg2k = 0x00000040,
+    tmImageDec2_Gif = 0x00000080,
+    tmImageDec2_InterlacedGif = 0x00000100,
+    tmImageDec2_AnimatedGif = 0x00000200,
+    tmImageDec2_Bmp = 0x00000400,
+    tmImageDec2_Png = 0x00000800,
+    tmImageDec2_Tiff = 0x00001000,
+    tmImageDec2_Targa = 0x00002000,
+    tmImageDec2_Pcd = 0x00004000,
+    tmImageDec2_Jpeg = 0x00008000,
+    tmImageDec2_ProgJpeg = 0x00010000
+} tmImageDec2_ImageFormat_t;
+
+typedef tmImageDec2_ImageFormat_t* ptmImageDec2_ImageFormat_t;
+
+typedef Int32 tmImageDec2_ImageFormats_t;
+
+typedef tmImageDec2_ImageFormats_t* ptmImageDec2_ImageFormats_t;
+
+typedef enum _tmImageDec2_Status_t
+{
+    tmImageDec2_Successful = 1,
+    tmImageDec2_Failed = 2,
+    tmImageDec2_UnsupportedFormat = 3,
+    tmImageDec2_CorruptData = 4
+} tmImageDec2_Status_t;
+
+typedef tmImageDec2_Status_t* ptmImageDec2_Status_t;
+
+typedef enum _tmImageDec2_Orientation_t
+{
+    tmImageDec2_Default = 1,
+    tmImageDec2_90ClockWise = 2,
+    tmImageDec2_180ClockWise = 3,
+    tmImageDec2_270ClockWise = 4,
+    tmImageDec2_FlipHorizontal = 5,
+    tmImageDec2_FlipVertical = 6,
+    tmImageDec2_FlipHorizontal_90ClockWise = 7,
+    tmImageDec2_FlipVertical_90ClockWise = 8
+} tmImageDec2_Orientation_t;
+
+typedef tmImageDec2_Orientation_t* ptmImageDec2_Orientation_t;
+
+typedef enum _tmImageDec2_RotationMode_t
+{
+    tmImageDec2_NoRotation = 0x00000001,
+    tmImageDec2_UseRotationBits = 0x00000002,
+    tmImageDec2_ForcedRotation = 0x00000004
+} tmImageDec2_RotationMode_t;
+
+typedef tmImageDec2_RotationMode_t* ptmImageDec2_RotationMode_t;
+
+typedef Int32 tmImageDec2_RotationModes_t;
+
+typedef tmImageDec2_RotationModes_t* ptmImageDec2_RotationModes_t;
+
+typedef struct _tmImageDec2_ImageArea_t
+{
+    Nat32 topLeftX;
+    Nat32 topLeftY;
+    Nat32 bottomRightX;
+    Nat32 bottomRightY;
+} tmImageDec2_ImageArea_t;
+
+typedef tmImageDec2_ImageArea_t* ptmImageDec2_ImageArea_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMIMAGEDEC2_H //---------------
+

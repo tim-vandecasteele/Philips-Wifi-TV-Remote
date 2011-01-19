@@ -1,0 +1,48 @@
+/*
+ *  Copyright(C) 2003 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *          %name: infrartk.dd %
+ *       %version: 1 %
+ * %date_modified: Fri May 30 18:18:47 2008 %
+ *    %derived_by: verbekej %
+ */
+
+
+#ifndef _INFRARTK_DD_
+#define _INFRARTK_DD_
+
+
+/** koala public group infrartk **/
+/** koala public using infraglobals **/
+
+
+/* for IRealTimeKernel */
+
+typedef Nat8  Task;                     /** koala public type Task **/
+typedef Nat8  Semaphore;                /** koala public type Semaphore **/
+typedef Nat16 Event;                    /** koala public type Event **/
+typedef Nat8  Mailbox;                  /** koala public type Mailbox **/
+typedef int   Talos;                    /** koala public type Talos **/
+
+typedef void (*TaskFunction)(void);                              /** koala public type TaskFunction **/
+typedef Nat8   Timer;                                            /** koala public type Timer **/
+typedef struct { int msg; int param1 ; Nat32 param2 ; } Message; /** koala public type Message **/
+
+
+/* for IPump */
+
+
+typedef int    PumpEngine;                                       /** koala public type PumpEngine **/
+typedef void (*PumpFunc)(int,Nat32);                             /** koala public type PumpFunc **/
+typedef void (*BigPumpFunc)(int, Address);                       /** koala public type BigPumpFunc **/
+typedef int    Pump;                                             /** koala public type Pump **/
+
+
+#endif

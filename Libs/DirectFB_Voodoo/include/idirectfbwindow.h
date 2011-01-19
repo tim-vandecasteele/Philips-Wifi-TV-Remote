@@ -102,6 +102,10 @@ public:
      void                  ResizeSurface     (int                     width,
                                               int                     height);
 
+     void                  SetDstGeometry    (DFBWindowGeometry       *geometry);
+     void                  SetSrcGeometry    (DFBWindowGeometry       *geometry);
+
+
      inline IDirectFBWindow& operator = (const IDirectFBWindow& other){
           return IPPAny<IDirectFBWindow, IDirectFBWindow_C>::operator =(other);
      }

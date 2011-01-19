@@ -4,7 +4,7 @@
 //
 
 #import "CEControlTVKeyboardCluster.h"
-#import <jslibrc_supply.h>
+#import <jslibrc_client.h>
 
 #define DELAYBETWEENKEYPRESSES 10000 // 100000 = 100ms
 

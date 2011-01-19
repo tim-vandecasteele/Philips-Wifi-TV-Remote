@@ -1,0 +1,366 @@
+//-----------------------------------------------------------------------------
+// Copyright (c) 2006 Koninklijke Philips Electronics N.V..
+// All rights reserved.
+//
+// This  source code and any compilation or derivative thereof is the
+// proprietary information of Koninklijke Philips Electronics N.V.
+// and is confidential in nature.
+// Under no circumstances is this software to be exposed to or placed
+// under an Open Source License of any type without the expressed
+// written permission of Koninklijke Philips Electronics N.V..
+//-----------------------------------------------------------------------------
+// FILE NAME:    tmTsDmx.h
+//
+// ORIGIN:       File generated from "tmTsDmx.ddl"
+//               using nxPidl version 3.4. Do not edit.
+//
+// DESCRIPTION:  tmTsDmx interface definitions
+//
+// NOTES:        
+//-----------------------------------------------------------------------------
+//
+
+/** koala public group PlfApiTsDmx **/
+/** koala public type tmTsDmx_DescramblerTypes_t **/
+/** koala public type tmTsDmx_BufferTypes_t **/
+/** koala public type tmTsDmx_DescramblerType_t **/
+/** koala public type tmTsDmx_StreamDataType_t **/
+/** koala public type tmTsDmx_ScramblingStatus_t **/
+/** koala public type tmTsDmx_CwType_t **/
+/** koala public type tmTsDmx_TimeStamp_t **/
+/** koala public type tmTsDmx_FilterMode_t **/
+/** koala public type tmTsDmx_CrcMode_t **/
+/** koala public type tmTsDmx_Buffer_t **/
+/** koala public type tmTsDmx_CrcStatus_t **/
+/** koala public type tmTsDmx_BufferType_t **/
+/** koala public type tmTsDmx_PlatformPin_t **/
+/** koala public type tmTsDmx_Section_t **/
+/** koala public type tmTsDmx_Pes_t **/
+
+#ifndef TSDMXABSTRACT
+#define TSDMXABSTRACT
+/** koala public type SectionFilterConfig **/
+/** koala public type SectionCrcMode **/
+
+/** koala using infraglobals **/
+
+typedef enum SectionCrcMode
+{
+    CrcModeSkipBadSections   = 1,
+    CrcModeAcceptAllSections = 2,
+    CrcModeDontCheckCrc      = 3
+}SectionCrcMode;
+
+typedef struct SectionFilterConfig
+{
+    int             pid;
+    int				BufferSize;
+    SectionCrcMode  CrcMode;
+    Bool            ContinuousMode;    
+    int             cookie;
+}SectionFilterConfig;
+
+#endif
+
+#ifndef TMTSDMX_H //-----------------
+#define TMTSDMX_H
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+//#include <tmPinObjects.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmTsDmx_Version                                 ( "1.5" )
+#define TM_ERR_TSDMX_PCR_FILTER_NOT_AVAILABLE           ( 0x00000801 )
+#define TM_ERR_TSDMX_DESCR_NOT_AVAILABLE                ( 0x00000802 )
+#define TM_ERR_TSDMX_PID_FILTER_NOT_AVAILABLE           ( 0x00000803 )
+#define TM_ERR_TSDMX_TPH_FILTER_NOT_AVAILABLE           ( 0x00000804 )
+#define TM_ERR_TSDMX_SCT_FILTER_NOT_AVAILABLE           ( 0x00000805 )
+#define TM_ERR_TSDMX_PES_FILTER_NOT_AVAILABLE           ( 0x00000806 )
+#define TM_ERR_TSDMX_FILTER_NOT_STARTED                 ( 0x00000807 )
+#define tmTsDmx_OutBase                                 ( 1 )
+#define tmTsDmx_AllNotifications                        ( 0x0000001F )
+#define tmTsDmx_StreamBufferAllNotifications            ( 0x00000003 )
+#define tmTsDmx_PcrAllNotifications                     ( 0x00000003 )
+#define tmTsDmx_PidAllNotifications                     ( 0x00000003 )
+#define tmTsDmx_DescramblerAssociation2AllNotifications ( 0x00000003 )
+#define tmTsDmx_SectionAllNotifications                 ( 0x00000007 )
+#define tmTsDmx_PesAllNotifications                     ( 0x0000003F )
+#define tmTsDmx_SectionListAllNotifications               ( 0x00000007 )
+
+typedef Nat8* tmTsDmx_Buffer_t;
+
+typedef enum _tmTsDmx_Notification_t
+{
+    tmTsDmx_SubscriptionChanged = 0x00000001,
+    tmTsDmx_SyncLost = 0x00000002,
+    tmTsDmx_SyncLock = 0x00000004,
+    tmTsDmx_InputOverflow = 0x00000008,
+    tmTsDmx_PlatformPidStopped = 0x00000010
+} tmTsDmx_Notification_t;
+
+typedef tmTsDmx_Notification_t* ptmTsDmx_Notification_t;
+
+typedef Int32 tmTsDmx_Notifications_t;
+
+typedef tmTsDmx_Notifications_t* ptmTsDmx_Notifications_t;
+
+typedef enum _tmTsDmx_StreamBufferNotification_t
+{
+    tmTsDmx_StreamBufferSubscriptionChanged = 0x00000001,
+    tmTsDmx_StreamBufferFull = 0x00000002
+} tmTsDmx_StreamBufferNotification_t;
+
+typedef tmTsDmx_StreamBufferNotification_t* ptmTsDmx_StreamBufferNotification_t;
+
+typedef Int32 tmTsDmx_StreamBufferNotifications_t;
+
+typedef tmTsDmx_StreamBufferNotifications_t* ptmTsDmx_StreamBufferNotifications_t;
+
+typedef enum _tmTsDmx_PcrNotification_t
+{
+    tmTsDmx_PcrSubscriptionChanged = 0x00000001,
+    tmTsDmx_PcrFilterStopped = 0x00000002
+} tmTsDmx_PcrNotification_t;
+
+typedef tmTsDmx_PcrNotification_t* ptmTsDmx_PcrNotification_t;
+
+typedef Int32 tmTsDmx_PcrNotifications_t;
+
+typedef tmTsDmx_PcrNotifications_t* ptmTsDmx_PcrNotifications_t;
+
+typedef enum _tmTsDmx_PidNotification_t
+{
+    tmTsDmx_PidSubscriptionChanged = 0x00000001,
+    tmTsDmx_PidFilterStopped = 0x00000002
+} tmTsDmx_PidNotification_t;
+
+typedef tmTsDmx_PidNotification_t* ptmTsDmx_PidNotification_t;
+
+typedef Int32 tmTsDmx_PidNotifications_t;
+
+typedef tmTsDmx_PidNotifications_t* ptmTsDmx_PidNotifications_t;
+
+typedef enum _tmTsDmx_DescramblerAssociation2Notification_t
+{
+    tmTsDmx_DescramblerAssociation2SubscriptionChanged = 0x00000001,
+    tmTsDmx_DescramblerAssociation2ScramblingStatusChanged = 0x00000002
+} tmTsDmx_DescramblerAssociation2Notification_t;
+
+typedef tmTsDmx_DescramblerAssociation2Notification_t* ptmTsDmx_DescramblerAssociation2Notification_t;
+
+typedef Int32 tmTsDmx_DescramblerAssociation2Notifications_t;
+
+typedef tmTsDmx_DescramblerAssociation2Notifications_t* ptmTsDmx_DescramblerAssociation2Notifications_t;
+
+typedef enum _tmTsDmx_SectionNotification_t
+{
+    tmTsDmx_SectionSubscriptionChanged = 0x00000001,
+    tmTsDmx_SectionFilterStopped = 0x00000002,
+    tmTsDmx_SectionArrived = 0x00000004
+} tmTsDmx_SectionNotification_t;
+
+typedef tmTsDmx_SectionNotification_t* ptmTsDmx_SectionNotification_t;
+
+typedef Int32 tmTsDmx_SectionNotifications_t;
+
+typedef tmTsDmx_SectionNotifications_t* ptmTsDmx_SectionNotifications_t;
+
+typedef enum _tmTsDmx_PesNotification_t
+{
+    tmTsDmx_PesSubscriptionChanged = 0x00000001,
+    tmTsDmx_PesNotifierStopped = 0x00000002,
+    tmTsDmx_PesCompletePacketArrived = 0x00000004,
+    tmTsDmx_PesPartialPacketArrived = 0x00000008,
+    tmTsDmx_PesPacketCorrupt = 0x00000010,
+    tmTsDmx_PesStreamIdChanged = 0x00000020
+} tmTsDmx_PesNotification_t;
+
+typedef tmTsDmx_PesNotification_t* ptmTsDmx_PesNotification_t;
+
+typedef Int32 tmTsDmx_PesNotifications_t;
+
+typedef tmTsDmx_PesNotifications_t* ptmTsDmx_PesNotifications_t;
+
+typedef enum _tmTsDmx_DescramblerType_t
+{
+    tmTsDmx_TdesFbEcbRbNoneSbNone = 0x00000001,
+    tmTsDmx_TdesFbEcbRbOfbIvSbNone = 0x00000002,
+    tmTsDmx_TdesFbEcbRbOfbPbSbNone = 0x00000004,
+    tmTsDmx_TdesFbEcbRbOfbIvSbOfbIv = 0x00000008,
+    tmTsDmx_TdesFbEcbRbOfbPbSbOfbIv = 0x00000010,
+    tmTsDmx_TdesFbCbcRbNoneSbNone = 0x00000020,
+    tmTsDmx_TdesFbCbcRbOfbIvSbNone = 0x00000040,
+    tmTsDmx_TdesFbCbcRbOfbPbSbNone = 0x00000080,
+    tmTsDmx_TdesFbCbcRbOfbIvSbOfbIv = 0x00000100,
+    tmTsDmx_TdesFbCbcRbOfbPbSbOfbIv = 0x00000200,
+    tmTsDmx_SdesFbEcbRbNoneSbNone = 0x00000400,
+    tmTsDmx_SdesFbEcbRbOfbIvSbNone = 0x00000800,
+    tmTsDmx_SdesFbEcbRbOfbPbSbNone = 0x00001000,
+    tmTsDmx_SdesFbEcbRbOfbIvSbOfbIv = 0x00002000,
+    tmTsDmx_SdesFbEcbRbOfbPbSbOfbIv = 0x00004000,
+    tmTsDmx_SdesFbCbcRbNoneSbNone = 0x00008000,
+    tmTsDmx_SdesFbCbcRbOfbIvSbNone = 0x00010000,
+    tmTsDmx_SdesFbCbcRbOfbPbSbNone = 0x00020000,
+    tmTsDmx_SdesFbCbcRbOfbIvSbOfbIv = 0x00040000,
+    tmTsDmx_SdesFbCbcRbOfbPbSbOfbIv = 0x00080000,
+    tmTsDmx_Dvb = 0x00100000,
+    tmTsDmx_Multi2 = 0x00200000
+} tmTsDmx_DescramblerType_t;
+
+typedef tmTsDmx_DescramblerType_t* ptmTsDmx_DescramblerType_t;
+
+typedef Int32 tmTsDmx_DescramblerTypes_t;
+
+typedef tmTsDmx_DescramblerTypes_t* ptmTsDmx_DescramblerTypes_t;
+
+typedef enum _tmTsDmx_StreamDataType_t
+{
+    tmTsDmx_InternalFormat = 0x00000001,
+    tmTsDmx_Pes = 0x00000002,
+    tmTsDmx_Tp = 0x00000003,
+    tmTsDmx_MpegSection = 0x00000004
+} tmTsDmx_StreamDataType_t;
+
+typedef tmTsDmx_StreamDataType_t* ptmTsDmx_StreamDataType_t;
+
+typedef enum _tmTsDmx_BufferType_t
+{
+    tmTsDmx_Linear = 0x00000001,
+    tmTsDmx_Circular = 0x00000002
+} tmTsDmx_BufferType_t;
+
+typedef tmTsDmx_BufferType_t* ptmTsDmx_BufferType_t;
+
+typedef Int32 tmTsDmx_BufferTypes_t;
+
+typedef tmTsDmx_BufferTypes_t* ptmTsDmx_BufferTypes_t;
+
+typedef enum _tmTsDmx_CrcMode_t
+{
+    tmTsDmx_SkipBadSections = 0x00000001,
+    tmTsDmx_AcceptAllSections = 0x00000002,
+    tmTsDmx_DontCheckCrc = 0x00000003
+} tmTsDmx_CrcMode_t;
+
+typedef tmTsDmx_CrcMode_t* ptmTsDmx_CrcMode_t;
+
+typedef enum _tmTsDmx_CrcStatus_t
+{
+    tmTsDmx_CrcOk = 0x00000001,
+    tmTsDmx_CrcNotOk = 0x00000002,
+    tmTsDmx_CrcNotChecked = 0x00000003,
+    tmTsDmx_NoCrc = 0x00000004
+} tmTsDmx_CrcStatus_t;
+
+typedef tmTsDmx_CrcStatus_t* ptmTsDmx_CrcStatus_t;
+
+typedef enum _tmTsDmx_FilterMode_t
+{
+    tmTsDmx_OneShot = 0x00000001,
+    tmTsDmx_Continuous = 0x00000002
+} tmTsDmx_FilterMode_t;
+
+typedef tmTsDmx_FilterMode_t* ptmTsDmx_FilterMode_t;
+
+typedef enum _tmTsDmx_ScramblingStatus_t
+{
+    tmTsDmx_ScramblingUnknown = 0x00000001,
+    tmTsDmx_NotScrambled = 0x00000002,
+    tmTsDmx_Scrambled = 0x00000003
+} tmTsDmx_ScramblingStatus_t;
+
+typedef tmTsDmx_ScramblingStatus_t* ptmTsDmx_ScramblingStatus_t;
+
+typedef struct _tmTsDmx_TimeStamp_t
+{
+    Nat32 timeStampHigh;
+    Nat32 timeStampLow;
+} tmTsDmx_TimeStamp_t;
+
+typedef tmTsDmx_TimeStamp_t* ptmTsDmx_TimeStamp_t;
+
+typedef enum _tmTsDmx_CwType_t
+{
+    tmTsDmx_OddKey = 0x00000001,
+    tmTsDmx_EvenKey = 0x00000002,
+    tmTsDmx_SystemKey = 0x00000003,
+    tmTsDmx_InitVectorCbc = 0x00000004,
+    tmTsDmx_InitVectorOfb = 0x00000005
+} tmTsDmx_CwType_t;
+
+typedef tmTsDmx_CwType_t* ptmTsDmx_CwType_t;
+
+typedef enum _tmTsDmx_PlatformPin_t
+{
+    tmTsDmx_VideoPin = 1,
+    tmTsDmx_AudioPin = 2,
+    tmTsDmx_SptsPin = 3,
+    tmTsDmx_AudioDescriptionPin = 4    
+} tmTsDmx_PlatformPin_t;
+
+typedef tmTsDmx_PlatformPin_t* ptmTsDmx_PlatformPin_t;
+
+
+typedef struct _tmTsDmx_Section_t {
+    Nat32 primarySectionSize;
+    Nat8* pPrimarySectionData;
+    Nat32 secondarySectionSize;
+    Nat8* pSecondarySectionData;
+    tmTsDmx_CrcStatus_t crcStatus;
+} tmTsDmx_Section_t;
+
+typedef enum _tmTsDmx_SectionListNotification_t {
+    tmTsDmx_SectionListSubscriptionChanged = 0x00000001,
+    tmTsDmx_SectionListStopped             = 0x00000002,
+    tmTsDmx_SectionListArrived             = 0x00000004
+} tmTsDmx_SectionListNotification_t ;
+
+typedef tmTsDmx_SectionListNotification_t *ptmTsDmx_SectionListNotification_t;
+typedef Int32 tmTsDmx_SectionListNotifications_t;
+typedef tmTsDmx_SectionListNotifications_t *ptmTsDmx_SectionListNotifications_t;
+
+typedef struct _tmTsDmx_Pes_t {
+    UInt32               primaryPesSize;
+//    pUInt8               pPrimaryPesData; JMH
+    UInt8 *               pPrimaryPesData;
+    UInt32               secondaryPesSize;
+//    pUInt8               pSecondaryPesData; JMH
+    UInt8 *               pSecondaryPesData;
+    Bool                 partialPkt;
+    Bool                 corruptPkt;  
+} tmTsDmx_Pes_t, *ptmTsDmx_Pes_t;
+
+typedef enum _tmTsDmx_PesListNotification_t {
+    tmTsDmx_PesListSubscriptionChanged   = 0x00000001,
+    tmTsDmx_PesListNotifierStopped       = 0x00000002,
+    tmTsDmx_PesListPacketsArrived        = 0x00000004,
+    tmTsDmx_PesListStreamIdChanged       = 0x00000008
+} tmTsDmx_PesListNotification_t, *ptmTsDmx_PesListNotification_t;
+
+typedef Int32 tmTsDmx_PesListNotifications_t, *ptmTsDmx_PesListNotifications_t;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMTSDMX_H //---------------
+

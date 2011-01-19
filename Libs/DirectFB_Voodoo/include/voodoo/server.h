@@ -39,7 +39,8 @@ DirectResult voodoo_server_register( VoodooServer          *server,
                                      VoodooSuperConstruct   func,
                                      void                  *ctx );
 
-DirectResult voodoo_server_run     ( VoodooServer          *server );
+DirectResult voodoo_server_run     ( VoodooServer          *server,
+                                     bool                   forking );
 
 DirectResult voodoo_server_destroy ( VoodooServer          *server );
 

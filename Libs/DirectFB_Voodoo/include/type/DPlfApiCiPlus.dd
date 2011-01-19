@@ -1,0 +1,193 @@
+/** koala public group PlfApiCIPlus **/
+
+/** koala public type CIPlusVersion_e               **/
+/** koala public type CIPlusTSMode_e                **/
+/** koala public type CIPlusStatus_e                **/
+/** koala public type CIPlusOrigin_e                **/
+/** koala public type CIPlusEvent_e                 **/
+/** koala public type CIPlusHandle                  **/
+/** koala public type CIPlusApplicationType_e       **/
+/** koala public type CIPlusResult_e                **/
+/** koala public type CIPlusCaListMng_e             **/
+/** koala public type CIPlusCaCommand_e             **/
+/** koala public type CIPlusRequestType_e           **/
+/** koala public type CIPlusUPGRReply_e             **/
+/** koala public type CIPlusCaApplicationList_s     **/
+/** koala public type CIPlusCaEnable_e              **/
+/** koala public type CIPlusCaEnableStream_s        **/
+/** koala public type CIPlusUPGRType_e              **/
+/** koala public type CIPlusUPGRReset_e             **/
+/** koala public type CIPlusApplicationInfo_s       **/
+
+/** koala using infraglobals **/
+
+#ifndef DPLFAPICIPLUS
+#define DPLFAPICIPLUS
+
+typedef enum{
+    CI_Plus,
+    CI_V1
+} CIPlusVersion_e;
+
+
+typedef enum{
+    TS_PassThrough,
+    TS_ByPass
+} CIPlusTSMode_e;
+
+typedef enum{
+    Success = 0,
+    Error
+} CIPlusResult_e;
+
+
+typedef enum{
+    Status_Inactive = 0,
+    Status_Initialising,
+    Status_Initialsed,
+    Status_Authorised,
+    Status_NOT_Authorised,
+    Status_V1
+} CIPlusStatus_e;
+
+typedef enum{
+    Origin_EX_STA,
+    Origin_EX_CC,
+    Origin_RS_AI,
+    Origin_RS_AMMI,
+    Origin_RS_CA,
+    Origin_RS_DT,
+    Origin_RS_HC,
+    Origin_RS_HLC,
+    Origin_RS_LSC,
+    Origin_RS_MMI,
+    Origin_RS_SAS,
+    Origin_RS_UPGR,
+    Origin_STK_RM,
+    Origin_STK_SES,
+    Origin_STK_TRA,
+    Origin_STK_DLK,
+    Origin_STK_PHY
+} CIPlusOrigin_e;
+
+typedef enum{
+    Event_NO_READY_SIGNAL = 0,
+    Event_WRONG_CARD_TYPE,
+    Event_DATA_RS_FAIL,
+    Event_DATA_SIZE_NEGO,
+    Event_NO_CTC_REPLY,
+    Event_NO_PROFILE_REPLY,
+    Event_NO_CA_INFO_REPLY,
+    Event_NO_OTHER_REPLY,
+    Event_COM_ERROR,
+    Event_POLLING_LOST,
+    Event_TKELERROR,
+    Event_DATA_SIZE_WARNING,
+    Event_ERROR_BAD_PMT,
+    Event_BAD_HOSTCERT,
+    Event_DM_ERROR,
+    Event_CC_SAC_FAILED,            
+    Event_CC_CCK_FAILED,            
+    Event_CC_AUTH_FAILED_SIGN,      
+    Event_CC_AUTH_FAILED_AK,        
+    Event_CC_AUTH_FAILED_COMPK,     
+    Event_CC_AUTH_FAILED_DH,        
+    Event_CC_BAD_CICAMCERT_SYNTAX,  
+    Event_CC_BAD_CICAMCERT_EXPIRED, 
+    Event_CC_BAD_CICAMCERT_SIGN,    
+    Event_NONE = 999,       /* used when only status change  is notified without event */
+    Event_UNKNOWN = 1000    /* unknown value */
+} CIPlusEvent_e;
+
+typedef enum{
+    Application_TYPE_CA,
+    Application_TYPE_EPD,
+    Application_TYPE_SU,
+    Application_TYPE_NI,
+    Application_TYPE_AA,
+    Application_TYPE_UNCLASSIFIED,
+    Application_TYPE_RESERVED
+} CIPlusApplicationType_e;
+
+typedef enum{
+    Request_File = 1,
+    Request_Data
+} CIPlusRequestType_e;
+
+typedef enum{
+    List_MGMT_MORE = 0x00,
+    List_MGMT_FIRST = 0x01,
+    List_MGMT_LAST = 0x02,
+    List_MGMT_ONLY = 0x03,
+    List_MGMT_ADD = 0x04,
+    List_MGMT_UPDATE = 0x05,
+    List_MGMT_DEFAULT = 0xFF
+} CIPlusCaListMng_e;
+
+
+typedef enum{
+    Ok_DESCRAMBLING = 0x01,
+    Ok_MMI = 0x02,
+    Ok_QUERY = 0x03,
+    Not_SELECTED = 0x04,
+    Cmd_DEFAULT = 0xFF
+}CIPlusCaCommand_e;
+
+typedef enum{
+    Enable_NONE = 0x00,
+    Enable_POSSIBLE = 0x01,
+    Enable_COND_PURCHASE = 0x02,
+    Enable_COND_TECHNICAL = 0x03,
+    Enable_NOT_POSSIBLE_ENT = 0x71,
+    Enable_NOT_POSSIBLE_TEC = 0x73
+} CIPlusCaEnable_e;
+
+typedef enum {
+    MMI_Enquiry,
+    MMI_List,
+    MMI_Menu
+} CIPlusMMIType_e;
+
+typedef enum {
+    UPGR_REPLY_NO,
+    UPGR_REPLY_YES,
+    UPGR_REPLY_ASK_MMI
+} CIPlusUPGRReply_e;
+
+typedef enum {
+    UPGR_TYPE_DELAYED,
+    UPGR_TYPE_IMMEDIATE
+} CIPlusUPGRType_e;
+
+typedef enum {
+    UPGR_PCMCIA_RESET,
+    UPGR_CAM_RESET,
+    UPGR_NO_RESET
+} CIPlusUPGRReset_e;
+
+
+typedef Nat16 CIPlusHandle;
+
+typedef struct
+{
+    CIPlusApplicationType_e Application_Type;
+    Nat16                   Application_Manufacturer;
+    Nat16                   Applciation_Code;
+    Nat16                   Menu_String_Len;
+    unsigned char           Menu_String[ 255 ];
+
+} CIPlusApplicationInfo_s;
+
+typedef struct
+{
+    Nat16               Pid;
+    CIPlusCaEnable_e    Ca_Enable;
+} CIPlusCaEnableStream_s;
+
+typedef struct {
+    Nat16 sessionId;
+    Nat16 caSystemId;
+} CIPlusCaApplicationList_s;
+
+
+#endif /* DPLFAPICIPLUS */

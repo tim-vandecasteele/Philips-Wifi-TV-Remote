@@ -4,7 +4,7 @@
 //
 
 #import "CEControlTVCursorCluster.h"
-#import <jslibrc_supply.h>
+#import <jslibrc_client.h>
 
 
 @implementation CEControlTVCursorCluster

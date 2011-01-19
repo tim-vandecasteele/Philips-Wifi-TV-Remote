@@ -57,14 +57,17 @@ typedef enum {
 typedef enum {
      VMSG_SUPER,
      VMSG_REQUEST,
-     VMSG_RESPONSE
+     VMSG_RESPONSE,
+
+     VMSG_DISCOVER, // temporary solution for compatibility
+     VMSG_SENDINFO, // temporary solution for compatibility
 } VoodooMessageType;
 
 
 struct __V_VoodooMessageHeader {
      int                 size;
      VoodooMessageSerial serial;
-     VoodooMessageType   type;
+     u32   type;
 };
 
 
@@ -78,7 +81,7 @@ struct __V_VoodooRequestMessage {
      VoodooInstanceID    instance;
      VoodooMethodID      method;
 
-     VoodooRequestFlags  flags;
+     u32  flags;
 };
 
 struct __V_VoodooResponseMessage {

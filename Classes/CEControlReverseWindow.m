@@ -4,8 +4,13 @@
 //
 
 #import "CEControlReverseWindow.h"
-#import <jslibrc_supply.h>
+#import <jslibrc_client.h>
 #import <direct/messages.h>
+#include "./type/infraglobals.dd"
+#include "./type/infracec.dd"
+#include "./type/DPlfApiEventLog.dd"
+#include "./type/infrakeycommand.dd"
+#include "./type/infrakey.dd"
 
 @implementation CEControlReverseWindow
 

@@ -1,0 +1,137 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiVbiSlice.dd %
+ *    %version: brg40mgr#3 %
+ *    %date_modified: Tue Jul 03 19:01:44 2007 %
+ *    %derived_by: dewulfj %
+ */
+
+/** koala public group PlfApiVbiSlice **/
+/** koala public type tmVbiSlice2_VbiDataSet_t **/
+/** koala public type tmVbiSlice2_Cc_t **/
+/** koala public type tmVbiSlice2_Gemstar_t **/
+/** koala public type tmVbiSlice2_Wss_t **/
+/** koala public type tmVbiSlice2_Wst_t **/
+
+#ifndef TMVBISLICE2_H //-----------------
+#define TMVBISLICE2_H
+
+/** koala using infraglobals **/
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmVbiSlice2_Version            ( "2.4.2" )
+#define TM_ERR_VBISLICE2_LINES_NOT_SET ( 0x00000801 )
+#define tmVbiSlice2_AllNotifications   ( 0x00000007 )
+
+
+typedef enum _tmVbiSlice2_Notification_t
+{
+    tmVbiSlice2_SubscriptionChanged = 0x00000001,
+    tmVbiSlice2_FrameData = 0x00000002,
+    tmVbiSlice2_FrameNoData = 0x00000004
+} tmVbiSlice2_Notification_t;
+
+typedef tmVbiSlice2_Notification_t* ptmVbiSlice2_Notification_t;
+
+typedef Int32 tmVbiSlice2_Notifications_t;
+
+typedef tmVbiSlice2_Notifications_t* ptmVbiSlice2_Notifications_t;
+
+typedef enum _tmVbiSlice2_Wst_t
+{
+    tmVbiSlice2_EuroTeletext = 0x00000000,
+    tmVbiSlice2_UsTeletext = 0x00000001,
+    tmVbiSlice2_Teletext = 0x00000002,
+    tmVbiSlice2_Nabts = 0x00000003,
+    tmVbiSlice2_Moji = 0x00000004
+} tmVbiSlice2_Wst_t;
+
+typedef tmVbiSlice2_Wst_t* ptmVbiSlice2_Wst_t;
+
+typedef enum _tmVbiSlice2_Cc_t
+{
+    tmVbiSlice2_EuroClosedCaption = 0x00000000,
+    tmVbiSlice2_UsClosedCaption = 0x00000001
+} tmVbiSlice2_Cc_t;
+
+typedef tmVbiSlice2_Cc_t* ptmVbiSlice2_Cc_t;
+
+typedef enum _tmVbiSlice2_Wss_t
+{
+    tmVbiSlice2_EuroWss = 0x00000000,
+    tmVbiSlice2_UsWss = 0x00000001
+} tmVbiSlice2_Wss_t;
+
+typedef tmVbiSlice2_Wss_t* ptmVbiSlice2_Wss_t;
+
+typedef enum _tmVbiSlice2_Gemstar_t
+{
+    tmVbiSlice2_Gemstar1x = 0x00000000,
+    tmVbiSlice2_Gemstar2x = 0x00000001
+} tmVbiSlice2_Gemstar_t;
+
+typedef tmVbiSlice2_Gemstar_t* ptmVbiSlice2_Gemstar_t;
+
+typedef enum _tmVbiSlice2_VbiData_t
+{
+    tmVbiSlice2_VbiNone = 0x00000000,
+    tmVbiSlice2_VbiEuroTeletext = 0x00000001,
+    tmVbiSlice2_VbiUsTeletext = 0x00000002,
+    tmVbiSlice2_VbiTeletext = 0x00000004,
+    tmVbiSlice2_VbiNabts = 0x00000008,
+    tmVbiSlice2_VbiMoji = 0x00000010,
+    tmVbiSlice2_VbiEuroClosedCaption = 0x00000020,
+    tmVbiSlice2_VbiUsClosedCaption = 0x00000040,
+    tmVbiSlice2_VbiEuroWss = 0x00000080,
+    tmVbiSlice2_VbiUsWss = 0x00000100,
+    tmVbiSlice2_VbiVps = 0x00000200,
+    tmVbiSlice2_VbiGemstar1x = 0x00000400,
+    tmVbiSlice2_VbiGemstar2x = 0x00000800,
+    tmVbiSlice2_VbiCgms = 0x00001000
+} tmVbiSlice2_VbiData_t;
+
+typedef tmVbiSlice2_VbiData_t* ptmVbiSlice2_VbiData_t;
+
+typedef Int32 tmVbiSlice2_VbiDataSet_t;
+
+typedef tmVbiSlice2_VbiDataSet_t* ptmVbiSlice2_VbiDataSet_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMVBISLICE2_H //---------------
+

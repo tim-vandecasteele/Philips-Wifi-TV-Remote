@@ -1,0 +1,302 @@
+/*
+ *  Copyright(C) 2003 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *          %name: DPlfApiVideoClipEx.dd %
+ *       %version: 1 %
+ * %date_modified: Fri Jan 15 15:34:23 2010 %
+ *    %derived_by: steegmag %
+ */
+
+/** koala public group DPlfApiVideoClip **/
+/** koala public type tmDigVdec_ClipDecodingState_t **/
+/** koala public type tmDigVdec_CompressionStandard_t **/
+/** koala public type tmDigVdec_Profile_t **/
+/** koala public type tmDigVdec_Level_t **/
+/** koala public type tmDigVdec_Error_t **/
+
+
+#ifndef TMDIGVDEC_H //-----------------
+#define TMDIGVDEC_H
+
+/** koala using infraglobals **/
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmDigVdec_Version                  ( "1.5.1" )
+#define tmDigVdec_AllNotifications         ( 0x0000003F )
+#define tmDigVdec_UserDataAllNotifications ( 0x000000FF )
+#define tmDigVdec_ClipAllNotifications     ( 0x0000001F )
+
+
+typedef enum _tmDigVdec_Notification_t
+{
+    tmDigVdec_SubscriptionChanged = 0x00000001,
+    tmDigVdec_PictureSkipped = 0x00000002,
+    tmDigVdec_StandardDataChanged = 0x00000004,
+    tmDigVdec_PictureDataChanged = 0x00000008,
+    tmDigVdec_Error = 0x00000010,
+    tmDigVdec_Afd = 0x00000020
+} tmDigVdec_Notification_t;
+
+typedef tmDigVdec_Notification_t* ptmDigVdec_Notification_t;
+
+typedef Int32 tmDigVdec_Notifications_t;
+
+typedef tmDigVdec_Notifications_t* ptmDigVdec_Notifications_t;
+
+typedef enum _tmDigVdec_UserDataNotification_t
+{
+    tmDigVdec_UserDataSubscriptionChanged = 0x00000001,
+    tmDigVdec_UserDataSequence = 0x00000002,
+    tmDigVdec_UserDataGop = 0x00000004,
+    tmDigVdec_UserDataPicture = 0x00000008,
+    tmDigVdec_UserDataVisualObjectSequence = 0x00000010,
+    tmDigVdec_UserDataVisualObject = 0x00000020,
+    tmDigVdec_UserDataVideoObjectLayer = 0x00000040,
+    tmDigVdec_UserDataGroupOfVideoObjectPlane = 0x00000080
+} tmDigVdec_UserDataNotification_t;
+
+typedef tmDigVdec_UserDataNotification_t* ptmDigVdec_UserDataNotification_t;
+
+typedef Int32 tmDigVdec_UserDataNotifications_t;
+
+typedef tmDigVdec_UserDataNotifications_t* ptmDigVdec_UserDataNotifications_t;
+
+typedef enum _tmDigVdec_CompressionStandard_t
+{
+    tmDigVdec_NoCompressionStandard = 0x00000000,
+    tmDigVdec_Mpeg1 = 0x00000001,
+    tmDigVdec_Mpeg2 = 0x00000002,
+    tmDigVdec_Dv = 0x00000004,
+    tmDigVdec_Mpeg4 = 0x00000008,
+    tmDigVdec_DivX3 = 0x00000010,
+    tmDigVdec_DivX4 = 0x00000020,
+    tmDigVdec_DivX5 = 0x00000040,
+    tmDigVdec_InvalidCompressionStandard = 0x00000080
+} tmDigVdec_CompressionStandard_t;
+
+typedef tmDigVdec_CompressionStandard_t* ptmDigVdec_CompressionStandard_t;
+
+typedef Int32 tmDigVdec_CompressionStandardSet_t;
+
+typedef tmDigVdec_CompressionStandardSet_t* ptmDigVdec_CompressionStandardSet_t;
+
+typedef enum _tmDigVdec_Profile_t
+{
+    tmDigVdec_UnknownProfile = 0x00000000,
+    tmDigVdec_SimpleProfile = 0x00000001,
+    tmDigVdec_MainProfile = 0x00000002,
+    tmDigVdec_SnrScalableProfile = 0x00000004,
+    tmDigVdec_SpatiallyScalableProfile = 0x00000008,
+    tmDigVdec_HighProfile = 0x00000010,
+    tmDigVdec_AdvancedSimpleProfile = 0x00000020
+} tmDigVdec_Profile_t;
+
+typedef tmDigVdec_Profile_t* ptmDigVdec_Profile_t;
+
+typedef Int32 tmDigVdec_ProfileSet_t;
+
+typedef tmDigVdec_ProfileSet_t* ptmDigVdec_ProfileSet_t;
+
+typedef enum _tmDigVdec_Level_t
+{
+    tmDigVdec_UnknownLevel = 0x00000000,
+    tmDigVdec_Mpeg1ConstrainedParameter = 0x00000001,
+    tmDigVdec_Mpeg2LowLevel = 0x00000002,
+    tmDigVdec_Mpeg2MainLevel = 0x00000004,
+    tmDigVdec_Mpeg2High1440Level = 0x00000008,
+    tmDigVdec_Mpeg2HighLevel = 0x00000010,
+    tmDigVdec_Dv25Level = 0x00000020,
+    tmDigVdec_Dv50Level = 0x00000040,
+    tmDigVdec_Mpeg4Level1 = 0x00000080,
+    tmDigVdec_Mpeg4Level2 = 0x00000100,
+    tmDigVdec_Mpeg4Level3 = 0x00000200,
+    tmDigVdec_Mpeg4Level4 = 0x00000400,
+    tmDigVdec_Mpeg4Level5 = 0x00000800,
+    tmDigVdec_Mpeg4Level0 = 0x00001000,
+    tmDigVdec_Mpeg4Level0b = 0x00002000,
+    tmDigVdec_Mpeg4Level3b = 0x00004000
+} tmDigVdec_Level_t;
+
+typedef tmDigVdec_Level_t* ptmDigVdec_Level_t;
+
+typedef Int32 tmDigVdec_LevelSet_t;
+
+typedef tmDigVdec_LevelSet_t* ptmDigVdec_LevelSet_t;
+
+typedef struct _tmDigVdec_StandardVersion_t
+{
+    Nat32 major;
+    Nat32 minor;
+    Nat32 revision;
+} tmDigVdec_StandardVersion_t;
+
+typedef tmDigVdec_StandardVersion_t* ptmDigVdec_StandardVersion_t;
+
+typedef enum _tmDigVdec_FrameRate_t
+{
+    tmDigVdec_UnknownFrameRate = 0,
+    tmDigVdec_23_976Hz = 1,
+    tmDigVdec_24Hz = 2,
+    tmDigVdec_25Hz = 3,
+    tmDigVdec_29_97Hz = 4,
+    tmDigVdec_30Hz = 5,
+    tmDigVdec_50Hz = 6,
+    tmDigVdec_59_94Hz = 7,
+    tmDigVdec_60Hz = 8,
+    tmDigVdec_Variable = 9
+} tmDigVdec_FrameRate_t;
+
+typedef tmDigVdec_FrameRate_t* ptmDigVdec_FrameRate_t;
+
+typedef enum _tmDigVdec_ScanType_t
+{
+    tmDigVdec_UnknownScanType = 0,
+    tmDigVdec_Interlaced = 1,
+    tmDigVdec_Progressive = 2
+} tmDigVdec_ScanType_t;
+
+typedef tmDigVdec_ScanType_t* ptmDigVdec_ScanType_t;
+
+typedef enum _tmDigVdec_Error_t
+{
+    tmDigVdec_DecodePicture = 0x00000001,
+    tmDigVdec_Underrun = 0x00000002,
+    tmDigVdec_DecReset = 0x00000004,
+    tmDigVdec_UnsupportedProfile = 0x00000008,
+    tmDigVdec_UnsupportedFrameRate = 0x00000010,
+    tmDigVdec_UnsupportedResolution = 0x00000020
+} tmDigVdec_Error_t;
+
+typedef tmDigVdec_Error_t* ptmDigVdec_Error_t;
+
+typedef enum _tmDigVdec2_FrameType_t 
+{
+    tmDigVdec2_FrameTypeUnknown = 0,
+    tmDigVdec2_FrameTypeI      = 1,
+    tmDigVdec2_FrameTypeP      = 2,
+    tmDigVdec2_FrameTypeB      = 3
+} tmDigVdec2_FrameType_t, *ptmDigVdec2_FrameType_t;
+
+
+
+typedef enum _tmDigVdec_ClipNotification_t
+{
+    tmDigVdec_ClipSubscriptionChanged = 0x00000001,
+    tmDigVdec_ClipBufferAvailable = 0x00000002,
+    tmDigVdec_ClipEndOfData = 0x00000004,
+    tmDigVdec_ClipStarted = 0x00000008,
+    tmDigVdec_ClipStopped = 0x00000010,
+    tmDigVdec_ClipPaused = 0x00000020,    
+    tmDigVdec_ClipSeekCompleted = 0x0000040,
+    tmDigVdec_OnTotalSeekTimeChanged = 0x0000080,
+} tmDigVdec_ClipNotification_t;
+
+typedef tmDigVdec_ClipNotification_t* ptmDigVdec_ClipNotification_t;
+
+typedef Int32 tmDigVdec_ClipNotifications_t;
+
+typedef tmDigVdec_ClipNotifications_t* ptmDigVdec_ClipNotifications_t;
+
+
+typedef enum _tmDigVdec2_StreamInNotification_t 
+{
+    tmDigVdec2_StreamInSubscriptionChanged  = 0x00000001,
+    tmDigVdec2_StreamInBufferAvailable      = 0x00000002,
+    tmDigVdec2_StreamInEndOfData            = 0x00000004
+} tmDigVdec2_StreamInNotification_t, *ptmDigVdec2_StreamInNotification_t;
+typedef Int32 tmDigVdec2_StreamInNotifications_t, *ptmDigVdec2_StreamInNotifications_t;
+
+
+typedef enum _tmDigVdec2_StreamCtrlNotification_t 
+{
+    tmDigVdec2_StreamCtrlSubscriptionChanged  = 0x00000001,
+    tmDigVdec2_StreamCtrlStarted              = 0x00000002,
+    tmDigVdec2_StreamCtrlStopped              = 0x00000004
+} tmDigVdec2_StreamCtrlNotification_t, *ptmDigVdec2_StreamCtrlNotification_t;
+typedef Int32 tmDigVdec2_StreamCtrlNotifications_t, *ptmDigVdec2_StreamCtrlNotifications_t;
+
+typedef enum _tmDigVdec2_StreamOutNotification_t 
+{
+    tmDigVdec2_StreamOutSubscriptionChanged  = 0x00000001,
+    tmDigVdec2_StreamOutFrameDecoded         = 0x00000002
+} tmDigVdec2_StreamOutNotification_t, *ptmDigVdec2_StreamOutNotification_t;
+
+typedef Int32 tmDigVdec2_StreamOutNotifications_t, *ptmDigVdec2_StreamOutNotifications_t;
+
+typedef enum _tmDigVdec2_StreamDecodingState_t 
+{
+    tmDigVdec2_StreamDecodingStarting    = 0,
+    tmDigVdec2_StreamDecodingStarted     = 1,
+    tmDigVdec2_StreamDecodingStopping    = 2,
+    tmDigVdec2_StreamDecodingStopped     = 3,
+} tmDigVdec2_StreamDecodingState_t, *ptmDigVdec2_StreamDecodingState_t;
+
+
+typedef enum _tmDigVdec_ClipDecodingState_t
+{
+    tmDigVdec_ClipDecodingStarting = 0,
+    tmDigVdec_ClipDecodingStarted = 1,
+    tmDigVdec_ClipDecodingStopping = 2,
+    tmDigVdec_ClipDecodingStopped = 3,
+    tmDigVdec_ClipDecodingPausing = 4, 
+    tmDigVdec_ClipDecodingPaused = 5,
+    tmDigVdec_ClipDecodingSeekingInPaused = 6,
+    tmDigVdec_ClipDecodingSeekingInStarted = 7
+} tmDigVdec_ClipDecodingState_t;
+
+typedef tmDigVdec_ClipDecodingState_t* ptmDigVdec_ClipDecodingState_t;
+
+typedef enum _tmDigVdec2_Notification_t 
+{
+    tmDigVdec2_SubscriptionChanged = 0x00000001,
+    tmDigVdec2_PictureSkipped      = 0x00000002,
+    tmDigVdec2_StandardDataChanged = 0x00000004,
+    tmDigVdec2_PictureDataChanged  = 0x00000008,
+    tmDigVdec2_Error               = 0x00000010,
+    tmDigVdec2_Afd                 = 0x00000020,
+    tmDigVdec2_UserDataArrived     = 0x00000040,
+    tmDigVdec2_IFrameDecoded       = 0x00000080,
+    tmDigVdec2_BitRateChanged      = 0x00000100
+} tmDigVdec2_Notification_t, *ptmDigVdec2_Notification_t;
+typedef Int32 tmDigVdec2_Notifications_t, *ptmDigVdec2_Notifications_t;
+
+
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMDIGVDEC_H //---------------
+

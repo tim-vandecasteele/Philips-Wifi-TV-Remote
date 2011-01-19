@@ -1,0 +1,140 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiCmDmx.dd %
+ *    %version: brg40mgr#4RR %
+ *    %date_modified: Thu Oct 04 16:15:07 2007 %
+ *    %derived_by: roestn %
+ */
+
+/** koala public group PlfApiCmDmx **/
+/** koala public type tmCmDmx_PlatformStreamType_t **/
+/** koala public type tmCmDmx_SuppPlatformStreamTypes_t **/
+/** koala public type tmCmDmx_StreamType_t **/
+/** koala public type tmCmDmx_BufferType_t **/
+/** koala public type tmCmDmx_Buffer_t **/
+
+/** koala using infraglobals **/
+
+#ifndef DPLFAPICMDMX_DD
+#define DPLFAPICMDMX_DD
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+typedef Nat8* tmCmDmx_Buffer_t;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // DPLFAPICMDMX_DD
+
+#ifndef TMCMDMX_H //-----------------
+#define TMCMDMX_H
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmCmDmx_Version                      ( "1.0" )
+#define TM_ERR_CMDMX_CLIENTSTR_NOT_AVAILABLE ( 0x00000801 )
+#define TM_ERR_CMDMX_PLATFSTRTYPE_NOT_SUPP   ( 0x00000802 )
+#define tmCmDmx_AllNotifications             ( 0x00000003 )
+#define tmCmDmx_StreamBufferAllNotifications ( 0x00000007 )
+
+
+typedef enum _tmCmDmx_Notification_t
+{
+    tmCmDmx_SubscriptionChanged = 0x00000001,
+    tmCmDmx_SystemBitRateChanged = 0x00000002
+} tmCmDmx_Notification_t;
+
+typedef tmCmDmx_Notification_t* ptmCmDmx_Notification_t;
+
+typedef Int32 tmCmDmx_Notifications_t;
+
+typedef tmCmDmx_Notifications_t* ptmCmDmx_Notifications_t;
+
+typedef enum _tmCmDmx_PlatformStreamType_t
+{
+    tmCmDmx_PlatformStreamAudio = 0x00000001,
+    tmCmDmx_PlatformStreamVideo = 0x00000002,
+    tmCmDmx_PlatformStreamSubtitle = 0x00000004
+} tmCmDmx_PlatformStreamType_t;
+
+typedef tmCmDmx_PlatformStreamType_t* ptmCmDmx_PlatformStreamType_t;
+
+typedef Int32 tmCmDmx_SuppPlatformStreamTypes_t;
+
+typedef tmCmDmx_SuppPlatformStreamTypes_t* ptmCmDmx_SuppPlatformStreamTypes_t;
+
+typedef enum _tmCmDmx_StreamType_t
+{
+    tmCmDmx_StreamTypeUnknown = 0x00000001,
+    tmCmDmx_StreamTypeAudio = 0x00000002,
+    tmCmDmx_StreamTypeVideo = 0x00000003,
+    tmCmDmx_StreamTypeSubtitle = 0x00000004
+} tmCmDmx_StreamType_t;
+
+typedef tmCmDmx_StreamType_t* ptmCmDmx_StreamType_t;
+
+typedef enum _tmCmDmx_StreamBufferNotification_t
+{
+    tmCmDmx_StreamBufferSubscriptionChanged = 0x00000001,
+    tmCmDmx_StreamBufferFull = 0x00000002,
+    tmCmDmx_StreamBufferDataArrived = 0x00000004
+} tmCmDmx_StreamBufferNotification_t;
+
+typedef tmCmDmx_StreamBufferNotification_t* ptmCmDmx_StreamBufferNotification_t;
+
+typedef Int32 tmCmDmx_StreamBufferNotifications_t;
+
+typedef tmCmDmx_StreamBufferNotifications_t* ptmCmDmx_StreamBufferNotifications_t;
+
+typedef enum _tmCmDmx_BufferType_t
+{
+    tmCmDmx_Linear = 0x00000001,
+    tmCmDmx_Circular = 0x00000002
+} tmCmDmx_BufferType_t;
+
+typedef tmCmDmx_BufferType_t* ptmCmDmx_BufferType_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMCMDMX_H //---------------
+

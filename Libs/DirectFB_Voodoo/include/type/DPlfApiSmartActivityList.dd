@@ -1,0 +1,100 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiSmartActivityList.dd %
+ *    %version: 3 %
+ *    %date_modified: Mon Mar 15 14:04:22 2010 %
+ *    %derived_by: berendsd %
+ */
+ 
+
+/** koala public group PlfApiSmartProfiles **/
+
+/** koala public type PlfApiSmartActivity  **/
+
+#ifndef TMPLFSMARTACTIVITYLIST_H 
+#define TMPLFSMARTACTIVITYLIST_H
+
+/** koala using infraglobals **/
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+typedef enum{
+    Activity_TV = 0,
+    Activity_SatelliteTv,
+    Activity_Av1,
+    Activity_Av2,
+    Activity_Av3,
+    Activity_Av4,
+    Activity_Av5,
+    Activity_FrontAv,
+    Activity_HDMI1,
+    Activity_HDMI2,
+    Activity_HDMI3,
+    Activity_HDMI4,
+    Activity_HDMI5,
+    Activity_FrontHDMI,
+    Activity_VGA,
+    Activity_USB, 
+    Activity_HomeNetwork, 
+    Activity_NetTV, 
+    Activity_Scenea, 
+    Activity_Multiview,
+    Activity_VideoStore,
+    DevActivityOpticalDiscPlayback, 
+    DevActivityAudioDiscPlayer, 
+    DevActivityAVCDPlayer, 
+    DevActivityDVDPlayer, 
+    DevActivityBluRayDiscPlayback,
+    DevActivityBrowseRemovableStorageMedium, 
+    DevActivityUSBBrowser,
+    DevActivitySDCard,
+    DevActivityBrowseLocalStorage,
+    DevActivityHardDisk,
+    DevActivityBrowseMediaLibrary,
+    DevActivityBrowseMusicLibrary,
+    DevActivityBrowsePhotoLibrary,
+    DevActivityBrowseVideoLibrary,
+    DevActivityAccessPortableMediaPlayer,
+    DevActivityAccessiPodDock,
+    DevActivityAccessHomeNetwork,
+    DevActivityDLNAClient,
+    DevActivityWirelessLaptopLink,
+    DevActivityBrowseInternet,
+    DevActivityNetTV,
+    DevActivityCEHTMLService,
+    DevActivityOpenInternet,
+    DevActivityAudioOnlyApplication,
+    DevActivityFMRadioTuner,
+    DevActivityDigitalRadioTuner,
+    DevActivityAudioInput,
+    DevActivityAnalogAudioInput,
+    DevActivityOpticalSPDIFInput,
+    DevActivityCoaxSPDIFInput,
+    DevActivityAVInput,
+    DevActivityAnalogVideoInput,
+    DevActivityYUVIn,
+    DevActivitySCARTInput,
+    DevActivitySVideoInput,
+    DevActivityDVIInput,
+    DevActivityVGAInput,
+    DevActivityHDMIInput,
+    Activity_Game
+} PlfApiSmartActivity;
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMPLFSMARTACTIVITYLIST_H //---------------

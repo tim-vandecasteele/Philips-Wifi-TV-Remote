@@ -66,7 +66,7 @@ typedef enum {
 typedef struct {
     VoodooPlayInfoFlags         flags;
 
-    char                        uuid[16];
+    u8                          uuid[16];
 
     char                        name[VOODOO_PLAYER_NAME_LENGTH];        /* "My Philips TV" */
 
@@ -106,20 +106,23 @@ typedef DirectEnumerationResult (*VoodooPlayerCallback)( void                   
                                                          unsigned int             ms_since_last_seen );
 
 
-DirectResult voodoo_player_create   ( const VoodooPlayInfo  *info,
-                                      VoodooPlayer         **ret_player );
+DirectResult voodoo_player_create    ( const VoodooPlayInfo  *info,
+                                       VoodooPlayer         **ret_player );
 
-DirectResult voodoo_player_destroy  ( VoodooPlayer          *player );
+DirectResult voodoo_player_destroy   ( VoodooPlayer          *player );
 
-DirectResult voodoo_player_broadcast( VoodooPlayer          *player );
+DirectResult voodoo_player_broadcast ( VoodooPlayer          *player );
 
-DirectResult voodoo_player_lookup   ( VoodooPlayer          *player,
-                                      const char            *name,
-                                      char                  *ret_addr,
-                                      int                    max_addr );
+DirectResult voodoo_player_lookup    ( VoodooPlayer          *player,
+                                       const u8               uuid[16],
+                                       VoodooPlayInfo        *ret_info,
+                                       char                  *ret_addr,
+                                       int                    max_addr );
 
-DirectResult voodoo_player_enumerate( VoodooPlayer          *player,
-                                      VoodooPlayerCallback   callback,
-                                      void                  *ctx );
+DirectResult voodoo_player_enumerate ( VoodooPlayer          *player,
+                                       VoodooPlayerCallback   callback,
+                                       void                  *ctx );
+
 
 #endif
+

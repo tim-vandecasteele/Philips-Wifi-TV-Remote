@@ -4,7 +4,7 @@
 //
 
 #import "CEControlTVPlayCluster.h"
-#import <jslibrc_supply.h>
+#import <jslibrc_client.h>
 
 
 @implementation CEControlTVPlayCluster

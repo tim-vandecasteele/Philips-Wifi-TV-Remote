@@ -1,0 +1,301 @@
+/*
+ *  Copyright(C) 2003 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *          %name: DPlfApiAudioClipEx.dd %
+ *       %version: 1 %
+ * %date_modified: Fri Jan 15 15:34:15 2010 %
+ *    %derived_by: steegmag %
+ */
+
+/** koala public group DPlfApiAudioClip **/
+/** koala public type tmDigAdec_ClipDecodingState_t **/
+/** koala public type tmDigAdec_Error_t **/
+/** koala using infraglobals **/
+
+#ifndef TMDIGADEC_H //-----------------
+#define TMDIGADEC_H
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+//#include <tmPinObjects.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmDigAdec_Version                ( "2.4.1" )
+#define tmDigAdec_OutBase                ( 1 )
+#define tmDigAdec_AllNotifications       ( 0x000003FF )
+#define tmDigAdec_OutputAllNotifications ( 0x00000003 )
+#define tmDigAdec_ClipAllNotifications   ( 0x0000003F )
+
+
+typedef enum _tmDigAdec_Notification_t
+{
+    tmDigAdec_SubscriptionChanged = 0x00000001,
+    tmDigAdec_StandardChanged = 0x00000002,
+    tmDigAdec_SamplingFreqChanged = 0x00000004,
+    tmDigAdec_BitRateChanged = 0x00000008,
+    tmDigAdec_NumberBitsPerSampleChanged = 0x00000010,
+    tmDigAdec_ChannelsChanged = 0x00000020,
+    tmDigAdec_DualChannelChanged = 0x00000040,
+    tmDigAdec_BitStreamModeChanged = 0x00000080,
+    tmDigAdec_DolbySurroundChanged = 0x00000100,
+    tmDigAdec_Error = 0x00000200
+} tmDigAdec_Notification_t;
+
+typedef tmDigAdec_Notification_t* ptmDigAdec_Notification_t;
+
+typedef Int32 tmDigAdec_Notifications_t;
+
+typedef tmDigAdec_Notifications_t* ptmDigAdec_Notifications_t;
+
+typedef enum _tmDigAdec_OutputNotification_t
+{
+    tmDigAdec_OutputSubscriptionChanged = 0x00000001,
+    tmDigAdec_OutputConfigChanged = 0x00000002
+} tmDigAdec_OutputNotification_t;
+
+typedef tmDigAdec_OutputNotification_t* ptmDigAdec_OutputNotification_t;
+
+typedef Int32 tmDigAdec_OutputNotifications_t;
+
+typedef tmDigAdec_OutputNotifications_t* ptmDigAdec_OutputNotifications_t;
+
+typedef enum _tmDigAdec_CompressionStandard_t
+{
+    tmDigAdec_NoCompressionStandard = 0x00000000,
+    tmDigAdec_Mpeg1Layer1 = 0x00000001,
+    tmDigAdec_Mpeg1Layer2 = 0x00000002,
+    tmDigAdec_Mpeg1Layer3 = 0x00000004,
+    tmDigAdec_Mp3Pro = 0x00000008,
+    tmDigAdec_Mpeg2Layer1 = 0x00000010,
+    tmDigAdec_Mpeg2Layer2 = 0x00000020,
+    tmDigAdec_Mpeg2Layer3 = 0x00000040,
+    tmDigAdec_Mpeg2_5Layer3 = 0x00000080,
+    tmDigAdec_Mpeg2Aac = 0x00000100,
+    tmDigAdec_Mpeg4Aac = 0x00000200,
+    tmDigAdec_Mpeg4Celp = 0x00000400,
+    tmDigAdec_AacPlus = 0x00000800,
+    tmDigAdec_Ac3 = 0x00001000,
+    tmDigAdec_Dts = 0x00002000,
+    tmDigAdec_Dv = 0x00004000,
+    tmDigAdec_Pcm = 0x00008000,
+    tmDigAdec_InvalidCompressionStandard = 0x00010000
+} tmDigAdec_CompressionStandard_t;
+
+typedef tmDigAdec_CompressionStandard_t* ptmDigAdec_CompressionStandard_t;
+
+typedef Int32 tmDigAdec_CompressionStandardSet_t;
+
+typedef tmDigAdec_CompressionStandardSet_t* ptmDigAdec_CompressionStandardSet_t;
+
+typedef enum _tmDigAdec_SamplingFrequency_t
+{
+    tmDigAdec_SamplingFrequencyUnknown = 0x00000000,
+    tmDigAdec_8k = 0x00000001,
+    tmDigAdec_11k025 = 0x00000002,
+    tmDigAdec_12k = 0x00000004,
+    tmDigAdec_16k = 0x00000008,
+    tmDigAdec_22k05 = 0x00000010,
+    tmDigAdec_24k = 0x00000020,
+    tmDigAdec_32k = 0x00000040,
+    tmDigAdec_44k1 = 0x00000080,
+    tmDigAdec_48k = 0x00000100,
+    tmDigAdec_64k = 0x00000200,
+    tmDigAdec_88k2 = 0x00000400,
+    tmDigAdec_96k = 0x00000800,
+    tmDigAdec_128k = 0x00001000,
+    tmDigAdec_176k4 = 0x00002000,
+    tmDigAdec_192k = 0x00004000
+} tmDigAdec_SamplingFrequency_t;
+
+typedef tmDigAdec_SamplingFrequency_t* ptmDigAdec_SamplingFrequency_t;
+
+typedef Int32 tmDigAdec_SamplingFrequencySet_t;
+
+typedef tmDigAdec_SamplingFrequencySet_t* ptmDigAdec_SamplingFrequencySet_t;
+
+typedef enum _tmDigAdec_StereoInfo_t
+{
+    tmDigAdec_NotStereo = 0x00000000,
+    tmDigAdec_Stereo = 0x00000001,
+    tmDigAdec_JointStereo = 0x00000002,
+    tmDigAdec_LcStereo = 0x00000003
+} tmDigAdec_StereoInfo_t;
+
+typedef tmDigAdec_StereoInfo_t* ptmDigAdec_StereoInfo_t;
+
+typedef enum _tmDigAdec_DualChannelInfo_t
+{
+    tmDigAdec_NoDualChannel = 0x00000000,
+    tmDigAdec_DualMonoChannel = 0x00000001,
+    tmDigAdec_DualStereoChannel = 0x00000002
+} tmDigAdec_DualChannelInfo_t;
+
+typedef tmDigAdec_DualChannelInfo_t* ptmDigAdec_DualChannelInfo_t;
+
+typedef enum _tmDigAdec_DolbySurroundInfo_t
+{
+    tmDigAdec_DolbyNotIndicated = 0x00000001,
+    tmDigAdec_NotDolbySurround = 0x00000002,
+    tmDigAdec_DolbySurround = 0x00000003
+} tmDigAdec_DolbySurroundInfo_t;
+
+typedef tmDigAdec_DolbySurroundInfo_t* ptmDigAdec_DolbySurroundInfo_t;
+
+typedef enum _tmDigAdec_Error_t
+{
+    tmDigAdec_SyncNotFound = 0x00000001,
+    tmDigAdec_InvalidHeader = 0x00000002,
+    tmDigAdec_DecodeFrame = 0x00000004,
+    tmDigAdec_CrcFailed = 0x00000008,
+    tmDigAdec_Underrun = 0x00000010
+} tmDigAdec_Error_t;
+
+typedef tmDigAdec_Error_t* ptmDigAdec_Error_t;
+
+typedef enum _tmDigAdec_OutputConfiguration_t
+{
+    tmDigAdec_ConfigNotAvailable = 0x00000000,
+    tmDigAdec_Audio1x0 = 0x00000001,
+    tmDigAdec_Audio2x0 = 0x00000002,
+    tmDigAdec_AudioDolbySurround = 0x00000004,
+    tmDigAdec_Audio3x0 = 0x00000008,
+    tmDigAdec_Audio2x1 = 0x00000010,
+    tmDigAdec_Audio3x1 = 0x00000020,
+    tmDigAdec_Audio2x2 = 0x00000040,
+    tmDigAdec_Audio3x2 = 0x00000080,
+    tmDigAdec_Audio5x2 = 0x00000100
+} tmDigAdec_OutputConfiguration_t;
+
+typedef tmDigAdec_OutputConfiguration_t* ptmDigAdec_OutputConfiguration_t;
+
+typedef Int32 tmDigAdec_OutputConfigurationSet_t;
+
+typedef tmDigAdec_OutputConfigurationSet_t* ptmDigAdec_OutputConfigurationSet_t;
+
+typedef enum _tmDigAdec_DualMonoMode_t
+{
+    tmDigAdec_DualMonoModeNotAvailable = 0x00000001,
+    tmDigAdec_ChannelsStereo = 0x00000002,
+    tmDigAdec_Channel1Mono = 0x00000004,
+    tmDigAdec_Channel2Mono = 0x00000008,
+    tmDigAdec_ChannelsMixedMono = 0x00000010
+} tmDigAdec_DualMonoMode_t;
+
+typedef tmDigAdec_DualMonoMode_t* ptmDigAdec_DualMonoMode_t;
+
+typedef Int32 tmDigAdec_DualMonoModeSet_t;
+
+typedef tmDigAdec_DualMonoModeSet_t* ptmDigAdec_DualMonoModeSet_t;
+
+typedef enum _tmDigAdec_DualStereoMode_t
+{
+    tmDigAdec_DualStereoModeNotAvailable = 0x00000001,
+    tmDigAdec_DualStereoSetSeparated = 0x00000002,
+    tmDigAdec_DualStereoSet1 = 0x00000004,
+    tmDigAdec_DualStereoSet2 = 0x00000008,
+    tmDigAdec_DualStereoSetMixed = 0x00000010
+} tmDigAdec_DualStereoMode_t;
+
+typedef tmDigAdec_DualStereoMode_t* ptmDigAdec_DualStereoMode_t;
+
+typedef Int32 tmDigAdec_DualStereoModeSet_t;
+
+typedef tmDigAdec_DualStereoModeSet_t* ptmDigAdec_DualStereoModeSet_t;
+
+typedef enum _tmDigAdec_DynRangeCompMode_t
+{
+    tmDigAdec_NoDrcMode = 0x00000001,
+    tmDigAdec_CustomMode0 = 0x00000002,
+    tmDigAdec_CustomMode1 = 0x00000004,
+    tmDigAdec_LineMode = 0x00000008,
+    tmDigAdec_RfMode = 0x00000010
+} tmDigAdec_DynRangeCompMode_t;
+
+typedef tmDigAdec_DynRangeCompMode_t* ptmDigAdec_DynRangeCompMode_t;
+
+typedef Int32 tmDigAdec_DynRangeCompModeSet_t;
+
+typedef tmDigAdec_DynRangeCompModeSet_t* ptmDigAdec_DynRangeCompModeSet_t;
+
+typedef enum _tmDigAdec_DynRangeCompSetting_t
+{
+    tmDigAdec_DynamicRangeCompOff = 0x00000001,
+    tmDigAdec_StandardDynamicRange = 0x00000002,
+    tmDigAdec_MinimumDynamicRange = 0x00000004,
+    tmDigAdec_TvStyleDynamicRange = 0x00000008
+} tmDigAdec_DynRangeCompSetting_t;
+
+typedef tmDigAdec_DynRangeCompSetting_t* ptmDigAdec_DynRangeCompSetting_t;
+
+typedef Int32 tmDigAdec_DynRangeCompSettingSet_t;
+
+typedef tmDigAdec_DynRangeCompSettingSet_t* ptmDigAdec_DynRangeCompSettingSet_t;
+
+typedef enum _tmDigAdec_ClipNotification_t
+{
+    tmDigAdec_ClipSubscriptionChanged = 0x00000001,
+    tmDigAdec_ClipBufferAvailable = 0x00000002,
+    tmDigAdec_ClipEndOfData = 0x00000004,
+    tmDigAdec_ClipStarted = 0x00000008,
+    tmDigAdec_ClipStopped = 0x00000010,
+    tmDigAdec_ClipPaused = 0x00000020,
+    tmDigAdec_ClipSeekCompleted = 0x0000040,
+    tmDigAdec_OnTotalSeekTimeChanged = 0x0000080
+} tmDigAdec_ClipNotification_t;
+
+typedef tmDigAdec_ClipNotification_t* ptmDigAdec_ClipNotification_t;
+
+typedef Int32 tmDigAdec_ClipNotifications_t;
+
+typedef tmDigAdec_ClipNotifications_t* ptmDigAdec_ClipNotifications_t;
+
+typedef enum _tmDigAdec_ClipDecodingState_t
+{
+    tmDigAdec_ClipDecodingStarting = 0,
+    tmDigAdec_ClipDecodingStarted = 1,
+    tmDigAdec_ClipDecodingStopping = 2,
+    tmDigAdec_ClipDecodingStopped = 3,
+    tmDigAdec_ClipDecodingPausing = 4,
+    tmDigAdec_ClipDecodingPaused = 5,
+    tmDigAdec_ClipDecodingSeekingInPaused = 6,
+    tmDigAdec_ClipDecodingSeekingInStarted = 7
+} tmDigAdec_ClipDecodingState_t;
+
+typedef tmDigAdec_ClipDecodingState_t* ptmDigAdec_ClipDecodingState_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMDIGADEC_H //---------------
+

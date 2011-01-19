@@ -4,8 +4,7 @@
 //
 
 #import "CEVoodooTV.h"
-#import <jslibrc_supply.h>
-#import <hotkeys.h>
+#import <jslibrc_client.h>
 
 @implementation CEVoodooTV
 
@@ -64,7 +63,7 @@ extern IDirectFB *idirectfb_singleton;
         DirectFBErrorFatal( "DirectFBSetOption failed!\n", ret );
     }
     
-    jslibrc_Init( NULL, NULL, NULL );
+    jslibrc_Init( NULL, NULL );
 }
 
 - (void)disconnect {

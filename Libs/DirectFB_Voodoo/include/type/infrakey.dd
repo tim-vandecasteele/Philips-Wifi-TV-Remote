@@ -570,7 +570,7 @@ typedef int KeySystem;   /** koala public type KeySystem  **/
 #define rcaFreeze                          243
 #define rcaZoom                             58
 #define rcaPresets                         237
-#define rcaGuide                            229
+#define rcaGuide                           229
 
 #define rcaClosedCaptioning                123
 #define rcaFavourite                       255

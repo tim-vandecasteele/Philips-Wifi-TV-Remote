@@ -1,0 +1,243 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiPreset.dd %
+ *    %version: brg40mgr#3 %
+ *    %date_modified: Tue Jul 03 19:01:35 2007 %
+ *    %derived_by: dewulfj %
+ */
+
+/** koala public group PlfApiPreset **/
+/** koala public type tmPlfInstPreset_Source_t **/
+/** koala public type tmPlfInstPreset_Destination_t **/
+/** koala public type tmPlfInstPreset_SourceType_t **/
+/** koala public type tmPlfInstPreset_DestinationType_t **/
+/** koala public type tmPlfInstPreset_PresetAttribute_t **/
+
+#ifndef TMPLFINSTPRESET_H //-----------------
+#define TMPLFINSTPRESET_H
+
+/** koala using infraglobals **/
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmIUnknown.h>
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmNxTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmPlfInstPreset_Version                     ( 1.1 )
+#define tmPlfInstPreset_AttrUnknown                 ( 0x00000000 )
+#define tmPlfInstPreset_AttrInvalid                 ( 0x00000001 )
+#define tmPlfInstPreset_AttrPal                     ( 0x00000002 )
+#define tmPlfInstPreset_AttrSecam                   ( 0x00000003 )
+#define tmPlfInstPreset_AttrNtsc                    ( 0x00000004 )
+#define tmPlfInstPreset_AttrNone                    ( 0x00000001 )
+#define tmPlfInstPreset_AttrBg                      ( 0x00000002 )
+#define tmPlfInstPreset_AttrD                       ( 0x00000004 )
+#define tmPlfInstPreset_AttrDk                      ( 0x00000008 )
+#define tmPlfInstPreset_AttrDk1                     ( 0x00000010 )
+#define tmPlfInstPreset_AttrDk2                     ( 0x00000020 )
+#define tmPlfInstPreset_AttrI                       ( 0x00000040 )
+#define tmPlfInstPreset_AttrH                       ( 0x00000080 )
+#define tmPlfInstPreset_AttrK1                      ( 0x00000100 )
+#define tmPlfInstPreset_AttrL                       ( 0x00000200 )
+#define tmPlfInstPreset_AttrL1                      ( 0x00000400 )
+#define tmPlfInstPreset_AttrM                       ( 0x00000800 )
+#define tmPlfInstPreset_AttrN                       ( 0x00001000 )
+#define tmPlfInstPreset_AttrC64Qam                  ( 0x00002000 )
+#define tmPlfInstPreset_AttrC256Qam                 ( 0x00004000 )
+#define tmPlfInstPreset_AttrT8Vsb                   ( 0x00008000 )
+#define tmPlfInstPreset_AttrT16Vsb                  ( 0x00010000 )
+#define tmPlfInstPreset_IoAllNotifications          ( 0x00000007 )
+#define tmPlfInstPreset_tvSourceBits                ( 0x0000FFFF )
+#define tmPlfInstPreset_tvAvSourceBits              ( 0x000083FF )
+#define tmPlfInstPreset_tvTunerSourceBits           ( 0x00004000 )
+#define tmPlfInstPreset_tvTunerSourceDesignatorBits ( 0x00030000 )
+#define tmPlfInstPreset_tvVideoSourceDesignatorBits ( 0xFF000000 )
+#define tmPlfInstPreset_tvSoundSourceDesignatorBits ( 0x007C0000 )
+#define tmPlfInstPreset_tvsrcIsDeviceMask           ( 0x000F )
+#define tmPlfInstPreset_tvsrcP50InfoMask            ( 0x0FF0 )
+#define tmPlfInstPreset_tvsrcP50VideoMask           ( 0x00F0 )
+#define tmPlfInstPreset_tvsrcP50AudioMask           ( 0x0F00 )
+#define tmPlfInstPreset_tvsrcOverlayMask            ( 0x7000 )
+
+
+typedef enum _tmPlfInstPreset_IoNotification_t
+{
+    tmPlfInstPreset_IoSubscriptionChanged = 0x00000001,
+    tmPlfInstPreset_IoExtensionStatuschanged = 0x00000002,
+    tmPlfInstPreset_IoDestinationStatusChanged = 0x00000004
+} tmPlfInstPreset_IoNotification_t;
+
+typedef tmPlfInstPreset_IoNotification_t* ptmPlfInstPreset_IoNotification_t;
+
+typedef Int32 tmPlfInstPreset_IoNotifications_t;
+
+typedef tmPlfInstPreset_IoNotifications_t* ptmPlfInstPreset_IoNotifications_t;
+
+typedef enum _tmPlfInstPreset_Source_t
+{
+    tmPlfInstPreset_tvsrcNoSource = 0x00000000,
+    tmPlfInstPreset_tvsrcAvIn0 = 0x00000004,
+    tmPlfInstPreset_tvsrcAvIn1 = 0x00000008,
+    tmPlfInstPreset_tvsrcAvIn2 = 0x00000010,
+    tmPlfInstPreset_tvsrcAvIn3 = 0x00000020,
+    tmPlfInstPreset_tvsrcAvIn4 = 0x00000040,
+    tmPlfInstPreset_tvsrcAvIn5 = 0x00000080,
+    tmPlfInstPreset_tvsrcAvIn6 = 0x00000100,
+    tmPlfInstPreset_tvsrcAvIn7 = 0x00000200,
+    tmPlfInstPreset_tvsrcSpdif = 0x00000400,
+    tmPlfInstPreset_tvsrcCenter = 0x00000800,
+    tmPlfInstPreset_tvsrcDvd = 0x00001000,
+    tmPlfInstPreset_tvsrcTxt = 0x00002000,
+    tmPlfInstPreset_tvsrcSpdif2 = 0x00002001,
+    tmPlfInstPreset_tvsrcHdd = 0x00002002,
+    tmPlfInstPreset_tvsrcRadio = 0x00002003,
+    tmPlfInstPreset_tvsrcAvMediaPlayer = 0x00002004,
+    tmPlfInstPreset_tvsrcMainTuner = 0x00004001,
+    tmPlfInstPreset_tvsrcAuxTuner = 0x00004002,
+    tmPlfInstPreset_tvsrcAvIn8 = 0x00008000,
+    tmPlfInstPreset_tvSourceCVBS = 0x80000000,
+    tmPlfInstPreset_tvSourceYC = 0x40000000,
+    tmPlfInstPreset_tvSourceYUV = 0x20000000,
+    tmPlfInstPreset_tvSourceRGB = 0x10000000,
+    tmPlfInstPreset_tvSourceVGA = 0x08000000,
+    tmPlfInstPreset_tvSourceYUV2FH = 0x04000000,
+    tmPlfInstPreset_tvSourceRGB2FH = 0x02000000,
+    tmPlfInstPreset_tvSourceVideoDigital = 0x01000000,
+    tmPlfInstPreset_tvSourceLeftRight = 0x00400000,
+    tmPlfInstPreset_tvSourceAudioDigital = 0x00200000,
+    tmPlfInstPreset_tvSourceAudioSpdif = 0x00100000,
+    tmPlfInstPreset_tvSourceAudioCenter = 0x00080000,
+    tmPlfInstPreset_tvSourceText = 0x00040000,
+    tmPlfInstPreset_tvSourceTerrestrial = 0x00020000,
+    tmPlfInstPreset_tvSourceCable = 0x00010000
+} tmPlfInstPreset_Source_t;
+
+typedef tmPlfInstPreset_Source_t* ptmPlfInstPreset_Source_t;
+
+typedef enum _tmPlfInstPreset_SourceType_t
+{
+    tmPlfInstPreset_tvsrcIsUnknown = 0x0000,
+    tmPlfInstPreset_tvsrcIsVcr = 0x0001,
+    tmPlfInstPreset_tvsrcIsDvd = 0x0002,
+    tmPlfInstPreset_tvsrcIsHomeCinema = 0x0003,
+    tmPlfInstPreset_tvsrcIsTxt = 0x0004,
+    tmPlfInstPreset_tvsrcIsEpg = 0x0005,
+    tmPlfInstPreset_tvsrcIsGemstar = 0x0006,
+    tmPlfInstPreset_tvsrcIsOsd = 0x0007,
+    tmPlfInstPreset_tvsrcIsDigStb = 0x0008,
+    tmPlfInstPreset_tvsrcIsDecoder = 0x0009,
+    tmPlfInstPreset_tvsrcIsNone = 0x000F,
+    tmPlfInstPreset_tvsrcP50Ar4by3FullFormat = 0x0010,
+    tmPlfInstPreset_tvsrcP50Ar14by9FullFormat = 0x0020,
+    tmPlfInstPreset_tvsrcP50Ar16by9FullFormat = 0x0030,
+    tmPlfInstPreset_tvsrcP50Ar14by9Top = 0x0040,
+    tmPlfInstPreset_tvsrcP50Ar14by9Center = 0x0050,
+    tmPlfInstPreset_tvsrcP50Ar16by9Top = 0x0060,
+    tmPlfInstPreset_tvsrcP50Ar16by9Center = 0x0070,
+    tmPlfInstPreset_tvsrcP50ArMoreThan16by9Center = 0x0080,
+    tmPlfInstPreset_tvsrcP50Mono = 0x0100,
+    tmPlfInstPreset_tvsrcP50Stereo = 0x0200,
+    tmPlfInstPreset_tvsrcP50Dpl = 0x0300,
+    tmPlfInstPreset_tvsrcP50Unknown = 0x0000,
+    tmPlfInstPreset_tvsrcOverlayHalfWindow = 0x1000,
+    tmPlfInstPreset_tvsrcOverlayFullWindow = 0x2000,
+    tmPlfInstPreset_tvsrcOverlayTransparent = 0x4000,
+   
+} tmPlfInstPreset_SourceType_t;
+
+typedef tmPlfInstPreset_SourceType_t* ptmPlfInstPreset_SourceType_t;
+
+typedef enum _tmPlfInstPreset_Destination_t
+{
+    tmPlfInstPreset_tvdestNoDestination = 0x00000000,
+    tmPlfInstPreset_tvdestMainWindow = 0x00000001,
+    tmPlfInstPreset_tvdestAuxWindow = 0x00000002,
+    tmPlfInstPreset_tvdestSpeakers = 0x00000003,
+    tmPlfInstPreset_tvdestHeadphones = 0x00000004,
+    tmPlfInstPreset_tvdestVbiData = 0x00000005,
+    tmPlfInstPreset_tvdestAvOut1 = 0x00000006,
+    tmPlfInstPreset_tvdestAvOut2 = 0x00000007,
+    tmPlfInstPreset_tvdestLrCinch = 0x00000008,
+    tmPlfInstPreset_tvdestWireless = 0x00000009,
+    tmPlfInstPreset_tvdestSpdif = 0x0000000A,
+    tmPlfInstPreset_tvdestHdd = 0x0000000B,
+    tmPlfInstPreset_tvdest1394 = 0x0000000C,
+    tmPlfInstPreset_tvDestinationCVBS = 0x80000000,
+    tmPlfInstPreset_tvDestinationYC = 0x40000000,
+    tmPlfInstPreset_tvDestinationLeftRightTotal = 0x04000000,
+    tmPlfInstPreset_tvDestinationCentre = 0x02000000,
+    tmPlfInstPreset_tvDestinationSubWoofer = 0x01000000,
+    tmPlfInstPreset_tvDestinationLeftRight = 0x00800000,
+    tmPlfInstPreset_tvDestinationForcedMono = 0x00400000,
+    tmPlfInstPreset_tvDestinationSpdif = 0x00200000,
+    tmPlfInstPreset_tvDestinationSurroundLeft = 0x00100000,
+    tmPlfInstPreset_tvDestinationSurroundRight = 0x00010000,
+    tmPlfInstPreset_tvDestinationBits = 0x000000FF,
+    tmPlfInstPreset_tvVideoDestinationDesignatorBits = 0xC0000000,
+    tmPlfInstPreset_tvSoundDestinationDesignatorBits = 0x07F10000,
+    tmPlfInstPreset_tvDesignatorBits = 0xFFFF0000,
+    tmPlfInstPreset_tvTunerDesignatorBits = 0x00040000,
+    tmPlfInstPreset_tvVideoDesignatorBits = 0xFF800000,
+    tmPlfInstPreset_tvSoundDesignatorBits = 0x07FF0000
+} tmPlfInstPreset_Destination_t;
+
+typedef tmPlfInstPreset_Destination_t* ptmPlfInstPreset_Destination_t;
+
+typedef enum _tmPlfInstPreset_DestinationType_t
+{
+    tmPlfInstPreset_tvdestIsNotSupported = 0,
+    tmPlfInstPreset_tvdestIsConstantLevel = 1,
+    tmPlfInstPreset_tvdestIsVariableLevel = 2
+} tmPlfInstPreset_DestinationType_t;
+
+typedef tmPlfInstPreset_DestinationType_t* ptmPlfInstPreset_DestinationType_t;
+
+typedef enum _tmPlfInstPreset_PresetAttribute_t
+{
+    tmPlfInstPreset_OnStationFound = 0,
+    tmPlfInstPreset_TunerFrequency = 1,
+    tmPlfInstPreset_Afc = 3,
+    tmPlfInstPreset_TvSystem = 4,
+    tmPlfInstPreset_SuggestedColorSystem = 5,
+    tmPlfInstPreset_RfAmplification = 9,
+} tmPlfInstPreset_PresetAttribute_t;
+
+typedef tmPlfInstPreset_PresetAttribute_t* ptmPlfInstPreset_PresetAttribute_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMPLFINSTPRESET_H //---------------
+

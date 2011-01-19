@@ -1,0 +1,95 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiStcDec.dd %
+ *    %version: brg40mgr#6 %
+ *    %date_modified: Mon Oct 06 14:20:01 2008 %
+ *    %derived_by: verbekej %
+ */
+
+/** koala public group PlfApiStcDec **/
+/** koala public type tmTimeStamp_t **/
+#ifndef TMSTCDEC_H //-----------------
+#define TMSTCDEC_H
+
+/** koala using infraglobals **/
+
+//typedef unsigned long long tmTimeStamp_t, *ptmTimeStamp_t;
+//#include "../../os/type/tmStdTypes/inc/tmNxTypes.h" JMH
+
+//-----------------------------------------------------------------------------
+// Standard include files:
+//-----------------------------------------------------------------------------
+//
+
+
+//-----------------------------------------------------------------------------
+// Project include files:
+//-----------------------------------------------------------------------------
+//
+//#include <tmBasicNhapiTypes.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+//-----------------------------------------------------------------------------
+// Types and defines:
+//-----------------------------------------------------------------------------
+//
+
+#define tmStcDec_Version                  ( "1.3" )
+#define TM_ERR_STCDEC_ALARM_NOT_AVAILABLE ( 0x00000001 )
+#define TM_ERR_STCDEC_ALARM_IN_PAST       ( 0x00000002 )
+#define TM_ERR_STCDEC_ALARM_EXPIRED       ( 0x00000003 )
+#define TM_ERR_STCDEC_NOT_LOCKED          ( 0x00000004 )
+#define tmStcDec_AllNotifications         ( 0x0000000F )
+#define tmStcDec_AlarmAllNotifications    ( 0x00000007 )
+
+
+typedef enum _tmStcDec_Notification_t
+{
+    tmStcDec_SubscriptionChanged = 0x00000001,
+    tmStcDec_Locked = 0x00000002,
+    tmStcDec_Unlocked = 0x00000004,
+    tmStcDec_Discontinuity = 0x00000008
+} tmStcDec_Notification_t;
+
+typedef tmStcDec_Notification_t* ptmStcDec_Notification_t;
+
+typedef Int32 tmStcDec_Notifications_t;
+
+typedef tmStcDec_Notifications_t* ptmStcDec_Notifications_t;
+
+typedef enum _tmStcDec_AlarmNotification_t
+{
+    tmStcDec_AlarmSubscriptionChanged = 0x00000001,
+    tmStcDec_AlarmExpired = 0x00000002,
+    tmStcDec_AlarmCancelled = 0x00000004
+} tmStcDec_AlarmNotification_t;
+
+typedef tmStcDec_AlarmNotification_t* ptmStcDec_AlarmNotification_t;
+
+typedef Int32 tmStcDec_AlarmNotifications_t;
+
+typedef tmStcDec_AlarmNotifications_t* ptmStcDec_AlarmNotifications_t;
+
+//-----------------------------------------------------------------------------
+// Exported functions:
+//-----------------------------------------------------------------------------
+//
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // TMSTCDEC_H //---------------
+

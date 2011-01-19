@@ -1,0 +1,312 @@
+/*
+ *  Copyright(C) 2005 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *          %name: DPlfApiCiRsApi.dd %
+ *       %version: brg40mgr#3 %
+ * %date_modified: Tue Jul 03 19:01:23 2007 %
+ *    %derived_by: dewulfj %
+ */
+
+/** koala public group PlfApiCiRsApi **/
+/** koala public type RS_ca_sysHandle_d **/
+/** koala public type RS_ca_error_e **/
+/** koala public type RS_ca_descramble_status_e **/
+/** koala public type t_RS_hcReleaseFct **/
+/** koala public type t_RS_mmiNotifyClose **/
+/** koala public type t_RS_mmiNotifyOpen **/
+/** koala public type t_Msg_Info_Appli_Change **/
+/** koala public type t_RS_mmiNotifySelect **/
+/** koala public type t_RS_mmiType **/
+/** koala public type t_RS_mmiData **/
+/** koala public type t_RS_mmiNotifyResponse **/
+/** koala public type RS_ca_PI_state_e **/
+/** koala public type RS_ca_request_e **/
+/** koala public type RS_ca_CAPMTservice_info_s **/
+/** koala public type t_RS_mmiResponse **/
+/** koala public type t_NotifyCond **/
+
+#ifndef DPLFAPICIRSAPI
+#define DPLFAPICIRSAPI
+
+#ifndef DVBCI_API_RES
+#define DVBCI_API_RES
+
+/** koala using infraglobals **/
+
+#ifndef _EXTERN
+#define _EXTERN extern
+#define _DEFEXTERN
+#endif
+
+
+#ifndef RS_API_DEF
+#define RS_API_DEF
+
+/*----------------------------------*/
+/* CA data structure descriptions	*/
+/*----------------------------------*/
+
+/*handle type */
+#define RS_ca_sysHandle_d	unsigned short
+
+/*maximum of stream in a service CA PMT */
+#define RS_CA_MAX_STREAM	16
+
+/*Application returned error */
+typedef enum{
+    RS_CA_ERROR         = -1,
+    RS_CA_NO_ERROR  = 0
+} RS_ca_error_e;
+
+/*CA PMT request type */
+typedef enum {
+    RS_CA_DESCRAMBLING,
+    RS_CA_QUERY
+} RS_ca_request_e;
+
+/*CA PMT status type */
+typedef enum {
+    RS_CA_PI_ON,
+    RS_CA_PI_UPDATE,
+    RS_CA_PI_OFF
+} RS_ca_PI_state_e;
+
+/*CA PMT status reply type */
+typedef enum {
+    RS_CA_STATUS_UNDEF          = -3,
+    RS_CA_STATUS_ERROR          = -2, 
+    RS_CA_STATUS_WAITING        = -1, 
+    RS_CA_STATUS_TECHNICAL,
+    RS_CA_STATUS_NO_ENTITLEMENT,
+    RS_CA_STATUS_UNDER_DIALOGUE_CONDITION,
+    RS_CA_STATUS_UNDER_TECHNICAL_CONDITION, 
+    RS_CA_STATUS_RUNNING
+} RS_ca_descramble_status_e;
+
+/*structure for CA descriptor */
+typedef struct {
+    unsigned short          nb_desc;
+    unsigned long           ca_desc_length;
+    unsigned char           *ca_desc;
+} RS_ca_desc_s;
+
+/*descriptor for stream type */
+/* this corresponds to the DVB stream type */
+#define  RS_ca_stream_type_e    unsigned char
+
+/*descriptor for stream CA PMT */
+typedef struct {
+    RS_ca_stream_type_e     stream_type;
+    unsigned short                 pesPID;
+    RS_ca_desc_s                CAdesc;
+} RS_ca_CAPMTstream_info_s;
+
+/*descriptor for service CA PMT */
+typedef struct {
+    unsigned short                          prog_number;
+    RS_ca_desc_s                          CAdescPL;
+    unsigned short                          nb_streams;
+    RS_ca_CAPMTstream_info_s      *streamInfo[RS_CA_MAX_STREAM];
+} RS_ca_CAPMTservice_info_s;
+
+/*----------------------------------*/
+/* CA function prototype			*/
+/*----------------------------------*/
+
+/*descriptor for ca notification function */
+typedef void ( *RS_ca_CAPMT_notify_t)
+(
+    RS_ca_sysHandle_d               handle,
+    RS_ca_PI_state_e                state,
+    RS_ca_request_e                 request,
+    RS_ca_CAPMTservice_info_s   *serviceInfo
+);
+
+
+/*----------------------------------*/
+/* HC function prototypes			*/
+/*----------------------------------*/
+typedef signed short (*t_RS_hcReleaseFct)(void);
+/*----------------------------------*/
+/* MMI data structure descriptions	*/
+/*----------------------------------*/
+
+#define DVBCI_MMI_EXIT 			0xFF01
+#define RT_MSG_NEWPARAM 		0xFF02
+#define MSG_START_CI_REASON 	0xFFFF
+
+typedef struct 
+{ 
+	unsigned short			len;		/* text size	 */ 
+	unsigned char			*pt_texte;	/* text pointer	 */ 
+} t_RS_mmiText; 
+ 
+typedef struct 
+{ 
+	unsigned short			blind;		/* blind user input if == 1	*/ 
+	unsigned short			lenAnsw;	/* user input max size		*/
+	t_RS_mmiText	Prompt;		/* data to be display		*/ 
+} t_RS_mmiEnq; 
+ 
+typedef struct 
+{ 
+	unsigned short			nbChoice;	/* choices numbers	*/ 
+	t_RS_mmiText	*pt_item;	/* choice text pointer	*/ 
+} t_RS_mmiMenu; 
+ 
+typedef struct 
+{ 
+	unsigned short			answ;		/* 0: cancel, 1: answer	*/ 
+	/*unsigned short			len;	*//* response length		*/ 
+	t_RS_mmiText	reponse;	/* user response		*/ 
+} t_RS_mmiAnsw; 
+ 
+typedef union 
+{ 
+	t_RS_mmiEnq		enq;		/* APDU enq			*/ 
+	t_RS_mmiMenu	menu_list;	/* APDU menu, list	*/ 
+} t_RS_mmiData; 
+ 
+typedef union 
+{ 
+	t_RS_mmiAnsw	answ_enq;	/* APDU answ */ 
+	unsigned short			choice;		/* APDU menu_answ 0 : cancel */ 
+} t_RS_mmiResponse; 
+
+typedef struct
+{
+	unsigned long   appli_id ;					/* Application identifier to be return after selection */
+	unsigned short   logical_ad;
+	unsigned short   application_manufacturer ;	    
+	unsigned short   manufacturer_code ;	            
+	unsigned char    application_type ;	            
+	unsigned char    menu_string_length ;		/* display menu string length	*/
+	char *  text_char ;				/* display menu string			*/
+
+} t_Appli_Info , *t_Appli_InfoPtr;
+
+#define NB_MAX_APPLI       8 
+
+typedef struct
+{
+	unsigned long            nb_appli ;
+	t_Appli_InfoPtr   appli[NB_MAX_APPLI];
+
+} t_Msg_Info_Appli_Change, *t_Msg_Info_Appli_ChangePtr;
+
+typedef struct 
+  {
+   unsigned short   logical_ad;        /* slot number*/  
+
+  } t_Msg_Insert_Module;
+
+typedef struct 
+  {
+   unsigned short   logical_ad;        /* slot number*/
+
+  } t_Msg_Extract_Module;
+
+typedef enum 
+{ 
+	MMI_ENQUERY = 1,	/* APDUs enq, answ */ 
+	MMI_LIST,			/* APDUs list, menu_answ */ 
+	MMI_MENU			/* APDUs menu, menu_answ */ 
+} t_RS_mmiType; 
+
+typedef void(*t_RS_mmiNotifySelect)		(unsigned long);
+typedef void (*t_RS_mmiNotifyResponse)	(unsigned char mmi_id, t_RS_mmiType type, t_RS_mmiResponse *pResponse);
+typedef void (*t_RS_mmiNotifyClose) (unsigned char mmi_id);
+typedef void (*t_RS_mmiNotifyOpen)  (unsigned char , signed short );
+/*----------------------------------*/
+/* LSC function prototype			*/
+/*----------------------------------*/
+#ifdef DVBCI_RESS_LSC
+/*
+@@@ LSC_ERROR*/
+typedef enum
+{
+	MODEM_SVC_TX = 1,	
+	MODEM_SVC_RCV,
+	DISCONNECT_REQUESTED
+} t_NotifyCond;
+
+typedef enum
+{
+	MODEM_SVC_CONNECT_ERROR = 1,
+	MODEM_SVC_CONNECT_SUCCESS,
+	MODEM_SVC_DISCONNECTED,
+	MODEM_SVC_INFO,
+	MODEM_COND_CONTROL_FINISHED
+} t_NotifyType;
+
+/*typedef unsigned long	t_NotifyCond;
+typedef unsigned long	t_NotifyType;*/
+
+typedef	void(*t_RS_lscNotifyModem) (unsigned char, t_NotifyCond, t_NotifyCond);
+#endif
+
+#endif /* RS_API_DEF */
+
+
+
+/*=================================================================================
+
+				CONDITIONAL ACCESS API
+
+=================================================================================*/
+#ifdef CI_RS_CA_API
+_EXTERN RS_ca_sysHandle_d CI_RS_caRegister(const RS_ca_CAPMT_notify_t RS_caCAPMTNotify);
+_EXTERN RS_ca_error_e CI_RS_caRegisterCAsysIDs(RS_ca_sysHandle_d handle, unsigned short nb_sysIDs, unsigned short *sysIDs);
+_EXTERN RS_ca_error_e CI_RS_caUnregisterCAsysIDs(RS_ca_sysHandle_d handle);
+_EXTERN RS_ca_error_e CI_RS_caUnregister(RS_ca_sysHandle_d handle);
+_EXTERN RS_ca_error_e CI_RS_caStatusNotify(RS_ca_sysHandle_d handle, unsigned long arg, RS_ca_descramble_status_e status);
+#endif
+/*=================================================================================
+
+				DATE TIME API
+
+=================================================================================*/
+#ifdef CI_RS_DT_API
+_EXTERN signed short	CI_RS_dtTimeRequest(unsigned long * UTC_time, signed short *local_offset);
+#endif
+/*=================================================================================
+
+				HOST CONTROL API
+
+=================================================================================*/
+#ifdef CI_RS_HC_API
+_EXTERN void CI_RS_hcTune(unsigned short netwokId,unsigned short originalNetworkId,unsigned short transportStreamId,unsigned short serviceId);
+_EXTERN signed short CI_RS_hcReplace(unsigned short oldPID,unsigned short newPID,unsigned short reference,t_RS_hcReleaseFct RS_hcRelease);
+_EXTERN signed short CI_RS_hcClear(unsigned short reference);
+#endif
+/*=================================================================================
+
+				MAN MACHINE INTERFACE API
+
+=================================================================================*/
+#ifdef CI_RS_MMI_API
+_EXTERN signed short CI_RS_mmiOpen(unsigned char mmiId, t_RS_mmiNotifyClose pNotifyClose, t_RS_mmiNotifyOpen pNotifyOpen);
+_EXTERN signed short CI_RS_mmiClose(unsigned char mmiId);
+_EXTERN void CI_RS_mmiInsertModule (unsigned short logical_ad);
+_EXTERN void CI_RS_mmiExtractModule (unsigned short logical_ad);
+_EXTERN void CI_RS_mmiTables (unsigned char *list_char_tables, unsigned long maxSize);
+_EXTERN signed short CI_RS_mmiAppli(t_Msg_Info_Appli_Change	*pLstAppli, t_RS_mmiNotifySelect pNotifySelect);
+_EXTERN signed short CI_RS_mmiError(unsigned short origine, unsigned short gravite, unsigned long type, unsigned long error_code, unsigned long param);
+_EXTERN signed short CI_RS_mmiCmd(unsigned char mmi_id, t_RS_mmiType type, t_RS_mmiData *pData, t_RS_mmiNotifyResponse NotifyResp) ;
+#endif
+
+#ifdef _DEFEXTERN
+#undef _EXTERN
+#undef _DEFEXTERN
+#endif
+
+#endif /* DVBCI_API_RES */
+
+#endif /* DPLFAPICIRSAPI */

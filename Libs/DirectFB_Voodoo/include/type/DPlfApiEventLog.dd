@@ -1,0 +1,40 @@
+/*
+ *  Copyright(C) 2004 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *    %name: DPlfApiEventLog.dd %
+ *    %version: 1 %
+ *    %date_modified: Thu Apr 09 15:38:05 2009 %
+ *    %derived_by: verbekej %
+ */
+
+#ifndef _PLFAPIEVLOG_DD_
+#define _PLFAPIEVLOG_DD_
+
+/** koala group plfapievlog **/
+
+/** koala using infraglobals **/
+
+typedef struct   
+{
+    Bool    IsWarmRestart;
+    char    Origin[4];
+    Nat8    EventCode;
+    Nat32   AbsoluteTime;
+    Bool    OpTimeGrainInMins;
+    Nat16   OperationTime;
+    Nat16   ActiveContext;
+    Nat16   NumKeys;
+    Nat16   LastKey;
+    Nat8    LastSrc;
+    Nat32   Reason;
+} PlfApiEventLogEntry;  /** koala type PlfApiEventLogEntry **/
+
+
+#endif

@@ -1,0 +1,69 @@
+/*
+ *  Copyright(C) 2003 Koninklijke Philips Electronics N.V.,
+ *  All Rights Reserved.
+ *  This  source code and any compilation or derivative thereof is the
+ *  proprietary information of Koninklijke Philips Electronics N.V.
+ *  and is confidential in nature.
+ *  Under no circumstances is this software to be exposed to or placed
+ *  under an Open Source License of any type without the expressed
+ *  written permission of Koninklijke Philips Electronics N.V.
+ *
+ *          %name: infranvm.dd %
+ *       %version: 1 %
+ * %date_modified: Fri May 30 18:18:42 2008 %
+ *    %derived_by: verbekej %
+ */
+
+
+#ifndef _INFRANVM_DD_
+#define _INFRANVM_DD_
+
+
+/** koala public group infranvm **/
+/** koala public using infraglobals **/
+/** koala public using Int32 **/
+/** koala public using Nat8 **/
+
+typedef int NvmId;
+/** koala public type NvmId **/
+
+
+typedef Nat32 NvmXaddr; 
+/** koala public type NvmXaddr **/
+
+#define nvmGap    ((Nat8) 0x0001)  /* can be used for gaps */
+#define nvmBool   ((Nat8) 0x0002)
+#define nvmChar   ((Nat8) 0x0004)
+#define nvmInt    ((Nat8) 0x0008)
+#define nvmInt32  ((Nat8) 0x0010)
+#define nvmStruct ((Nat8) 0x0020)
+#define nvmUnion  ((Nat8) 0x0040)
+
+typedef Nat8 NvmType;
+/** koala public type NvmType **/
+
+
+typedef int NvmIterator;
+/** koala public type NvmIterator **/
+
+
+/** koala public group infranvmlay **/
+
+typedef struct 
+{
+    char     *Name;
+    int       DeviceId;
+    NvmXaddr  Address;
+    NvmType   Type;
+    Nat8      Count;
+    Int32     Size;
+    NvmId     Ancestor;
+    NvmId     Brother;
+    /*FirstSon */
+    Int32     Min;
+    Int32     Restore;
+    Int32     Max;
+} InfraIsnltItemType;
+/** koala public type InfraIsnltItemType **/
+
+#endif
