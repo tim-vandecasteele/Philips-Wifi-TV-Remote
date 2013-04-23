@@ -13,3 +13,6 @@ The following features are currently implemented (but feel free to add more)
 * pushing pictures from your iphone/ipad to your TV
 * keyboard entry (instead of using the TV onscreen keyboard)
 * iphone and ipad
+
+#Copyright#
+Copyright (c) 2012 Tim Vandecasteele. See LICENSE.txt for further details.
